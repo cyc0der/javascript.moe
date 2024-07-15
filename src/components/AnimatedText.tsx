@@ -69,8 +69,8 @@ export const Bullets = ({ data }: BulletsProps) => {
 
 
     const scale = useTransform(scrollYProgress, [0.8, 0.9], ["0%", "100%"])
-    const scale1 = useTransform(scrollYProgress, [0.92, 1], ["0%", "100%"])
-    const scale2 = useTransform(scrollYProgress, [0.75, 1], ["0%", "100%"])
+    const scale1 = useTransform(scrollYProgress, [0.92, 0.9], ["0%", "100%"])
+    const scale2 = useTransform(scrollYProgress, [0.75, 0.9], ["0%", "100%"])
     return <div className='flex flex-col absolute gap-2 text-white'>
         {data.map((e, i) => {
             return <motion.div style={{ scale: [scale, scale1, scale2][i] }} className='flex gap-1'>
