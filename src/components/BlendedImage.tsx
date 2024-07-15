@@ -55,8 +55,8 @@ export const BlendedImage = ({ a, b }: { a: string, b: string }) => {
 
     useEffect(() => {
         scrollYProgress.on('change', onLoadA);
-
-    }, [])
+    }, []);
+    
     return <>
         <img ref={imgARef} src={a} onLoad={onLoadA} style={{ display: 'none' }} />
         <img ref={imgBRef} src={b} onLoad={onLoadA} style={{ display: 'none' }} />

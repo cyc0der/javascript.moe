@@ -9,11 +9,11 @@ export const sectionCtx = createContext<{ ref: MutableRefObject<HTMLDivElement |
 export const AnimatedSection = (props: AnimatedSectionProps) => {
     const { height = '100vh', } = props;
     const ref = useRef<HTMLDivElement | null>(null);
-    return <section className="w-full" ref={ref} style={{ height }}>
-        <sectionCtx.Provider value={{ ref }}>
+    return <sectionCtx.Provider value={{ ref }}>
+        <section className="w-full" ref={ref} style={{ height }}>
             <div className='h-[100vh] w-full max-w-[100vw] sticky top-0 flex gap-0 justify-center items-center overflow-hidden' >
                 {props.children}
             </div>
-        </sectionCtx.Provider>
-    </section >
+        </section >
+    </sectionCtx.Provider>
 }
