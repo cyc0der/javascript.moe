@@ -47,7 +47,7 @@ export const AppearingText = ({ texts, slices }: { texts: string[], slices?: num
         }).join('');
 
         const part1 = it.split('').slice((slices || [])[curText] || 0);
-        const part = part1.map((_, i) => (Math.floor((pCur * 1.5) * (it.length - 1)) > i ? part1[i] : rand[i])).join('');
+        const part = part1.map((_, i) => (Math.floor((pCur * 3) * (it.length - 1)) > i ? part1[i] : rand[i])).join('');
         const txt = it.slice(0, (slices || [])[curText] || 0) + part;
         setText(txt)
         if (pCur >= 0.5) {
