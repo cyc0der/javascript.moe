@@ -31,7 +31,7 @@ export const AppearingText = ({ texts, slices }: { texts: string[], slices?: num
     const boxShadow = useTransform(scrollYProgress, [0, 1], ['0px 0px 0px black', '0px 0px 12px black'])
 
     const [text, setText] = useState('');
-    const [r, setR] = useState(0);
+    const [, setR] = useState(0);
     useMotionValueEvent(y, 'change', () => {
         // const l = Math.round(it.length * scrollYProgress.gette());
         // setText(it.slice(it.length - l, l));
