@@ -11,7 +11,7 @@ export const AnimatedText = () => {
         target: ref || undefined,
         offset: ["start start", "end end"]
     });
-    const y = useParallax(scrollYProgress, 150, window.innerHeight * -0.75)
+    const y = useParallax(scrollYProgress, 150, window.innerHeight * -0.66)
     const scale = useTransform(scrollYProgress, [0.25, 1], ['36px', '72px'])
 
     return <motion.h1 className='absolute top-5 text-center' style={{ y, fontSize: scale, lineHeight: scale, zIndex: 100 }}>
