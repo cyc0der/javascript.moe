@@ -6,6 +6,7 @@ import { sectionCtx } from './AnimatedSection';
 export const AnimatedText = () => {
     const { ref } = useContext(sectionCtx);
     const { scrollYProgress } = useScroll({
+        layoutEffect: false,
         target: ref || undefined,
         offset: ["start start", "end end"]
     });
@@ -20,6 +21,7 @@ export const AnimatedText = () => {
 export const AppearingText = ({ texts, slices }: { texts: string[], slices?: number[] }) => {
     const { ref } = useContext(sectionCtx);
     const { scrollYProgress } = useScroll({
+        layoutEffect: false,
         target: ref || undefined,
         offset: ["start start", "end end"]
     });
@@ -58,6 +60,7 @@ export type BulletsProps = {
 export const Bullets = ({ data }: BulletsProps) => {
     const { ref } = useContext(sectionCtx);
     const { scrollYProgress } = useScroll({
+        layoutEffect: false,
         target: ref || undefined,
         offset: ["start start", "end end"]
     });

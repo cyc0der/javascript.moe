@@ -18,6 +18,7 @@ export const AnimatedImageCircle = ({ src, className, size = 'sm' }: AnimatedIma
 
     const { ref } = useContext(sectionCtx);
     const { scrollYProgress } = useScroll({
+        layoutEffect: false,
         target: ref || undefined,
         offset: ["start start", "end end"]
     });
