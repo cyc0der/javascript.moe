@@ -59,14 +59,14 @@ function App() {
       <AnimatedSection height='450vh'>
         <BackgroundImage src="/images/wallpaper/4.jpg" invert />
 
-        <AppearingText texts={['Looking for a senior TypeScript dev?', 'Looking for a lead developer?', 'Contact Me']} slices={[0, 14, 0]} />
+        <AppearingText texts={['Looking for a senior TypeScript dev?', 'Looking for a lead developer?', 'Contact me']} slices={[0, 14, 0]} />
         <div className='absolute w-full flex justify-center'>
           <Bullets data={[
             { text: 'CV', logo: PDF, href: 'https://justmycv.com/en.pdf' },
             { text: 'LinkedIn', logo: LI, href: 'https://www.linkedin.com/in/moritz-roessler-666b18175/' }
           ]}
-            n={0}
-            offset={0.5}
+            n={-1}
+            offset={0.8}
           ></Bullets>
         </div>
       </AnimatedSection>
