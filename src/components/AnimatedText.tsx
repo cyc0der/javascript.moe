@@ -2,6 +2,7 @@ import { motion, useMotionValueEvent, useScroll, useTransform } from 'framer-mot
 import { useParallax } from '../lib/hooks';
 import { useContext, useState } from 'react';
 import { sectionCtx } from './AnimatedSection';
+import clsx from 'clsx';
 
 export const AnimatedText = () => {
     const { ref } = useContext(sectionCtx);
@@ -49,9 +50,9 @@ export const AppearingText = ({ texts, slices }: { texts: string[], slices?: num
         const txt = it.slice(0, (slices || [])[curText] || 0) + part;
         setText(txt)
     })
-    return <motion.h1 className='absolute top-5 text-center break-all' style={{ y, zIndex: 100, textShadow: boxShadow }}>
+    return <motion.h1 className={clsx('absolute top-5 text-center', { 'break-all': (t2.get() % 1) < 0.5 })} style={{ y, zIndex: 100, textShadow: boxShadow }}>
         {text}
-    </motion.h1>
+    </motion.h1 >
 }
 
 export type BulletsProps = {
