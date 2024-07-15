@@ -40,21 +40,22 @@ export const AppearingText = ({ texts, slices }: { texts: string[], slices?: num
         const curText = Math.min(texts.length - 1, Math.floor(p - 1));
         const pCur = p % 1
         const it = texts[curText]
+        const slice = ((slices || [])[curText] || 0);
         const start = Math.max(
-            Math.floor(pCur * (it.length - 1)),
-            (slices || [])[curText] || 0
+            Math.floor((pCur) * (it.length - slice - 1)),
         );
 
         const rand = it.split('').slice(
-            start
+            slice + start
         )
+        console.log("Rand", it, start, rand)
 
         rand.sort((a, b) => {
-            return ((Math.random() - 0.5) * (1 - pCur)) * 2 + ((pCur) * (it.indexOf(a) - it.indexOf(b)))
+            return ((Math.random() - 0.5) * (1 - pCur)) + ((pCur) * (it.indexOf(a) - it.indexOf(b)))
         }).join('');
 
         const part1 = it.split('').slice((slices || [])[curText] || 0);
-        const part = part1.map((_, i) => (Math.floor((pCur * 2) * (it.length - 1)) > i ? part1[i] : rand[i - start])).join('');
+        const part = part1.map((_, i) => (start > i ? part1[i] : rand[i - start])).join('');
         const txt = it.slice(0, (slices || [])[curText] || 0) + part;
         setText(txt)
         setStart(start);
