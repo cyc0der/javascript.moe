@@ -32,7 +32,7 @@ function App() {
           { text: 'React', logo: ReactLogo }
         ]}></Bullets>
       </AnimatedSection>
-      <AnimatedSection height='500vh'>
+      <AnimatedSection height='450vh'>
         <BackgroundImage src="/images/wallpaper/4.jpg" invert />
 
         <AppearingText texts={['Looking for a senior TypeScript dev?', 'Looking for a lead developer?', 'Contact Me']} slices={[0, 14, 0]} />
