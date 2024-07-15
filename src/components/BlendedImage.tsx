@@ -34,7 +34,7 @@ export const BlendedImage = ({ a, b }: { a: string, b: string }) => {
         offset: ["start start", "end end"]
     });
 
-
+    console.log("SCROLL REF", scrollRef)
 
     const onLoadA = function () {
         if (!imgARef.current || !imgBRef.current) return;
@@ -56,7 +56,7 @@ export const BlendedImage = ({ a, b }: { a: string, b: string }) => {
     useEffect(() => {
         scrollYProgress.on('change', onLoadA);
     }, []);
-    
+
     return <>
         <img ref={imgARef} src={a} onLoad={onLoadA} style={{ display: 'none' }} />
         <img ref={imgBRef} src={b} onLoad={onLoadA} style={{ display: 'none' }} />

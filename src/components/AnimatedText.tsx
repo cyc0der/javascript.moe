@@ -34,7 +34,6 @@ export const AppearingText = ({ texts, slices }: { texts: string[], slices?: num
         const p = t2.get();
         const curText = Math.min(texts.length - 1, Math.floor(p - 1));
         const pCur = p % 1
-        console.log("CUR", pCur, curText)
         const it = texts[curText]
         const rand = it.split('').sort((a, b) => {
 
