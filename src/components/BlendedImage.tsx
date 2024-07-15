@@ -34,7 +34,6 @@ export const BlendedImage = ({ a, b }: { a: string, b: string }) => {
         offset: ["start start", "end end"]
     });
 
-    console.log("SCROLL REF", scrollRef)
 
     const onLoadA = function () {
         if (!imgARef.current || !imgBRef.current) return;
@@ -50,6 +49,7 @@ export const BlendedImage = ({ a, b }: { a: string, b: string }) => {
         const imgData = new ImageData(window.innerWidth, window.innerHeight);
         imgData.data.set(pixelsC);
         ref?.current?.getContext('2d')?.putImageData(imgData, 0, 0);
+        console.log("SCROLL REF", scrollRef, scrollYProgress.get())
 
     }
 
