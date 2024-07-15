@@ -38,7 +38,7 @@ function App() {
         <AppearingText texts={['Looking for a senior TypeScript dev?', 'Looking for a lead developer?', 'Contact Me']} slices={[0, 14, 0]} />
         <Bullets data={[
           { text: 'CV', logo: PDF, href: 'https://justmycv.com/en.pdf' },
-          { text: 'Linked In', logo: LI, href: 'https://www.linkedin.com/in/moritz-roessler-666b18175/' }
+          { text: 'LinkedIn', logo: LI, href: 'https://www.linkedin.com/in/moritz-roessler-666b18175/' }
         ]}></Bullets>
       </AnimatedSection>
     </>

@@ -50,8 +50,6 @@ export const BlendedImage = ({ a, b }: { a: string, b: string }) => {
         const imgData = new ImageData(window.innerWidth, window.innerHeight);
         imgData.data.set(pixelsC);
         ref?.current?.getContext('2d')?.putImageData(imgData, 0, 0);
-        console.log("SCROLL REF", scrollRef, scrollYProgress.get())
-
     }
 
     useEffect(() => {

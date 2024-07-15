@@ -41,7 +41,7 @@ export const AppearingText = ({ texts, slices }: { texts: string[], slices?: num
         const pCur = p % 1
         const it = texts[curText]
         const start = Math.max(
-            Math.floor((pCur * 3) * (it.length - 1)),
+            Math.floor(pCur * (it.length - 1)),
             (slices || [])[curText] || 0
         );
 
@@ -80,14 +80,16 @@ export const Bullets = ({ data }: BulletsProps) => {
         offset: ["start start", "end end"]
     });
 
+    const boxShadow = useTransform(scrollYProgress, [0, 1], ['0px 0px 0px black', '0px 0px 12px black'])
 
 
     const scale = useTransform(scrollYProgress, [0.7, 0.8], ["0%", "100%"])
+    const opacity = useTransform(scrollYProgress, [0.85, 0.9], ["0%", "100%"])
     const scale1 = useTransform(scrollYProgress, [0.85, 0.95], ["0%", "100%"])
-    const scale2 = useTransform(scrollYProgress, [0.75, 0.9], ["0%", "100%"])
+    const bg = useTransform(scrollYProgress, [0.75, 0.9], ["#00000000", "#00000099"])
     return <div className='flex flex-col absolute gap-2 text-white'>
         {data.map((e, i) => {
-            return <motion.div style={{ scale: [scale, scale1, scale2][i] }} className='flex gap-1'>
+            return <motion.div style={{ scale: [scale, scale1][i], boxShadow, padding: 8, backgroundColor: bg }} className='flex gap-1'>
                 <e.logo width="36px" height="36px" />
                 <h2><a href={e.href || '#'}>{e.text}</a></h2>
             </motion.div>
