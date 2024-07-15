@@ -29,9 +29,9 @@ export const BackgroundImage = ({ src, invert }: BackgroundImageProps) => {
         }}
     >
         <motion.img src={src} style={{
-            width: '100vw',
             height: '120vh',
-            aspectRatio: 'initial'
+            aspectRatio: 'initial',
+            objectFit: 'cover'
         }}></motion.img>
         <div className='w-[300px] h-[300px] backdrop-blur-3xl bg-white z-50' />
     </motion.div>
