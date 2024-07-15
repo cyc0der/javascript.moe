@@ -9,6 +9,12 @@ import TS from './assets/ts.svg?react';
 import PDF from './assets/pdf.svg?react';
 import ReactLogo from './assets/react.svg?react';
 import LI from './assets/li.svg?react';
+import AWSLogo from './assets/aws.svg?react';
+import SQLLogo from './assets/sql.svg?react';
+import NodeJSLogo from './assets/node.svg?react';
+import VueJSLogo from './assets/vue.svg?react';
+import DockerLogo from './assets/docker.svg?react';
+import LambdaLogo from './assets/lambda.svg?react';
 
 function App() {
   return (
@@ -27,19 +33,42 @@ function App() {
       <AnimatedSection height='300vh'>
         <BlendedImage a="/images/wallpaper/3.jpg" b="/images/wallpaper/2.jpg" />
         <AppearingText texts={['Software Engineer', 'Fullstack Dev']} />
-        <Bullets data={[
-          { text: 'TypeScript', logo: TS },
-          { text: 'React', logo: ReactLogo }
-        ]}></Bullets>
+        <div className='absolute w-full flex justify-center'>
+
+          <Bullets data={[
+            { text: 'TypeScript', logo: TS, href: 'https://www.typescriptlang.org/' },
+            { text: 'React', logo: ReactLogo, href: 'https://react.dev/' }
+          ]}
+            offset={0.4}
+            n={0}
+          ></Bullets>
+          <Bullets data={[
+            { text: 'SQL', logo: SQLLogo, href: 'https://www.postgresql.org/' },
+            { text: 'AWS', logo: AWSLogo, href: 'https://aws.amazon.com/de/console/' },
+            { text: 'Node.js', logo: NodeJSLogo, href: 'https://nodejs.org/en' },
+            { text: 'Vue.js', logo: VueJSLogo, href: 'https://vuejs.org/' },
+            { text: 'Docker', logo: DockerLogo, href: 'https://www.docker.com/' },
+            { text: 'Lambda', logo: LambdaLogo, href: 'https://aws.amazon.com/de/lambda/' },
+          ]}
+            className="!flex-row"
+            offset={0.5}
+            n={2}
+          ></Bullets>
+        </div>
       </AnimatedSection>
       <AnimatedSection height='450vh'>
         <BackgroundImage src="/images/wallpaper/4.jpg" invert />
 
         <AppearingText texts={['Looking for a senior TypeScript dev?', 'Looking for a lead developer?', 'Contact Me']} slices={[0, 14, 0]} />
-        <Bullets data={[
-          { text: 'CV', logo: PDF, href: 'https://justmycv.com/en.pdf' },
-          { text: 'LinkedIn', logo: LI, href: 'https://www.linkedin.com/in/moritz-roessler-666b18175/' }
-        ]}></Bullets>
+        <div className='absolute w-full flex justify-center'>
+          <Bullets data={[
+            { text: 'CV', logo: PDF, href: 'https://justmycv.com/en.pdf' },
+            { text: 'LinkedIn', logo: LI, href: 'https://www.linkedin.com/in/moritz-roessler-666b18175/' }
+          ]}
+            n={0}
+            offset={0.5}
+          ></Bullets>
+        </div>
       </AnimatedSection>
     </>
   )
