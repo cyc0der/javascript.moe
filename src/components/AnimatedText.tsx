@@ -84,7 +84,7 @@ export const Bullets = ({ data }: BulletsProps) => {
 
 
     const scale = useTransform(scrollYProgress, [0.7, 0.8], ["0%", "100%"])
-    const opacity = useTransform(scrollYProgress, [0.85, 0.9], ["0%", "100%"])
+    // const opacity = useTransform(scrollYProgress, [0.85, 0.9], ["0%", "100%"])
     const scale1 = useTransform(scrollYProgress, [0.85, 0.95], ["0%", "100%"])
     const bg = useTransform(scrollYProgress, [0.75, 0.9], ["#00000000", "#00000099"])
     return <div className='flex flex-col absolute gap-2 text-white'>
