@@ -10,10 +10,10 @@ export const AnimatedText = () => {
         target: ref || undefined,
         offset: ["start start", "end end"]
     });
-    const y = useParallax(scrollYProgress, 150, -296)
-    const scale = useTransform(scrollYProgress, [0.25, 1], ['100%', '200%'])
+    const y = useParallax(scrollYProgress, 150, -window.innerHeight / 2)
+    const scale = useTransform(scrollYProgress, [0.25, 1], ['36px', '72px'])
 
-    return <motion.h1 className='absolute top-5' style={{ y, scale, zIndex: 100 }}>
+    return <motion.h1 className='absolute top-5 text-center' style={{ y, fontSize: scale, lineHeight: scale, zIndex: 100 }}>
         Moritz Roessler
     </motion.h1>
 }
@@ -49,7 +49,7 @@ export const AppearingText = ({ texts, slices }: { texts: string[], slices?: num
         const txt = it.slice(0, (slices || [])[curText] || 0) + part;
         setText(txt)
     })
-    return <motion.h1 className='absolute top-5' style={{ y, zIndex: 100, textShadow: boxShadow }}>
+    return <motion.h1 className='absolute top-5 text-center break-all' style={{ y, zIndex: 100, textShadow: boxShadow }}>
         {text}
     </motion.h1>
 }

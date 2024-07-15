@@ -11,25 +11,47 @@ body {
   background-color: white;
 }
 
+svg {
+  height: 24px;
+  width: 24px;
+}
 h1 {
   font-family: "Space Grotesk V 16 Latin 600", sans-serif;
   font-weight: 400;
-  font-size: 52px;
-  line-height: 52px;
+  font-size: 36px;
+  line-height: 36px;
   margin-bottom: 20px;
-  word-wrap: break-word;
-  margin-left: 7.5%;
-  margin-right: 7.5%;
+  /* margin-left: 25%;
+  margin-right: 25%; */
   color: white;
 }
 h2 {
   font-family: "Space Grotesk V 16 Latin 600", sans-serif;
   font-weight: 300;
-  font-size: 36px;
-  line-height: 36px;
+  font-size: 24px;
+  line-height: 24px;
+  word-break: break-all;
   /* margin-bottom: 20px; */
   /* word-wrap: break-word; */
   /* margin-left: 7.5%; */
   /* margin-right: 7.5%; */
   color: white;
+}
+
+img {
+  min-width: 100vw;
+}
+@media only screen and (min-width: 1024px) {
+  h1 {
+    font-size: 52px;
+    line-height: 52px;
+  }
+  h2 {
+    font-size: 36px;
+    line-height: 36px;
+  }
+  svg {
+    height: 36px;
+    width: 36px;
+  }
 }
