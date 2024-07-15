@@ -41,14 +41,15 @@ export const AppearingText = ({ texts, slices }: { texts: string[], slices?: num
         const pCur = p % 1
         const it = texts[curText]
         const slice = ((slices || [])[curText] || 0);
-        const start = Math.max(
-            Math.floor((pCur) * (it.length - slice - 1)),
-        );
+
+        /** We want the end result to be visible for half the time of the animation. */
+        const startMultiplier = 1.5;
+        const start = Math.floor(
+            Math.round((pCur) * (it.length - slice - 1)) * startMultiplier)
 
         const rand = it.split('').slice(
             slice + start
         )
-        console.log("Rand", it, start, rand)
 
         rand.sort((a, b) => {
             return ((Math.random() - 0.5) * (1 - pCur)) + ((pCur) * (it.indexOf(a) - it.indexOf(b)))
@@ -65,7 +66,7 @@ export const AppearingText = ({ texts, slices }: { texts: string[], slices?: num
             setR(0)
         }
     })
-    return <motion.h1 className={clsx('absolute top-5 text-center', { 'break-all': (t2.get() % 1) < 0.5 })} style={{ y, zIndex: 100, textShadow: boxShadow }}>
+    return <motion.h1 className={clsx('absolute top-5 text-center', { 'break-all': ((t2.get()) % 1) < 0.5 })} style={{ y, zIndex: 100, textShadow: boxShadow }}>
         {text}
     </motion.h1 >
 }

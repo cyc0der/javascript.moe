@@ -13,7 +13,7 @@ import LI from './assets/li.svg?react';
 function App() {
   return (
     <>
-      <AnimatedSection height='125vh' >
+      <AnimatedSection height='175vh' >
         <BackgroundImage src="/images/wallpaper/1.jpg" />
         <Container>
           <AnimatedImageCircle src="/images/profile.jpg" />
@@ -24,7 +24,7 @@ function App() {
         <BackgroundImage src="/images/wallpaper/2.jpg" />
 
       </AnimatedSection> */}
-      <AnimatedSection height='200vh'>
+      <AnimatedSection height='300vh'>
         <BlendedImage a="/images/wallpaper/3.jpg" b="/images/wallpaper/2.jpg" />
         <AppearingText texts={['Software Engineer', 'Fullstack Dev']} />
         <Bullets data={[
@@ -32,7 +32,7 @@ function App() {
           { text: 'React', logo: ReactLogo }
         ]}></Bullets>
       </AnimatedSection>
-      <AnimatedSection height='300vh'>
+      <AnimatedSection height='400vh'>
         <BackgroundImage src="/images/wallpaper/4.jpg" invert />
 
         <AppearingText texts={['Looking for a senior TypeScript dev?', 'Looking for a lead developer?', 'Contact Me']} slices={[0, 14, 0]} />
