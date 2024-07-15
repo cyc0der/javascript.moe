@@ -23,7 +23,7 @@ export const AnimatedImageCircle = ({ src, className, size = 'sm' }: AnimatedIma
     });
     const par = useParallax(scrollYProgress, 100, 100)
     // const x = useTransform(scrollYProgress, [0.25, 1], ["0vw", "-45vw"])
-    const scale = useTransform(scrollYProgress, [0.5, 1], ["100%", "20%"])
+
     const imgFilter = useTransform(scrollYProgress, [0, 0.25], ["saturate(100%)", "saturate(0%)"])
 
 

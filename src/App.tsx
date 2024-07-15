@@ -1,6 +1,3 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import { AnimatedSection } from './components/AnimatedSection'
 import { AnimatedImageCircle } from './components/AnimatedImageCircle'
@@ -14,8 +11,6 @@ import ReactLogo from './assets/react.svg?react';
 import LI from './assets/li.svg?react';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
       <AnimatedSection height='125vh' >
@@ -30,7 +25,7 @@ function App() {
 
       </AnimatedSection> */}
       <AnimatedSection height='200vh'>
-        <BlendedImage />
+        <BlendedImage a="/images/wallpaper/3.jpg" b="/images/wallpaper/2.jpg" />
         <AppearingText texts={['Software Engineer', 'Fullstack Dev']} />
         <Bullets data={[
           { text: 'TypeScript', logo: TS },

@@ -1,6 +1,6 @@
-import { EasingFunction, circOut, cubicBezier, motion, useMotionValueEvent, useScroll, useTransform } from 'framer-motion';
+import { motion, useMotionValueEvent, useScroll, useTransform } from 'framer-motion';
 import { useParallax } from '../lib/hooks';
-import { ReactElement, useContext, useState } from 'react';
+import { useContext, useState } from 'react';
 import { sectionCtx } from './AnimatedSection';
 
 export const AnimatedText = () => {
@@ -17,7 +17,7 @@ export const AnimatedText = () => {
     </motion.h1>
 }
 
-export const AppearingText = ({ texts, slices }: { texts: string[], slices: number[] }) => {
+export const AppearingText = ({ texts, slices }: { texts: string[], slices?: number[] }) => {
     const { ref } = useContext(sectionCtx);
     const { scrollYProgress } = useScroll({
         target: ref || undefined,
@@ -70,7 +70,7 @@ export const Bullets = ({ data }: BulletsProps) => {
     const scale2 = useTransform(scrollYProgress, [0.75, 1], ["0%", "100%"])
     return <div className='flex flex-col absolute gap-2 text-white'>
         {data.map((e, i) => {
-            return <motion.div style={{ scale: [scale, scale1][i] }} className='flex gap-1'>
+            return <motion.div style={{ scale: [scale, scale1, scale2][i] }} className='flex gap-1'>
                 <e.logo width="36px" height="36px" />
                 <h2><a href={e.href || '#'}>{e.text}</a></h2>
             </motion.div>

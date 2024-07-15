@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { MutableRefObject, ReactElement, createContext, useRef } from 'react';
 
 export type AnimatedSectionProps = {

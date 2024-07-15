@@ -1,5 +1,2 @@
 /// <reference types="vite/client" />
-
-declare global {
-    interface Window { Morpher: any; }
-}
+/// <reference types="vite-plugin-svgr/client" />
