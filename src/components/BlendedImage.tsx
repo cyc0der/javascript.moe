@@ -36,18 +36,18 @@ export const BlendedImage = ({ a, b }: { a: string, b: string }) => {
     });
 
 
+    const height = window.innerHeight * 1.2;
     const onLoadA = function () {
         if (!imgARef.current || !imgBRef.current) return;
-
         ref?.current?.getContext('2d')?.drawImage(imgARef.current, 0, 0);
 
-        const pixelsA = ref.current?.getContext('2d')?.getImageData(0, 0, window.innerWidth, window.innerHeight) || new ImageData(0, 0);
+        const pixelsA = ref.current?.getContext('2d')?.getImageData(0, 0, window.innerWidth, height) || new ImageData(0, 0);
         ref?.current?.getContext('2d')?.drawImage(imgBRef.current, 0, 0);
 
-        const pixelsB = ref.current?.getContext('2d')?.getImageData(0, 0, window.innerWidth, window.innerHeight) || new ImageData(0, 0);
+        const pixelsB = ref.current?.getContext('2d')?.getImageData(0, 0, window.innerWidth, height) || new ImageData(0, 0);
 
         const pixelsC = blend(pixelsA, pixelsB, scrollYProgress.get());
-        const imgData = new ImageData(window.innerWidth, window.innerHeight);
+        const imgData = new ImageData(window.innerWidth, height);
         imgData.data.set(pixelsC);
         ref?.current?.getContext('2d')?.putImageData(imgData, 0, 0);
     }
@@ -59,6 +59,6 @@ export const BlendedImage = ({ a, b }: { a: string, b: string }) => {
     return <>
         <img ref={imgARef} src={a} onLoad={onLoadA} style={{ display: 'none' }} />
         <img ref={imgBRef} src={b} onLoad={onLoadA} style={{ display: 'none' }} />
-        <canvas ref={ref} width={window.innerWidth} height={window.innerHeight * 1.2} />
+        <canvas ref={ref} width={window.innerWidth} height={height} />
     </>
 }

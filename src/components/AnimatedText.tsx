@@ -33,6 +33,7 @@ export const AppearingText = ({ texts, slices }: { texts: string[], slices?: num
     const [text, setText] = useState('');
     const [, setR] = useState(0);
     const [_start, setStart] = useState(0);
+    const startMultiplier = 4;
     useMotionValueEvent(y, 'change', () => {
         // const l = Math.round(it.length * scrollYProgress.gette());
         // setText(it.slice(it.length - l, l));
@@ -43,7 +44,6 @@ export const AppearingText = ({ texts, slices }: { texts: string[], slices?: num
         const slice = ((slices || [])[curText] || 0);
 
         /** We want the end result to be visible for half the time of the animation. */
-        const startMultiplier = 1.5;
         const start = Math.floor(
             Math.round((pCur) * (it.length - slice - 1)) * startMultiplier)
 
@@ -66,7 +66,7 @@ export const AppearingText = ({ texts, slices }: { texts: string[], slices?: num
             setR(0)
         }
     })
-    return <motion.h1 className={clsx('absolute top-5 text-center', { 'break-all': ((t2.get()) % 1) < 0.5 })} style={{ y, zIndex: 100, textShadow: boxShadow }}>
+    return <motion.h1 className={clsx('absolute top-5 text-center', { 'break-all': ((t2.get()) % 1) < (1 / startMultiplier) })} style={{ y, zIndex: 100, textShadow: boxShadow }}>
         {text}
     </motion.h1 >
 }
