@@ -91,7 +91,7 @@ export const Bullets = ({ data }: BulletsProps) => {
     const bg = useTransform(scrollYProgress, [0.75, 0.9], ["#00000000", "#00000099"])
     return <div className='flex flex-col absolute gap-2 text-white'>
         {data.map((e, i) => {
-            return <motion.div style={{ scale: [scale, scale1][i], boxShadow, padding: 8, backgroundColor: bg }} className='flex gap-1'>
+            return <motion.div style={{ scale: [scale, scale1][i], boxShadow, padding: 8, backgroundColor: bg, y: 32 }} className='flex gap-1'>
                 <e.logo width="36px" height="36px" />
                 <h2><a href={e.href || '#'}>{e.text}</a></h2>
             </motion.div>
