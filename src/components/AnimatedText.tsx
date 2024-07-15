@@ -11,7 +11,7 @@ export const AnimatedText = () => {
         target: ref || undefined,
         offset: ["start start", "end end"]
     });
-    const y = useParallax(scrollYProgress, 150, -window.innerHeight / 2)
+    const y = useParallax(scrollYProgress, 150, window.innerHeight * -0.75)
     const scale = useTransform(scrollYProgress, [0.25, 1], ['36px', '72px'])
 
     return <motion.h1 className='absolute top-5 text-center' style={{ y, fontSize: scale, lineHeight: scale, zIndex: 100 }}>
@@ -31,6 +31,7 @@ export const AppearingText = ({ texts, slices }: { texts: string[], slices?: num
     const boxShadow = useTransform(scrollYProgress, [0, 1], ['0px 0px 0px black', '0px 0px 12px black'])
 
     const [text, setText] = useState('');
+    const [r, setR] = useState(0);
     useMotionValueEvent(y, 'change', () => {
         // const l = Math.round(it.length * scrollYProgress.gette());
         // setText(it.slice(it.length - l, l));
@@ -49,6 +50,11 @@ export const AppearingText = ({ texts, slices }: { texts: string[], slices?: num
         const part = part1.map((_, i) => (Math.floor((pCur * 1.5) * (it.length - 1)) > i ? part1[i] : rand[i])).join('');
         const txt = it.slice(0, (slices || [])[curText] || 0) + part;
         setText(txt)
+        if (pCur >= 0.5) {
+            setR(1);
+        } else if (pCur < 0.5) {
+            setR(0)
+        }
     })
     return <motion.h1 className={clsx('absolute top-5 text-center', { 'break-all': (t2.get() % 1) < 0.5 })} style={{ y, zIndex: 100, textShadow: boxShadow }}>
         {text}
