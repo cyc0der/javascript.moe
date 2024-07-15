@@ -110,6 +110,3 @@ export const Bullets = ({ data, className, offset = 0.5, n }: BulletsProps) => {
 export type BulletsRowsProps = {
     data: { text: string, logo: any, href?: string }[]
 }
-export const BulletsRows = ({ data }: BulletsRowsProps) => {
-    return <Bullets data={data} className="flex-row" />
-}
