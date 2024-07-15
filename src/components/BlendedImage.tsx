@@ -61,6 +61,6 @@ export const BlendedImage = ({ a, b }: { a: string, b: string }) => {
     return <>
         <img ref={imgARef} src={a} onLoad={onLoadA} style={{ display: 'none' }} />
         <img ref={imgBRef} src={b} onLoad={onLoadA} style={{ display: 'none' }} />
-        <canvas ref={ref} width={window.innerWidth} height={window.innerHeight} />
+        <canvas ref={ref} width={window.innerWidth} height={window.innerHeight * 1.2} />
     </>
 }
