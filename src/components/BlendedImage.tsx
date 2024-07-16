@@ -54,10 +54,21 @@ export const BlendedImage = ({ images, invert, desat }: { images: string[], inve
             imgBRef.current.src = b;
             return;
         }
-        ref?.current?.getContext('2d')?.drawImage(imgARef.current, 0, 0);
+
+        const canvas = ref.current;
+        if (canvas)
+            canvas.height = window.innerHeight * 1.2;
+        const imgA = imgARef.current;
+        const imgB = imgBRef.current;
+        var hRatio = (canvas?.width || window.innerWidth) / (imgA.width || window.innerWidth);
+        var vRatio = (canvas?.height || height) / (imgB.height || height);
+        var ratio = Math.max(hRatio, vRatio);
+
+        ref?.current?.getContext('2d')?.drawImage(imgA, 0, 0, imgA.width, imgA.height, 0, 0, imgA.width * ratio, imgA.height * ratio);
 
         const pixelsA = ref.current?.getContext('2d')?.getImageData(0, 0, window.innerWidth, height) || new ImageData(0, 0);
-        ref?.current?.getContext('2d')?.drawImage(imgBRef.current, 0, 0);
+        ref?.current?.getContext('2d')?.drawImage(imgB, 0, 0, imgB.width, imgB.height, 0, 0, imgB.width * ratio, imgB.height * ratio);
+
 
         const pixelsB = ref.current?.getContext('2d')?.getImageData(0, 0, window.innerWidth, height) || new ImageData(0, 0);
 
