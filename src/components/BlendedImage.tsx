@@ -38,7 +38,7 @@ export const BlendedImage = ({ images, invert, desat }: { images: string[], inve
     });
 
 
-    const height = window.innerHeight * 1.2;
+    const height = window.innerHeight * 1.4;
     const y = useParallax(scrollYProgress, 50, 0)
 
     const imgFilter = useTransform(scrollYProgress, invert ? [1, 0.75] : [0, 0.25], ["saturate(0%) blur(12px)", "saturate(100%) blur(0px)"]);
@@ -61,7 +61,7 @@ export const BlendedImage = ({ images, invert, desat }: { images: string[], inve
         const imgB = imgBRef.current;
 
         var hRatio = (canvas?.width || window.innerWidth) / (imgA.width || window.innerWidth);
-        var vRatio = (window.innerHeight * 1.2) / imgB.height;
+        var vRatio = height / imgB.height;
         var ratio = Math.max(hRatio, vRatio);
 
         ref?.current?.getContext('2d')?.drawImage(imgA, 0, 0, imgA.width, imgA.height, 0, 0, imgA.width * ratio, imgA.height * ratio);
