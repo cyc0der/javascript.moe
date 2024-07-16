@@ -1,6 +1,8 @@
 import { useScroll } from "framer-motion";
 import { useContext, useEffect, useRef } from "react"
 import { sectionCtx } from "./AnimatedSection";
+import { useParallax } from "../lib/hooks";
+import { motion } from 'framer-motion';
 
 function blend(bottomImageData: ImageData, topImageData: ImageData, alpha: number) {
     var bottomData = bottomImageData.data;
@@ -16,7 +18,7 @@ function blend(bottomImageData: ImageData, topImageData: ImageData, alpha: numbe
     return topData
 }
 
-export const BlendedImage = ({ a, b }: { a: string, b: string }) => {
+export const BlendedImage = ({ images }: { images: string[] }) => {
     const ref = useRef<HTMLCanvasElement | null>(null)
 
     useEffect(() => {
@@ -37,8 +39,19 @@ export const BlendedImage = ({ a, b }: { a: string, b: string }) => {
 
 
     const height = window.innerHeight * 1.2;
+    const y = useParallax(scrollYProgress, 50, 0)
+
     const onLoadA = function () {
         if (!imgARef.current || !imgBRef.current) return;
+        const offset = 1 + Math.floor((images.length - 1) * scrollYProgress.get());
+        const a = images[offset - 1];
+        const b = images[offset];
+        const progress = (scrollYProgress.get() * (images.length - 1)) % 1;
+        if (!imgARef.current.src.includes(a)) {
+            imgARef.current.src = a;
+            imgBRef.current.src = b;
+            return;
+        }
         ref?.current?.getContext('2d')?.drawImage(imgARef.current, 0, 0);
 
         const pixelsA = ref.current?.getContext('2d')?.getImageData(0, 0, window.innerWidth, height) || new ImageData(0, 0);
@@ -46,7 +59,7 @@ export const BlendedImage = ({ a, b }: { a: string, b: string }) => {
 
         const pixelsB = ref.current?.getContext('2d')?.getImageData(0, 0, window.innerWidth, height) || new ImageData(0, 0);
 
-        const pixelsC = blend(pixelsA, pixelsB, scrollYProgress.get());
+        const pixelsC = blend(pixelsA, pixelsB, progress);
         const imgData = new ImageData(window.innerWidth, height);
         imgData.data.set(pixelsC);
         ref?.current?.getContext('2d')?.putImageData(imgData, 0, 0);
@@ -57,8 +70,8 @@ export const BlendedImage = ({ a, b }: { a: string, b: string }) => {
     }, []);
 
     return <>
-        <img ref={imgARef} src={a} onLoad={onLoadA} style={{ display: 'none' }} />
-        <img ref={imgBRef} src={b} onLoad={onLoadA} style={{ display: 'none' }} />
-        <canvas ref={ref} width={window.innerWidth} height={height} />
+        <img ref={imgARef} src={images[0]} onLoad={onLoadA} style={{ display: 'none' }} />
+        <img ref={imgBRef} src={images[1]} onLoad={onLoadA} style={{ display: 'none' }} />
+        <motion.canvas ref={ref} width={window.innerWidth} height={height} style={{ y }} />
     </>
 }
