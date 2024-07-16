@@ -1,4 +1,4 @@
-import { motion, useMotionValueEvent, useScroll, useTransform } from 'framer-motion';
+import { easeInOut, motion, useMotionValueEvent, useScroll, useTransform } from 'framer-motion';
 import { useParallax } from '../lib/hooks';
 import { useContext, useState } from 'react';
 import { sectionCtx } from './AnimatedSection';
@@ -11,7 +11,7 @@ export const AnimatedText = () => {
         target: ref || undefined,
         offset: ["start start", "end end"]
     });
-    const y = useParallax(scrollYProgress, 150, window.innerHeight * -0.66)
+    const y = useParallax(scrollYProgress, 150, window.innerHeight * -0.55, easeInOut)
     const scale = useTransform(scrollYProgress, [0.25, 1], ['36px', '72px'])
 
     return <motion.h1 className='absolute top-5 text-center' style={{ y, fontSize: scale, lineHeight: scale, zIndex: 100 }}>
@@ -26,7 +26,7 @@ export const AppearingText = ({ texts, slices }: { texts: string[], slices?: num
         target: ref || undefined,
         offset: ["start start", "end end"]
     });
-    const y = useParallax(scrollYProgress, 150, -296)
+    const y = useParallax(scrollYProgress, 110, window.innerHeight * -0.47)
     const t2 = useTransform(scrollYProgress, [0, 1], [1, texts.length + 1])
     const boxShadow = useTransform(scrollYProgress, [0, 1], ['0px 0px 0px black', '0px 0px 12px black'])
 
