@@ -1,4 +1,4 @@
-import { useScroll } from "framer-motion";
+import { useScroll, useTransform } from "framer-motion";
 import { useContext, useEffect, useRef } from "react"
 import { sectionCtx } from "./AnimatedSection";
 import { useParallax } from "../lib/hooks";
@@ -18,7 +18,7 @@ function blend(bottomImageData: ImageData, topImageData: ImageData, alpha: numbe
     return topData
 }
 
-export const BlendedImage = ({ images }: { images: string[] }) => {
+export const BlendedImage = ({ images, invert, desat }: { images: string[], invert?: boolean, desat?: boolean }) => {
     const ref = useRef<HTMLCanvasElement | null>(null)
 
     useEffect(() => {
@@ -40,6 +40,8 @@ export const BlendedImage = ({ images }: { images: string[] }) => {
 
     const height = window.innerHeight * 1.2;
     const y = useParallax(scrollYProgress, 50, 0)
+
+    const imgFilter = useTransform(scrollYProgress, invert ? [1, 0.75] : [0, 0.25], ["saturate(0%) blur(12px)", "saturate(100%) blur(0px)"]);
 
     const onLoadA = function () {
         if (!imgARef.current || !imgBRef.current) return;
@@ -72,6 +74,6 @@ export const BlendedImage = ({ images }: { images: string[] }) => {
     return <>
         <img ref={imgARef} src={images[0]} onLoad={onLoadA} style={{ display: 'none' }} />
         <img ref={imgBRef} src={images[1]} onLoad={onLoadA} style={{ display: 'none' }} />
-        <motion.canvas ref={ref} width={window.innerWidth} height={height} style={{ y }} />
+        <motion.canvas ref={ref} width={window.innerWidth} height={height} style={{ y, filter: desat ? imgFilter : undefined }} />
     </>
 }

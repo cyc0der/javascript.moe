@@ -62,7 +62,7 @@ function App() {
           "/images/wallpaper/5.jpg",
           "/images/wallpaper/4.jpg",
           "/images/wallpaper/6.jpg",
-        ]} />
+        ]} invert desat />
 
         <AppearingText texts={['Looking for a senior TypeScript dev?', 'Looking for a lead developer?', 'Contact me']} slices={[0, 14, 0]} />
         <div className='absolute w-full flex justify-center'>

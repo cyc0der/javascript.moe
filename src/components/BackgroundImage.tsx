@@ -17,7 +17,7 @@ export const BackgroundImage = ({ src, invert }: BackgroundImageProps) => {
 
 
 
-    const imgFilter = useTransform(scrollYProgress, invert ? [1, 0.75] : [0, 0.25], ["saturate(0%) blur(12px)", "saturate(100%) blur(0px)"])
+    const imgFilter = useTransform(scrollYProgress, invert ? [1, 0.75] : [0, 0.25], ["saturate(0%) blur(12px)", "saturate(100%) blur(0px)"]);
 
     return <motion.div
         style={{
