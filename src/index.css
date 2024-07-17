@@ -42,7 +42,7 @@ img {
   /* min-width: 100vw; */
   /* min-height: 100vh; */
   /* width: 100%; */
-  object-fit: contain;
+  object-fit: cover;
 }
 @media only screen and (min-width: 1024px) {
   h1 {

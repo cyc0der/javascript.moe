@@ -102,26 +102,21 @@ export const DualImages = ({ images }: { images: string[], invert?: boolean, des
         target: scrollRef || undefined,
         offset: ["start start", "end end"]
     });
-    const y = useParallax(scrollYProgress, 50, 20)
-    const y2 = useParallax(scrollYProgress, 75, 20);
+    const y = useParallax(scrollYProgress, 50, 0)
+    const y2 = useParallax(scrollYProgress, 75, -20);
     const reverse = useTransform(scrollYProgress, [0, 1], [1, 0]);
 
-    return <motion.div className="w-[100vw] h-[120svh] bg-black">
-        <motion.div className="absolute" style={{
-            background: 'url(' + images[1] + ')',
+    return <motion.div className="absolute w-[100vw] h-[120vh] bg-black">
+        <motion.img src={images[0]} className="absolute h-[120vh]" style={{
             opacity: reverse,
             y: y
-        }}>
+        }} />
 
-            <motion.img src={images[0]} />
-        </motion.div>
-        <motion.div className="absolute" style={{
-            background: 'url(' + images[0] + ')',
+        <motion.img src={images[1]} className="absolute h-[120vh]" style={{
             opacity: scrollYProgress,
-            y: y2
+            y: y2,
 
-        }}>
-            <motion.img src={images[1]} />
-        </motion.div>
+        }} />
+
     </motion.div>
 }
