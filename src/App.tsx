@@ -19,7 +19,7 @@ import LambdaLogo from './assets/lambda.svg?react';
 function App() {
   return (
     <>
-      <AnimatedSection height='175vh' >
+      <AnimatedSection height='175svh' >
         <BackgroundImage src="/images/wallpaper/1.jpg" />
         <Container>
           <AnimatedImageCircle src="/images/profile.jpg" />
@@ -30,8 +30,9 @@ function App() {
         <BackgroundImage src="/images/wallpaper/2.jpg" />
 
       </AnimatedSection> */}
-      <AnimatedSection height='300vh'>
-        <BlendedImage images={["/images/wallpaper/3.jpg", "/images/wallpaper/2.jpg"]} />
+      <AnimatedSection height='300svh'>
+        <BackgroundImage src="/images/wallpaper/2.jpg" />
+        {/* <BlendedImage images={["/images/wallpaper/3.jpg", "/images/wallpaper/2.jpg"]} /> */}
         <AppearingText texts={['Software Engineer', 'Fullstack Dev']} />
         <div className='absolute w-full flex justify-center'>
 
@@ -56,7 +57,7 @@ function App() {
           ></Bullets>
         </div>
       </AnimatedSection>
-      <AnimatedSection height='450vh'>
+      <AnimatedSection height='450svh'>
         <BackgroundImage src="/images/wallpaper/4.jpg" invert />
         {/* <BlendedImage images={[
           "/images/wallpaper/5.jpg",
