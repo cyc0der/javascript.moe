@@ -5,8 +5,9 @@ import { sectionCtx } from './AnimatedSection';
 export type BackgroundImageProps = {
     src?: string;
     invert?: boolean
+    desat?: boolean;
 }
-export const BackgroundImage = ({ src, invert }: BackgroundImageProps) => {
+export const BackgroundImage = ({ src, invert, desat }: BackgroundImageProps) => {
     const { ref } = useContext(sectionCtx);
     const { scrollYProgress } = useScroll({
         layoutEffect: false,
@@ -24,7 +25,7 @@ export const BackgroundImage = ({ src, invert }: BackgroundImageProps) => {
             position: 'absolute',
             height: '120vh',
             boxShadow: '-3px 0px 30px 3px black',
-            filter: imgFilter,
+            filter: desat ? imgFilter : undefined,
             y,
         }}
     >

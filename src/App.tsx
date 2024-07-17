@@ -19,7 +19,7 @@ function App() {
   return (
     <>
       <AnimatedSection height='175svh' >
-        <BackgroundImage src="/images/wallpaper/1.jpg" />
+        <BackgroundImage src="/images/wallpaper/1.jpg" desat/>
         <Container>
           <AnimatedImageCircle src="/images/profile.jpg" />
         </Container>
@@ -30,7 +30,7 @@ function App() {
 
       </AnimatedSection> */}
       <AnimatedSection height='300svh'>
-        <BackgroundImage src="/images/wallpaper/2.jpg" />
+        <BackgroundImage src="/images/wallpaper/2.jpg"  />
         {/* <BlendedImage images={["/images/wallpaper/3.jpg", "/images/wallpaper/2.jpg"]} /> */}
         <AppearingText texts={['Software Engineer', 'Fullstack Dev']} />
         <div className='absolute w-full flex justify-center'>
@@ -57,7 +57,7 @@ function App() {
         </div>
       </AnimatedSection>
       <AnimatedSection height='450svh'>
-        <BackgroundImage src="/images/wallpaper/4.jpg" invert />
+        <BackgroundImage src="/images/wallpaper/4.jpg" invert desat/>
         {/* <BlendedImage images={[
           "/images/wallpaper/5.jpg",
           "/images/wallpaper/4.jpg",
