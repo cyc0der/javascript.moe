@@ -1,4 +1,4 @@
-import { useScroll, useTransform } from "framer-motion";
+import { useMotionValueEvent, useScroll, useTransform } from "framer-motion";
 import { useContext, useEffect, useRef } from "react"
 import { sectionCtx } from "./AnimatedSection";
 import { useParallax } from "../lib/hooks";
@@ -93,4 +93,35 @@ export const BlendedImage = ({ images, invert, desat }: { images: string[], inve
         <img ref={imgBRef} src={images[1]} onLoad={animate} style={{ display: 'none' }} />
         <motion.canvas ref={ref} width={window.innerWidth} height={height} style={{ y, filter: desat ? imgFilter : undefined }} />
     </>
+}
+
+export const DualImages = ({ images, invert, desat }: { images: string[], invert?: boolean, desat?: boolean }) => {
+    const { ref: scrollRef } = useContext(sectionCtx);
+    const { scrollYProgress } = useScroll({
+        layoutEffect: false,
+        target: scrollRef || undefined,
+        offset: ["start start", "end end"]
+    });
+    const y = useParallax(scrollYProgress, 50, 20)
+    const y2 = useParallax(scrollYProgress, 75, 20);
+    const reverse = useTransform(scrollYProgress, [0, 1], [1, 0]);
+
+    return <motion.div className="w-[100vw] h-[120svh] bg-black">
+        <motion.div className="absolute" style={{
+            background: 'url(' + images[1] + ')',
+            opacity: reverse,
+            y: y
+        }}>
+
+            <motion.img src={images[0]} />
+        </motion.div>
+        <motion.div className="absolute" style={{
+            background: 'url(' + images[0] + ')',
+            opacity: scrollYProgress,
+            y: y2
+
+        }}>
+            <motion.img src={images[1]} />
+        </motion.div>
+    </motion.div>
 }

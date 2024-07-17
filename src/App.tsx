@@ -14,12 +14,13 @@ import NodeJSLogo from './assets/node.svg?react';
 import VueJSLogo from './assets/vue.svg?react';
 import DockerLogo from './assets/docker.svg?react';
 import LambdaLogo from './assets/lambda.svg?react';
+import { DualImages } from './components/BlendedImage'
 
 function App() {
   return (
     <>
       <AnimatedSection height='175svh' >
-        <BackgroundImage src="/images/wallpaper/1.jpg" desat/>
+        <BackgroundImage src="/images/wallpaper/1.jpg" desat />
         <Container>
           <AnimatedImageCircle src="/images/profile.jpg" />
         </Container>
@@ -30,8 +31,8 @@ function App() {
 
       </AnimatedSection> */}
       <AnimatedSection height='300svh'>
-        <BackgroundImage src="/images/wallpaper/2.jpg"  />
-        {/* <BlendedImage images={["/images/wallpaper/3.jpg", "/images/wallpaper/2.jpg"]} /> */}
+        {/* <BackgroundImage src="/images/wallpaper/2.jpg"  /> */}
+        <DualImages images={["/images/wallpaper/3.jpg", "/images/wallpaper/2.jpg"]} />
         <AppearingText texts={['Software Engineer', 'Fullstack Dev']} />
         <div className='absolute w-full flex justify-center'>
 
@@ -57,8 +58,8 @@ function App() {
         </div>
       </AnimatedSection>
       <AnimatedSection height='450svh'>
-        <BackgroundImage src="/images/wallpaper/4.jpg" invert desat/>
-        {/* <BlendedImage images={[
+        <BackgroundImage src="/images/wallpaper/4.jpg" invert desat />
+        {/* <DualImages images={[
           "/images/wallpaper/5.jpg",
           "/images/wallpaper/4.jpg",
           "/images/wallpaper/6.jpg",
