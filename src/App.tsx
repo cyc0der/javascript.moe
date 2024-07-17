@@ -4,7 +4,6 @@ import { AnimatedImageCircle } from './components/AnimatedImageCircle'
 import { BackgroundImage } from './components/BackgroundImage'
 import { Container } from './components/Container'
 import { AnimatedText, AppearingText, Bullets } from './components/AnimatedText'
-import { BlendedImage } from './components/BlendedImage'
 import TS from './assets/ts.svg?react';
 import PDF from './assets/pdf.svg?react';
 import ReactLogo from './assets/react.svg?react';
