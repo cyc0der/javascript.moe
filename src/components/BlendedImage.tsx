@@ -1,4 +1,4 @@
-import { animate, useScroll, useTransform } from "framer-motion";
+import { useScroll, useTransform } from "framer-motion";
 import { useContext, useEffect, useRef } from "react"
 import { sectionCtx } from "./AnimatedSection";
 import { useParallax } from "../lib/hooks";
