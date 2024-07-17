@@ -1,4 +1,4 @@
-import { useScroll, useTransform } from "framer-motion";
+import { animate, useScroll, useTransform } from "framer-motion";
 import { useContext, useEffect, useRef } from "react"
 import { sectionCtx } from "./AnimatedSection";
 import { useParallax } from "../lib/hooks";
@@ -43,12 +43,14 @@ export const BlendedImage = ({ images, invert, desat }: { images: string[], inve
 
     const imgFilter = useTransform(scrollYProgress, invert ? [1, 0.75] : [0, 0.25], ["saturate(0%) blur(12px)", "saturate(100%) blur(0px)"]);
 
-    const onLoadA = function () {
+    const animate = function () {
         if (!imgARef.current || !imgBRef.current) return;
         const offset = 1 + Math.floor((images.length - 1) * scrollYProgress.get());
         const a = images[offset - 1];
         const b = images[offset];
         const progress = (scrollYProgress.get() * (images.length - 1)) % 1;
+
+        requestAnimationFrame(animate);
         if (!imgARef.current.src.includes(a)) {
             imgARef.current.src = a;
             imgBRef.current.src = b;
@@ -59,6 +61,10 @@ export const BlendedImage = ({ images, invert, desat }: { images: string[], inve
 
         const imgA = imgARef.current;
         const imgB = imgBRef.current;
+
+        if (imgA.naturalWidth === 0) return
+        if (imgB.naturalWidth === 0) return
+
 
         var hRatio = (canvas?.width || window.innerWidth) / (imgA.width || window.innerWidth);
         var vRatio = height / imgB.height;
@@ -79,12 +85,12 @@ export const BlendedImage = ({ images, invert, desat }: { images: string[], inve
     }
 
     useEffect(() => {
-        scrollYProgress.on('change', onLoadA);
+        // scrollYProgress.on('change', animate);
     }, []);
 
     return <>
-        <img ref={imgARef} src={images[0]} onLoad={onLoadA} style={{ display: 'none' }} />
-        <img ref={imgBRef} src={images[1]} onLoad={onLoadA} style={{ display: 'none' }} />
+        <img ref={imgARef} src={images[0]} style={{ display: 'none' }} />
+        <img ref={imgBRef} src={images[1]} onLoad={animate} style={{ display: 'none' }} />
         <motion.canvas ref={ref} width={window.innerWidth} height={height} style={{ y, filter: desat ? imgFilter : undefined }} />
     </>
 }

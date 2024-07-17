@@ -33,7 +33,7 @@ export const AppearingText = ({ texts, slices }: { texts: string[], slices?: num
     const [text, setText] = useState('');
     const [, setR] = useState(0);
     const [_start, setStart] = useState(0);
-    const startMultiplier = 4;
+    const startMultiplier = 2;
     useMotionValueEvent(y, 'change', () => {
         // const l = Math.round(it.length * scrollYProgress.gette());
         // setText(it.slice(it.length - l, l));
