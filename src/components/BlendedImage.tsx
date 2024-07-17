@@ -1,4 +1,4 @@
-import { useMotionValueEvent, useScroll, useTransform } from "framer-motion";
+import { useScroll, useTransform } from "framer-motion";
 import { useContext, useEffect, useRef } from "react"
 import { sectionCtx } from "./AnimatedSection";
 import { useParallax } from "../lib/hooks";
@@ -95,7 +95,7 @@ export const BlendedImage = ({ images, invert, desat }: { images: string[], inve
     </>
 }
 
-export const DualImages = ({ images, invert, desat }: { images: string[], invert?: boolean, desat?: boolean }) => {
+export const DualImages = ({ images }: { images: string[], invert?: boolean, desat?: boolean }) => {
     const { ref: scrollRef } = useContext(sectionCtx);
     const { scrollYProgress } = useScroll({
         layoutEffect: false,
