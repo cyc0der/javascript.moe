@@ -57,12 +57,12 @@ function App() {
         </div>
       </AnimatedSection>
       <AnimatedSection height='450vh'>
-        {/* <BackgroundImage src="/images/wallpaper/4.jpg" invert /> */}
-        <BlendedImage images={[
+        <BackgroundImage src="/images/wallpaper/4.jpg" invert />
+        {/* <BlendedImage images={[
           "/images/wallpaper/5.jpg",
           "/images/wallpaper/4.jpg",
           "/images/wallpaper/6.jpg",
-        ]} invert desat />
+        ]} invert desat /> */}
 
         <AppearingText texts={['Looking for a senior TypeScript dev?', 'Looking for a lead developer?', 'Contact me']} slices={[0, 14, 0]} />
         <div className='absolute w-full flex justify-center'>

@@ -50,7 +50,7 @@ export const BlendedImage = ({ images, invert, desat }: { images: string[], inve
         const b = images[offset];
         const progress = (scrollYProgress.get() * (images.length - 1)) % 1;
 
-        requestAnimationFrame(animate);
+        // requestAnimationFrame(animate);
         if (!imgARef.current.src.includes(a)) {
             imgARef.current.src = a;
             imgBRef.current.src = b;
@@ -85,7 +85,7 @@ export const BlendedImage = ({ images, invert, desat }: { images: string[], inve
     }
 
     useEffect(() => {
-        // scrollYProgress.on('change', animate);
+        scrollYProgress.on('change', animate);
     }, []);
 
     return <>
