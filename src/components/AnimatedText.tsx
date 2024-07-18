@@ -50,7 +50,7 @@ export const AppearingText = ({ texts, slices }: { texts: string[], slices?: num
         target: ref || undefined,
         offset: ["start start", "end end"]
     });
-    const y = useParallax(scrollYProgress, 110, screen.height * -0.44, easeInOut)
+    const y = useParallax(scrollYProgress, 110, -110 - screen.height * 0.25, easeInOut)
     const t2 = useTransform(scrollYProgress, [0, 1], [1, texts.length + 1])
     const boxShadow = useTransform(scrollYProgress, [0, 1], ['0px 0px 0px black', '0px 0px 12px black'])
 
@@ -116,7 +116,7 @@ export const Bullets = ({ data, className, offset = 0.5, n }: BulletsProps) => {
     const scale2 = useTransform(scrollYProgress, [offset + 0.05 * 2, offset + 0.05 * 3], ["0%", "100%"])
     const scale3 = useTransform(scrollYProgress, [offset + 0.05 * 3, offset + 0.05 * 4], ["0%", "100%"])
     const bg = useTransform(scrollYProgress, [0.75, 0.9], ["#00000000", "#00000099"])
-    return <div className={clsx('flex flex-col flex-wrap absolute gap-2 text-white m-4', className)} style={{ top: 64 * n }}>
+    return <div className={clsx('flex flex-col flex-wrap absolute gap-2 text-white m-4', className)} style={{ top: n }}>
         {
             data.map((e, i) => {
                 return <motion.div style={{ scale: [scale, scale1, scale2, scale3][i % 4], boxShadow, padding: 8, backgroundColor: bg, y: 8 }} className='flex gap-1'>

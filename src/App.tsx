@@ -37,7 +37,7 @@ function App() {
             { text: 'React', logo: ReactLogo, href: 'https://react.dev/' }
           ]}
             offset={0.4}
-            n={screen.width > 1024 ? 0 : -2}
+            n={0}
 
           ></Bullets>
           <Bullets data={[
@@ -50,7 +50,7 @@ function App() {
           ]}
             className="!flex-row"
             offset={0.5}
-            n={screen.width > 1024 ? 2 : 0}
+            n={105}
           ></Bullets>
         </div>
       </AnimatedSection>
@@ -68,7 +68,7 @@ function App() {
             { text: 'CV', logo: PDF, href: 'https://justmycv.com/en.pdf' },
             { text: 'LinkedIn', logo: LI, href: 'https://www.linkedin.com/in/moritz-roessler-666b18175/' }
           ]}
-            n={(screen.width > 1024) ? 0 : -1.5}
+            n={screen.height * 0}
             offset={0.8}
           ></Bullets>
         </div>
