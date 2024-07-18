@@ -38,7 +38,7 @@ export const BlendedImage = ({ images, invert, desat }: { images: string[], inve
     });
 
 
-    const height = window.innerHeight * 1.4;
+    const height = window.outerHeight * 1.4;
     const y = useParallax(scrollYProgress, 50, 0)
 
     const imgFilter = useTransform(scrollYProgress, invert ? [1, 0.75] : [0, 0.25], ["saturate(0%) blur(12px)", "saturate(100%) blur(0px)"]);

@@ -22,48 +22,45 @@ export const AnimatedText = () => {
 export const AppearingText = ({ texts, slices }: { texts: string[], slices?: number[] }) => {
     const { ref } = useContext(sectionCtx);
     const { scrollYProgress } = useScroll({
-        layoutEffect: true,
+        layoutEffect: false,
         target: ref || undefined,
         offset: ["start start", "end end"]
     });
-    const y = useParallax(scrollYProgress, 110, window.innerHeight * -0.47, easeInOut)
+    const y = useParallax(scrollYProgress, 110, window.outerHeight * -0.47, easeInOut)
     const t2 = useTransform(scrollYProgress, [0, 1], [1, texts.length + 1])
     const boxShadow = useTransform(scrollYProgress, [0, 1], ['0px 0px 0px black', '0px 0px 12px black'])
 
     const [text, setText] = useState('');
-    const [, setR] = useState(0);
-    const [_start, setStart] = useState(0);
+    const [, setRerender] = useState(0);
     const startMultiplier = 2;
     useMotionValueEvent(y, 'change', () => {
-        // const l = Math.round(it.length * scrollYProgress.gette());
-        // setText(it.slice(it.length - l, l));
-        const p = t2.get();
-        const curText = Math.min(texts.length - 1, Math.floor(p - 1));
-        const pCur = p % 1
+        const totalProgress = t2.get();
+        const curText = Math.min(texts.length - 1, Math.floor(totalProgress - 1));
+        const curProgress = totalProgress % 1
         const it = texts[curText]
         const slice = ((slices || [])[curText] || 0);
 
         /** We want the end result to be visible for half the time of the animation. */
         const start = Math.floor(
-            Math.round((pCur) * (it.length - slice - 1)) * startMultiplier)
+            Math.round((curProgress) * (it.length - slice - 1)) * startMultiplier)
 
         const rand = it.split('').slice(
             slice + start
         )
 
         rand.sort((a, b) => {
-            return ((Math.random() - 0.5) * (1 - pCur)) + ((pCur) * (it.indexOf(a) - it.indexOf(b)))
+            return ((Math.random() - 0.5) * (1 - curProgress)) + ((curProgress) * (it.indexOf(a) - it.indexOf(b)))
         }).join('');
 
         const part1 = it.split('').slice((slices || [])[curText] || 0);
         const part = part1.map((_, i) => (start > i ? part1[i] : rand[i - start])).join('');
         const txt = it.slice(0, (slices || [])[curText] || 0) + part;
         setText(txt)
-        setStart(start);
-        if (pCur >= 0.5) {
-            setR(1);
-        } else if (pCur < 0.5) {
-            setR(0)
+
+        if (curProgress >= 0.5) {
+            setRerender(1);
+        } else if (curProgress < 0.5) {
+            setRerender(0)
         }
     })
     return <motion.h1 className={clsx('absolute top-5 text-center', { 'break-all': ((t2.get()) % 1) < (1 / startMultiplier) })} style={{ y, zIndex: 100, textShadow: boxShadow }}>
