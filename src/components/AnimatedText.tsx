@@ -31,8 +31,8 @@ export const Shrinking = () => {
     const fontSize = useTransform(scrollYProgress, [0.25, 1], ['36px', '72px'])
     const shadow = useTransform(scrollYProgress, [0.25, 1], ['0px 0px 0px #FFFFFF', '0px 0px 8px #000000']);
 
-    const mX = useTransform(scrollYProgress, [0.9, 1], ['0ch', '4ch']);
-    const oeX = useTransform(scrollYProgress, [0.9, 1], ['0ch', '-1.2ch']);
+    const mX = useTransform(scrollYProgress, [0.9, 1], ['0ch', screen.width > 1024 ? '4ch' : '2.5ch']);
+    const oeX = useTransform(scrollYProgress, [0.9, 1], ['0ch', screen.width > 1024 ? '-1.2ch' : '-2.7ch']);
     const scale = useTransform(scrollYProgress, [0.9, 0.95, 1], ["100%", "130%", "100%"])
 
     return <motion.h1 className='absolute top-5 text-center' style={{ y, fontSize, lineHeight: fontSize, zIndex: 100, textShadow: shadow }}>
