@@ -22,7 +22,7 @@ export const AnimatedText = () => {
 export const AppearingText = ({ texts, slices }: { texts: string[], slices?: number[] }) => {
     const { ref } = useContext(sectionCtx);
     const { scrollYProgress } = useScroll({
-        layoutEffect: false,
+        layoutEffect: true,
         target: ref || undefined,
         offset: ["start start", "end end"]
     });
