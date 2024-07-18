@@ -30,7 +30,7 @@ export const AnimatedImageCircle = ({ src, className, size = 'sm' }: AnimatedIma
 
     const opacity = useTransform(scrollYProgress, [0.25, 0.5], ["100%", "0%"])
 
-    const out = useTransform(scrollYProgress, [0.25, 0.5], [0, -window.outerHeight]);
+    const out = useTransform(scrollYProgress, [0.25, 0.5], [0, -screen.height]);
 
     const y = useTransform(() => par.get() + out.get())
 
