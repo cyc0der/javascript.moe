@@ -1,6 +1,6 @@
 import { easeInOut, motion, useMotionValueEvent, useScroll, useTransform } from 'framer-motion';
 import { useParallax } from '../lib/hooks';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import { sectionCtx } from './AnimatedSection';
 import clsx from 'clsx';
 
@@ -31,14 +31,30 @@ export const Shrinking = () => {
     const fontSize = useTransform(scrollYProgress, [0.25, 1], ['36px', screen.width <= 452 ? '52px' : '72px'])
     const shadow = useTransform(scrollYProgress, [0.25, 1], ['0px 0px 0px #FFFFFF', '0px 0px 8px #000000']);
 
-    const mX = useTransform(scrollYProgress, [0.9, 1], ['0ch', screen.width > 360 ? '4.2ch' : '2.55ch']);
-    const oeX = useTransform(scrollYProgress, [0.9, 1], ['0ch', screen.width > 360 ? '-0.9ch' : '-2.55ch']);
+    const mRef = useRef<HTMLDivElement>(null);
+    const oeRef = useRef<HTMLDivElement>(null);
+    const [dist, setDist] = useState([4, -4]);
+
+    const [distCenterM, distCenterOe] = dist;
+    const mX = useTransform(scrollYProgress, [0.9, 1], ['0px', ((distCenterM) + 'px')]);
+    const oeX = useTransform(scrollYProgress, [0.9, 1], ['0px', ((distCenterOe) + 'px')]);
     const scale = useTransform(scrollYProgress, [0.9, 0.95, 1], ["100%", "130%", "100%"])
 
+    useMotionValueEvent(scrollYProgress, 'change', () => {
+        if (scrollYProgress.get() < 0.9) {
+
+            const mRect = mRef.current?.getBoundingClientRect() || null;
+            const oeRect = oeRef.current?.getBoundingClientRect() || null;
+            const distCenterM = (window.innerWidth / 2) - (mRect?.x || 0) - ((mRect?.width || 0) - 8);
+            const distCenterOe = (window.innerWidth / 2) - (oeRect?.x || 0);
+            console.log("Dist Center", screen.width, oeRect?.x, distCenterOe)
+            setDist([distCenterM, distCenterOe])
+        }
+    })
     return <motion.h1 className='absolute top-5 text-center' style={{ y, fontSize, lineHeight: fontSize, zIndex: 100, textShadow: shadow }}>
-        <motion.span style={{ x: mX, display: 'inline-block', scaleX: scale }}>M</motion.span>
+        <motion.span ref={mRef} style={{ x: mX, display: 'inline-block', scaleX: scale }}>M</motion.span>
         <motion.span style={{ opacity }}>oritz R</motion.span>
-        <motion.span style={{ x: oeX, display: 'inline-block', scaleX: scale }}>oe</motion.span>
+        <motion.span ref={oeRef} style={{ x: oeX, display: 'inline-block', scaleX: scale }}>oe</motion.span>
         <motion.span style={{ opacity }}>ssler</motion.span>
     </motion.h1>
 }
