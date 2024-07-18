@@ -11,7 +11,7 @@ export const AnimatedText = () => {
         target: ref || undefined,
         offset: ["start start", "end end"]
     });
-    const y = useParallax(scrollYProgress, 150, window.innerHeight * -0.55, easeInOut)
+    const y = useParallax(scrollYProgress, 150, screen.height * -0.55, easeInOut)
     const scale = useTransform(scrollYProgress, [0.25, 1], ['36px', '72px'])
 
     return <motion.h1 className='absolute top-5 text-center' style={{ y, fontSize: scale, lineHeight: scale, zIndex: 100 }}>
@@ -26,7 +26,7 @@ export const Shrinking = () => {
         target: ref || undefined,
         offset: ["start start", "end end"]
     });
-    const y = useParallax(scrollYProgress, 150, window.innerHeight * -0.55, easeInOut)
+    const y = useParallax(scrollYProgress, 150, screen.height * -0.55, easeInOut)
     const opacity = useTransform(scrollYProgress, [0.75, 1], [1, 0.1])
     const fontSize = useTransform(scrollYProgress, [0.25, 1], ['36px', screen.width <= 452 ? '52px' : '72px'])
     const shadow = useTransform(scrollYProgress, [0.25, 1], ['0px 0px 0px #FFFFFF', '0px 0px 8px #000000']);
