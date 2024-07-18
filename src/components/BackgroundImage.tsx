@@ -25,7 +25,6 @@ export const BackgroundImage = ({ src, invert, desat }: BackgroundImageProps) =>
             position: 'absolute',
             height: '120lvh',
             boxShadow: '-3px 0px 30px 3px black',
-            filter: desat ? imgFilter : undefined,
             y,
         }}
     >
@@ -33,7 +32,8 @@ export const BackgroundImage = ({ src, invert, desat }: BackgroundImageProps) =>
             height: '120lvh',
             aspectRatio: 'initial',
             objectFit: 'cover',
-            minWidth: '100vw'
+            minWidth: '100vw',
+            filter: desat ? imgFilter : undefined,
         }}></motion.img>
         <div className='w-[300px] h-[300px] backdrop-blur-3xl bg-white z-50' />
     </motion.div>
