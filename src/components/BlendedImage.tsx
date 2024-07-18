@@ -103,8 +103,8 @@ export const DualImages = ({ images, moveX = 0 }: { images: string[], invert?: b
         offset: ["start start", "end end"]
     });
     const y = useParallax(scrollYProgress, 50, 0)
-    const x = useTransform(scrollYProgress, [0, 1], ["0% 00%", "50% 50%"]);
-    const x2 = useTransform(scrollYProgress, [0.5, 1], ["0% 0%", "45% 50%"]);
+    const x = useTransform(scrollYProgress, [0, 1], ["0% 00%", "50% 0%"]);
+    const x2 = useTransform(scrollYProgress, [0.5, 1], ["8% 0%", "42% 0%"]);
     const y2 = useParallax(scrollYProgress, 75, -20);
     const reverse = useTransform(scrollYProgress, [0, 1], [1, 0]);
 
