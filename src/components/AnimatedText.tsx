@@ -28,11 +28,11 @@ export const Shrinking = () => {
     });
     const y = useParallax(scrollYProgress, 150, window.innerHeight * -0.55, easeInOut)
     const opacity = useTransform(scrollYProgress, [0.75, 1], [1, 0.1])
-    const fontSize = useTransform(scrollYProgress, [0.25, 1], ['36px', '72px'])
+    const fontSize = useTransform(scrollYProgress, [0.25, 1], ['36px', screen.width <= 452 ? '52px' : '72px'])
     const shadow = useTransform(scrollYProgress, [0.25, 1], ['0px 0px 0px #FFFFFF', '0px 0px 8px #000000']);
 
-    const mX = useTransform(scrollYProgress, [0.9, 1], ['0ch', screen.width > 1024 ? '4ch' : '2.55ch']);
-    const oeX = useTransform(scrollYProgress, [0.9, 1], ['0ch', screen.width > 1024 ? '-1.2ch' : '-2.55ch']);
+    const mX = useTransform(scrollYProgress, [0.9, 1], ['0ch', screen.width > 360 ? '4ch' : '2.55ch']);
+    const oeX = useTransform(scrollYProgress, [0.9, 1], ['0ch', screen.width > 360 ? '-1.2ch' : '-2.55ch']);
     const scale = useTransform(scrollYProgress, [0.9, 0.95, 1], ["100%", "130%", "100%"])
 
     return <motion.h1 className='absolute top-5 text-center' style={{ y, fontSize, lineHeight: fontSize, zIndex: 100, textShadow: shadow }}>
