@@ -32,7 +32,7 @@ function App() {
       </AnimatedSection> */}
       <AnimatedSection height='300lvh'>
         {/* <BackgroundImage src="/images/wallpaper/2.jpg"  /> */}
-        <DualImages images={["/images/wallpaper/3.jpg", "/images/wallpaper/2.jpg"]} />
+        <DualImages images={["/images/wallpaper/3.jpg", "/images/wallpaper/2.jpg"]} moveX={2} />
         <AppearingText texts={['Software Engineer', 'Fullstack Dev']} />
         <div className='absolute w-full flex justify-center'>
 
@@ -58,12 +58,12 @@ function App() {
         </div>
       </AnimatedSection>
       <AnimatedSection height='450lvh'>
-        <BackgroundImage src="/images/wallpaper/4.jpg" invert desat />
-        {/* <DualImages images={[
-          "/images/wallpaper/5.jpg",
+        {/* <BackgroundImage src="/images/wallpaper/4.jpg" invert desat /> */}
+        <DualImages images={[
           "/images/wallpaper/4.jpg",
           "/images/wallpaper/6.jpg",
-        ]} invert desat /> */}
+          // "/images/wallpaper/6.jpg",
+        ]} invert desat />
 
         <AppearingText texts={['Looking for a senior TypeScript dev?', 'Looking for a lead developer?', 'Contact me']} slices={[0, 14, 0]} />
         <div className='absolute w-full flex justify-center'>
