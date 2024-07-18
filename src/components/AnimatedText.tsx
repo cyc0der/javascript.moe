@@ -19,6 +19,31 @@ export const AnimatedText = () => {
     </motion.h1>
 }
 
+export const Shrinking = () => {
+    const { ref } = useContext(sectionCtx);
+    const { scrollYProgress } = useScroll({
+        layoutEffect: false,
+        target: ref || undefined,
+        offset: ["start start", "end end"]
+    });
+    const y = useParallax(scrollYProgress, 150, window.innerHeight * -0.55, easeInOut)
+    const opacity = useTransform(scrollYProgress, [0.75, 1], [1, 0.1])
+    const fontSize = useTransform(scrollYProgress, [0.25, 1], ['36px', '72px'])
+    const shadow = useTransform(scrollYProgress, [0.25, 1], ['0px 0px 0px #FFFFFF', '0px 0px 8px #000000']);
+
+    const mX = useTransform(scrollYProgress, [0.9, 1], ['0ch', '4ch']);
+    const oeX = useTransform(scrollYProgress, [0.9, 1], ['0ch', '-1.2ch']);
+    const scale = useTransform(scrollYProgress, [0.9, 0.95, 1], ["100%", "130%", "100%"])
+
+    return <motion.h1 className='absolute top-5 text-center' style={{ y, fontSize, lineHeight: fontSize, zIndex: 100, textShadow: shadow }}>
+        <motion.span style={{ x: mX, display: 'inline-block', scaleX: scale }}>M</motion.span>
+        <motion.span style={{ opacity }}>oritz R</motion.span>
+        <motion.span style={{ x: oeX, display: 'inline-block', scaleX: scale }}>oe</motion.span>
+        <motion.span style={{ opacity }}>ssler</motion.span>
+        {/* {'Moritz Roessler'.split('').map((c, i) => <motion.span style={{ opacity: ex.includes(i) ? undefined : shrink, display: 'inline-block', overflow: 'hidden' }}>{c}</motion.span>)} */}
+    </motion.h1>
+}
+
 export const AppearingText = ({ texts, slices }: { texts: string[], slices?: number[] }) => {
     const { ref } = useContext(sectionCtx);
     const { scrollYProgress } = useScroll({
@@ -26,7 +51,7 @@ export const AppearingText = ({ texts, slices }: { texts: string[], slices?: num
         target: ref || undefined,
         offset: ["start start", "end end"]
     });
-    const y = useParallax(scrollYProgress, 110, screen.height * -0.5, easeInOut)
+    const y = useParallax(scrollYProgress, 110, screen.height * -0.44, easeInOut)
     const t2 = useTransform(scrollYProgress, [0, 1], [1, texts.length + 1])
     const boxShadow = useTransform(scrollYProgress, [0, 1], ['0px 0px 0px black', '0px 0px 12px black'])
 

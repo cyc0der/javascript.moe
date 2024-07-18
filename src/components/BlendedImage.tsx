@@ -1,4 +1,4 @@
-import { useScroll, useTransform } from "framer-motion";
+import { easeIn, easeOut, useScroll, useTransform } from "framer-motion";
 import { useContext, useEffect, useRef } from "react"
 import { sectionCtx } from "./AnimatedSection";
 import { useParallax } from "../lib/hooks";
@@ -104,11 +104,15 @@ export const DualImages = ({ images, moveX = 0 }: { images: string[], invert?: b
     });
     const y = useParallax(scrollYProgress, 50, 0)
     const x = useTransform(scrollYProgress, [0, 1], ["0% 00%", "50% 0%"]);
-    const x2 = useTransform(scrollYProgress, [0.5, 1], ["8% 0%", "42% 0%"]);
+    const x2 = useTransform(scrollYProgress, [0.5, 0.9, 1], ["8% 0%", "42% 0%", "25% 0%"]);
+    const filter = useTransform(scrollYProgress, [0.9, 1], ["blur(0px)", "blur(12px)"], { ease: easeOut })
+    const scale = useTransform(scrollYProgress, [0.9, 1], ["100%", "115%"])
     const y2 = useParallax(scrollYProgress, 75, -20);
+    const down = useTransform(scrollYProgress, [0.9, 1], [0, 75]);
+    const y2C = useTransform(() => y2.get() + (down.get() * 2))
     const reverse = useTransform(scrollYProgress, [0, 1], [1, 0]);
 
-    return <motion.div className="absolute w-[100vw] h-[120vh] bg-black">
+    return <motion.div className="absolute w-[100vw] h-[120vh] bg-black" style={{ filter }}>
         <motion.img src={images[0]} className="absolute w-[100vw] h-[120vh]" style={{
             opacity: reverse,
             objectPosition: (moveX & 1) ? x : undefined,
@@ -119,8 +123,8 @@ export const DualImages = ({ images, moveX = 0 }: { images: string[], invert?: b
         <motion.img src={images[1]} className="absolute w-[100vw]  h-[120vh]" style={{
             opacity: scrollYProgress,
             objectPosition: (moveX & 2) ? x2 : undefined,
-
-            y: y2,
+            scale,
+            y: y2C,
 
         }} />
 

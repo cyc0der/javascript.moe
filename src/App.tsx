@@ -3,7 +3,7 @@ import { AnimatedSection } from './components/AnimatedSection'
 import { AnimatedImageCircle } from './components/AnimatedImageCircle'
 import { BackgroundImage } from './components/BackgroundImage'
 import { Container } from './components/Container'
-import { AnimatedText, AppearingText, Bullets } from './components/AnimatedText'
+import { AnimatedText, AppearingText, Bullets, Shrinking } from './components/AnimatedText'
 import TS from './assets/ts.svg?react';
 import PDF from './assets/pdf.svg?react';
 import ReactLogo from './assets/react.svg?react';
@@ -24,12 +24,8 @@ function App() {
         <Container>
           <AnimatedImageCircle src="/images/profile.jpg" />
         </Container>
-        <AnimatedText />
+        <Shrinking />
       </AnimatedSection>
-      {/* <AnimatedSection height='200vh' >
-        <BackgroundImage src="/images/wallpaper/2.jpg" />
-
-      </AnimatedSection> */}
       <AnimatedSection height='300lvh'>
         {/* <BackgroundImage src="/images/wallpaper/2.jpg"  /> */}
         <DualImages images={["/images/wallpaper/3.jpg", "/images/wallpaper/2.jpg"]} moveX={2} />
@@ -41,7 +37,8 @@ function App() {
             { text: 'React', logo: ReactLogo, href: 'https://react.dev/' }
           ]}
             offset={0.4}
-            n={0}
+            n={screen.width > 1024 ? 0 : -2}
+
           ></Bullets>
           <Bullets data={[
             { text: 'SQL', logo: SQLLogo, href: 'https://www.postgresql.org/' },
@@ -53,7 +50,7 @@ function App() {
           ]}
             className="!flex-row"
             offset={0.5}
-            n={2}
+            n={screen.width > 1024 ? 2 : 0}
           ></Bullets>
         </div>
       </AnimatedSection>
@@ -71,7 +68,7 @@ function App() {
             { text: 'CV', logo: PDF, href: 'https://justmycv.com/en.pdf' },
             { text: 'LinkedIn', logo: LI, href: 'https://www.linkedin.com/in/moritz-roessler-666b18175/' }
           ]}
-            n={-1}
+            n={(screen.width > 1024) ? 0 : -1.5}
             offset={0.8}
           ></Bullets>
         </div>
