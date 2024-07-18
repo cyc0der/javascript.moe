@@ -40,7 +40,6 @@ export const Shrinking = () => {
         <motion.span style={{ opacity }}>oritz R</motion.span>
         <motion.span style={{ x: oeX, display: 'inline-block', scaleX: scale }}>oe</motion.span>
         <motion.span style={{ opacity }}>ssler</motion.span>
-        {/* {'Moritz Roessler'.split('').map((c, i) => <motion.span style={{ opacity: ex.includes(i) ? undefined : shrink, display: 'inline-block', overflow: 'hidden' }}>{c}</motion.span>)} */}
     </motion.h1>
 }
 
