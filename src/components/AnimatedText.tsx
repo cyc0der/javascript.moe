@@ -1,6 +1,6 @@
 import { easeInOut, motion, useMotionValueEvent, useScroll, useTransform } from 'framer-motion';
 import { useParallax } from '../lib/hooks';
-import { useContext, useEffect, useRef, useState } from 'react';
+import { useContext, useRef, useState } from 'react';
 import { sectionCtx } from './AnimatedSection';
 import clsx from 'clsx';
 
