@@ -23,13 +23,13 @@ export const BackgroundImage = ({ src, invert, desat }: BackgroundImageProps) =>
     return <motion.div
         style={{
             position: 'absolute',
-            height: '120lvh',
+            height: '120svh',
             boxShadow: '-3px 0px 30px 3px black',
             y,
         }}
     >
         <motion.img src={src} style={{
-            height: '120lvh',
+            height: '120svh',
             aspectRatio: 'initial',
             objectFit: 'cover',
             minWidth: '100vw',

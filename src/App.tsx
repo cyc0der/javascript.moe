@@ -19,14 +19,14 @@ import { DualImages } from './components/BlendedImage'
 function App() {
   return (
     <>
-      <AnimatedSection height='175lvh' >
+      <AnimatedSection height='175svh' >
         <BackgroundImage src="/images/wallpaper/1.jpg" desat />
         <Container>
           <AnimatedImageCircle src="/images/profile.jpg" />
         </Container>
         <MyName />
       </AnimatedSection>
-      <AnimatedSection height='300lvh'>
+      <AnimatedSection height='300svh'>
         {/* <BackgroundImage src="/images/wallpaper/2.jpg"  /> */}
         <DualImages images={["/images/wallpaper/3.jpg", "/images/wallpaper/2.jpg"]} moveX={2} />
         <AppearingText texts={['Software Engineer', 'Fullstack Dev']} />
@@ -54,7 +54,7 @@ function App() {
           ></Bullets>
         </div>
       </AnimatedSection>
-      <AnimatedSection height='450lvh'>
+      <AnimatedSection height='450svh'>
         {/* <BackgroundImage src="/images/wallpaper/4.jpg" invert desat /> */}
         <DualImages images={[
           "/images/wallpaper/4.jpg",

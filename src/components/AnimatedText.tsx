@@ -3,6 +3,7 @@ import { useParallax } from '../lib/hooks';
 import { useContext, useRef, useState } from 'react';
 import { sectionCtx } from './AnimatedSection';
 import clsx from 'clsx';
+import { getHeight } from '../lib/util';
 
 export const AnimatedText = () => {
     const { ref } = useContext(sectionCtx);
@@ -21,12 +22,16 @@ export const AnimatedText = () => {
 
 export const MyName = () => {
     const { ref } = useContext(sectionCtx);
+    const height = getHeight(ref?.current || null);
     const { scrollYProgress } = useScroll({
         layoutEffect: false,
         target: ref || undefined,
         offset: ["start start", "end end"]
     });
-    const y = useParallax(scrollYProgress, screen.height * 0.22 - 32, screen.height * 0.22 - 32, easeInOut)
+
+    const ratio = (height / 1.75) / 4;
+    const offset = 16;
+    const y = useParallax(scrollYProgress, ratio - offset, ratio - offset, easeInOut)
     const opacity = useTransform(scrollYProgress, [0.75, 1], [1, 0.1]);
     const fS = screen.width <= 452 ? 52 : 72;
     const fontSize = useTransform(scrollYProgress, [0.25, 0.9], ['36px', screen.width <= 452 ? '52px' : '72px'])
