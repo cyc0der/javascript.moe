@@ -28,7 +28,7 @@ export const Shrinking = () => {
     });
     const y = useParallax(scrollYProgress, 150, 150, easeInOut)
     const opacity = useTransform(scrollYProgress, [0.75, 1], [1, 0.1])
-    const fontSize = useTransform(scrollYProgress, [0.25, 1], ['36px', screen.width <= 452 ? '52px' : '72px'])
+    const fontSize = useTransform(scrollYProgress, [0.25, 0.9], ['36px', screen.width <= 452 ? '52px' : '72px'])
     const shadow = useTransform(scrollYProgress, [0.25, 1], ['0px 0px 0px #FFFFFF', '0px 0px 8px #000000']);
 
     const mRef = useRef<HTMLDivElement>(null);
@@ -46,8 +46,8 @@ export const Shrinking = () => {
             const mRect = mRef.current?.getBoundingClientRect() || null;
             const oeRect = oeRef.current?.getBoundingClientRect() || null;
             // const hWidth = ((mRect?.width || 0) + (oeRect?.width || 0)) / 2
-            const distCenterM = (window.innerWidth / 2) - ((mRect?.x || 0) + 12 + (mRect?.width || 0) / 2)
-            const distCenterOe = (window.innerWidth / 2) - (oeRect?.x || 0)
+            const distCenterM = -(mRect?.x || 0) + (window.innerWidth / 2) - (mRect?.width || 0)
+            const distCenterOe = (window.innerWidth / 2) - (oeRect?.x || 0);
             setDist([distCenterM, distCenterOe])
         }
     })
