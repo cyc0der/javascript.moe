@@ -27,7 +27,8 @@ export const Shrinking = () => {
         offset: ["start start", "end end"]
     });
     const y = useParallax(scrollYProgress, 150, 150, easeInOut)
-    const opacity = useTransform(scrollYProgress, [0.75, 1], [1, 0.1])
+    const opacity = useTransform(scrollYProgress, [0.75, 1], [1, 0.1]);
+    const fS = screen.width <= 452 ? 52 : 72;
     const fontSize = useTransform(scrollYProgress, [0.25, 0.9], ['36px', screen.width <= 452 ? '52px' : '72px'])
     const shadow = useTransform(scrollYProgress, [0.25, 1], ['0px 0px 0px #FFFFFF', '0px 0px 8px #000000']);
 
@@ -35,13 +36,16 @@ export const Shrinking = () => {
     const oeRef = useRef<HTMLDivElement>(null);
     const [dist, setDist] = useState([4, -4]);
 
+
     const [distCenterM, distCenterOe] = dist;
     const mX = useTransform(scrollYProgress, [0.9, 1], ['0px', ((distCenterM) + 'px')]);
     const oeX = useTransform(scrollYProgress, [0.9, 1], ['0px', ((distCenterOe) + 'px')]);
     const scale = useTransform(scrollYProgress, [0.9, 0.95, 1], ["100%", "130%", "100%"])
     const heightPipe = useTransform(scrollYProgress, [0.99, 1], ["0px", "100px"])
-    const xPipe = useTransform(scrollYProgress, [0.99, 1], ["-18px", "25px"])
-    const shadowPipe = useTransform(scrollYProgress, [0.99, 1], ["0px 0px 0px white", "0px 0px 12px white"])
+    const widthUS = useTransform(scrollYProgress, [0.99, 1], ["0px", "100px"])
+    const yPpipe = useTransform(scrollYProgress, [0.99, 1], [(fS * -0.25) + 'px', "25px"])
+    const xUS = useTransform(scrollYProgress, [0.99, 1], ['0px', "-16px"])
+    const shadowPipe = useTransform(scrollYProgress, [0.99, 1], ["0px 0px 0px 0px white", "0px 0px 1px 0.5px white"])
 
     useMotionValueEvent(scrollYProgress, 'change', () => {
         if (scrollYProgress.get() <= 1) {
@@ -58,12 +62,15 @@ export const Shrinking = () => {
         <span ref={mRef}>
             <motion.span style={{ x: mX, display: 'inline-block', scaleX: scale }}>
                 M
-                <motion.div className='inline-block border-[1px] border-[#FFFFFFEE]' style={{ x: -1, fontSize: '32px', y: xPipe, height: heightPipe, boxShadow: shadowPipe }}></motion.div>
+                <motion.div className='inline-block w-[0px]' style={{ x: -1, fontSize: '32px', y: yPpipe, height: heightPipe, boxShadow: shadowPipe }}></motion.div>
             </motion.span>
         </span>
         <motion.span style={{ opacity }}>oritz R</motion.span>
         <span ref={oeRef}>
-            <motion.span style={{ x: oeX, display: 'inline-block', scaleX: scale }}>oe</motion.span>
+            <motion.span style={{ x: oeX, display: 'inline-block', scaleX: scale }}>
+                oe
+                <motion.div className='absolute  h-0' style={{ y: -4, fontSize: '32px', x: xUS, width: widthUS, boxShadow: shadowPipe }}></motion.div>
+            </motion.span>
         </span>
         <motion.span style={{ opacity }}>ssler</motion.span>
     </motion.h1 >
