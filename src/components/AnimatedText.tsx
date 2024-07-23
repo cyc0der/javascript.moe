@@ -19,14 +19,14 @@ export const AnimatedText = () => {
     </motion.h1>
 }
 
-export const Shrinking = () => {
+export const MyName = () => {
     const { ref } = useContext(sectionCtx);
     const { scrollYProgress } = useScroll({
         layoutEffect: false,
         target: ref || undefined,
         offset: ["start start", "end end"]
     });
-    const y = useParallax(scrollYProgress, 150, 150, easeInOut)
+    const y = useParallax(scrollYProgress, screen.height * 0.22 - 32, screen.height * 0.22 - 32, easeInOut)
     const opacity = useTransform(scrollYProgress, [0.75, 1], [1, 0.1]);
     const fS = screen.width <= 452 ? 52 : 72;
     const fontSize = useTransform(scrollYProgress, [0.25, 0.9], ['36px', screen.width <= 452 ? '52px' : '72px'])

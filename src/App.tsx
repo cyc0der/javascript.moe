@@ -3,7 +3,7 @@ import { AnimatedSection } from './components/AnimatedSection'
 import { AnimatedImageCircle } from './components/AnimatedImageCircle'
 import { BackgroundImage } from './components/BackgroundImage'
 import { Container } from './components/Container'
-import { AppearingText, Bullets, Shrinking } from './components/AnimatedText'
+import { AppearingText, Bullets, MyName } from './components/AnimatedText'
 import TS from './assets/ts.svg?react';
 import PDF from './assets/pdf.svg?react';
 import ReactLogo from './assets/react.svg?react';
@@ -24,7 +24,7 @@ function App() {
         <Container>
           <AnimatedImageCircle src="/images/profile.jpg" />
         </Container>
-        <Shrinking />
+        <MyName />
       </AnimatedSection>
       <AnimatedSection height='300lvh'>
         {/* <BackgroundImage src="/images/wallpaper/2.jpg"  /> */}
