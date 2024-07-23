@@ -14,7 +14,7 @@ export const AnimatedSection = (props: AnimatedSectionProps) => {
     return <sectionCtx.Provider value={{ ref }}>
         <section className="w-full" ref={ref} style={{ height }}>
             <div className={clsx(
-                fullScreen ? 'h-[100lvh]' : 'h-[100svh]',
+                fullScreen ? 'h-[100lvh]' : 'h-[100lvh]',
                 'w-full max-w-[100vw] sticky top-0 flex gap-0 justify-center items-center overflow-hidden'
             )}>
                 {props.children}
