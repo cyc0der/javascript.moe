@@ -144,21 +144,22 @@ export const Bullets = ({ data, className, offset = 0.5, n }: BulletsProps) => {
 
 
     const scale = useTransform(scrollYProgress, [offset + 0.05 * 0, offset + 0.05 * 1], ["0%", "100%"])
+    const gap = useTransform(scrollYProgress, [offset + 0.05 * 3, offset + 0.05 * 4], ["32px", "8px"])
     // const opacity = useTransform(scrollYProgress, [0.85, 0.9], ["0%", "100%"])
     const scale1 = useTransform(scrollYProgress, [offset + 0.05 * 1, offset + 0.05 * 2], ["0%", "100%"])
     const scale2 = useTransform(scrollYProgress, [offset + 0.05 * 2, offset + 0.05 * 3], ["0%", "100%"])
     const scale3 = useTransform(scrollYProgress, [offset + 0.05 * 3, offset + 0.05 * 4], ["0%", "100%"])
-    const bg = useTransform(scrollYProgress, [0.75, 0.9], ["#00000000", "#00000099"])
-    return <div className={clsx('flex flex-col flex-wrap absolute gap-2 text-white m-4', className)} style={{ top: n }}>
+    const bg = useTransform(scrollYProgress, [0.9, 1], ["#00000000", "#00000099"])
+    return <motion.div className={clsx('flex flex-col flex-wrap text-white flex-grow-0 items-center justify-center', className)} style={{ gap }}>
         {
             data.map((e, i) => {
-                return <motion.div style={{ scale: [scale, scale1, scale2, scale3][i % 4], boxShadow, padding: 8, backgroundColor: bg, y: 8 }} className='flex gap-1'>
+                return <motion.div style={{ scale: [scale, scale1, scale2, scale3][i % 4], boxShadow, padding: 8, backgroundColor: bg, y: 8 }} className='flex flex-grow-0 gap-1'>
                     <e.logo width="36px" height="36px" />
                     <h2><a href={e.href || '#'}>{e.text}</a></h2>
                 </motion.div>
             })
         }
-    </div >
+    </motion.div >
 }
 
 export type BulletsRowsProps = {

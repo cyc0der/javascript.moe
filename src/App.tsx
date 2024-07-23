@@ -30,7 +30,7 @@ function App() {
         {/* <BackgroundImage src="/images/wallpaper/2.jpg"  /> */}
         <DualImages images={["/images/wallpaper/3.jpg", "/images/wallpaper/2.jpg"]} moveX={2} />
         <AppearingText texts={['Software Engineer', 'Fullstack Dev']} />
-        <div className='absolute w-full flex justify-center'>
+        <div className='absolute w-full flex flex-col items-center gap-2 mt-[25vh]'>
 
           <Bullets data={[
             { text: 'TypeScript', logo: TS, href: 'https://www.typescriptlang.org/' },
@@ -63,7 +63,7 @@ function App() {
         ]} invert desat />
 
         <AppearingText texts={['Looking for a senior TypeScript dev?', 'Looking for a lead developer?', 'Contact me']} slices={[0, 14, 0]} />
-        <div className='absolute w-full flex justify-center'>
+        <div className='absolute w-full mt-[25vh] flex justify-center'>
           <Bullets data={[
             { text: 'CV', logo: PDF, href: 'https://justmycv.com/en.pdf' },
             { text: 'LinkedIn', logo: LI, href: 'https://www.linkedin.com/in/moritz-roessler-666b18175/' }
