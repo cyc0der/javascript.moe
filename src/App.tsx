@@ -19,7 +19,7 @@ import { DualImages } from './components/BlendedImage'
 function App() {
   return (
     <>
-      <AnimatedSection height='175svh' >
+      <AnimatedSection height='175lvh' >
         <BackgroundImage src="/images/wallpaper/1.jpg" desat />
         <Container>
           <AnimatedImageCircle src="/images/profile.jpg" />
