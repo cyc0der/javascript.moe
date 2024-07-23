@@ -26,7 +26,7 @@ export const Shrinking = () => {
         target: ref || undefined,
         offset: ["start start", "end end"]
     });
-    const y = useParallax(scrollYProgress, 150, screen.height * -0.55, easeInOut)
+    const y = useParallax(scrollYProgress, 150, 150, easeInOut)
     const opacity = useTransform(scrollYProgress, [0.75, 1], [1, 0.1])
     const fontSize = useTransform(scrollYProgress, [0.25, 1], ['36px', screen.width <= 452 ? '52px' : '72px'])
     const shadow = useTransform(scrollYProgress, [0.25, 1], ['0px 0px 0px #FFFFFF', '0px 0px 8px #000000']);
@@ -45,13 +45,13 @@ export const Shrinking = () => {
 
             const mRect = mRef.current?.getBoundingClientRect() || null;
             const oeRect = oeRef.current?.getBoundingClientRect() || null;
-            const distCenterM = (window.innerWidth / 2) - (mRect?.x || 0) - ((mRect?.width || 0) - 8);
-            const distCenterOe = (window.innerWidth / 2) - (oeRect?.x || 0);
-            console.log("Dist Center", screen.width, oeRect?.x, distCenterOe)
+            const hWidth = ((mRect?.width || 0) + (oeRect?.width || 0)) / 2
+            const distCenterM = (window.innerWidth / 2) - ((mRect?.x || 0) + 12 + (mRect?.width || 0) / 2)
+            const distCenterOe = (window.innerWidth / 2) - (oeRect?.x || 0)
             setDist([distCenterM, distCenterOe])
         }
     })
-    return <motion.h1 className='absolute top-5 text-center' style={{ y, fontSize, lineHeight: fontSize, zIndex: 100, textShadow: shadow }}>
+    return <motion.h1 className='absolute bottom-0 text-center' style={{ y, fontSize, lineHeight: fontSize, zIndex: 100, textShadow: shadow }}>
         <motion.span ref={mRef} style={{ x: mX, display: 'inline-block', scaleX: scale }}>M</motion.span>
         <motion.span style={{ opacity }}>oritz R</motion.span>
         <motion.span ref={oeRef} style={{ x: oeX, display: 'inline-block', scaleX: scale }}>oe</motion.span>
