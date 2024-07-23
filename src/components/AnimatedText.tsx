@@ -39,6 +39,9 @@ export const Shrinking = () => {
     const mX = useTransform(scrollYProgress, [0.9, 1], ['0px', ((distCenterM) + 'px')]);
     const oeX = useTransform(scrollYProgress, [0.9, 1], ['0px', ((distCenterOe) + 'px')]);
     const scale = useTransform(scrollYProgress, [0.9, 0.95, 1], ["100%", "130%", "100%"])
+    const heightPipe = useTransform(scrollYProgress, [0.99, 1], ["0px", "100px"])
+    const xPipe = useTransform(scrollYProgress, [0.99, 1], ["-18px", "25px"])
+    const shadowPipe = useTransform(scrollYProgress, [0.99, 1], ["0px 0px 0px white", "0px 0px 12px white"])
 
     useMotionValueEvent(scrollYProgress, 'change', () => {
         if (scrollYProgress.get() <= 1) {
@@ -53,14 +56,17 @@ export const Shrinking = () => {
     })
     return <motion.h1 className='absolute bottom-0 text-center' style={{ y, fontSize, lineHeight: fontSize, zIndex: 100, textShadow: shadow }}>
         <span ref={mRef}>
-            <motion.span style={{ x: mX, display: 'inline-block', scaleX: scale }}>M</motion.span>
+            <motion.span style={{ x: mX, display: 'inline-block', scaleX: scale }}>
+                M
+                <motion.div className='inline-block border-[1px] border-[#FFFFFFEE]' style={{ x: -1, fontSize: '32px', y: xPipe, height: heightPipe, boxShadow: shadowPipe }}></motion.div>
+            </motion.span>
         </span>
         <motion.span style={{ opacity }}>oritz R</motion.span>
         <span ref={oeRef}>
             <motion.span style={{ x: oeX, display: 'inline-block', scaleX: scale }}>oe</motion.span>
         </span>
         <motion.span style={{ opacity }}>ssler</motion.span>
-    </motion.h1>
+    </motion.h1 >
 }
 
 export const AppearingText = ({ texts, slices }: { texts: string[], slices?: number[] }) => {
