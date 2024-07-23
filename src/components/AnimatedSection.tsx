@@ -11,7 +11,7 @@ export const AnimatedSection = (props: AnimatedSectionProps) => {
     const ref = useRef<HTMLDivElement | null>(null);
     return <sectionCtx.Provider value={{ ref }}>
         <section className="w-full" ref={ref} style={{ height }}>
-            <div className='h-[100lvh] w-full max-w-[100vw] sticky top-0 flex gap-0 justify-center items-center overflow-hidden' >
+            <div className='h-[100svh] w-full max-w-[100vw] sticky top-0 flex gap-0 justify-center items-center overflow-hidden' >
                 {props.children}
             </div>
         </section >
