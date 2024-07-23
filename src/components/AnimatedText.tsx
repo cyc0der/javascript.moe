@@ -44,7 +44,7 @@ export const Shrinking = () => {
     const heightPipe = useTransform(scrollYProgress, [0.99, 1], ["0px", "100px"])
     const widthUS = useTransform(scrollYProgress, [0.99, 1], ["0px", "100px"])
     const yPpipe = useTransform(scrollYProgress, [0.99, 1], [(fS * -0.25) + 'px', "25px"])
-    const xUS = useTransform(scrollYProgress, [0.99, 1], ['0px', "-16px"])
+    const xUS = useTransform(scrollYProgress, [0.99, 1], ['0px', "-20px"])
     const shadowPipe = useTransform(scrollYProgress, [0.99, 1], ["0px 0px 0px 0px white", "0px 0px 1px 0.5px white"])
 
     useMotionValueEvent(scrollYProgress, 'change', () => {
