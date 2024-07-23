@@ -45,7 +45,7 @@ export const Shrinking = () => {
 
             const mRect = mRef.current?.getBoundingClientRect() || null;
             const oeRect = oeRef.current?.getBoundingClientRect() || null;
-            const hWidth = ((mRect?.width || 0) + (oeRect?.width || 0)) / 2
+            // const hWidth = ((mRect?.width || 0) + (oeRect?.width || 0)) / 2
             const distCenterM = (window.innerWidth / 2) - ((mRect?.x || 0) + 12 + (mRect?.width || 0) / 2)
             const distCenterOe = (window.innerWidth / 2) - (oeRect?.x || 0)
             setDist([distCenterM, distCenterOe])
