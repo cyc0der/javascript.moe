@@ -50,7 +50,7 @@ function App() {
           ]}
             className="!flex-row"
             offset={0.5}
-            n={105}
+            n={window.innerWidth >= 768 ? 120 : 105}
           ></Bullets>
         </div>
       </AnimatedSection>
