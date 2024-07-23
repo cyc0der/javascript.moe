@@ -26,7 +26,7 @@ function App() {
         </Container>
         <MyName />
       </AnimatedSection>
-      <AnimatedSection height='300svh'>
+      <AnimatedSection height='300svh' fullScreen>
         {/* <BackgroundImage src="/images/wallpaper/2.jpg"  /> */}
         <DualImages images={["/images/wallpaper/3.jpg", "/images/wallpaper/2.jpg"]} moveX={2} />
         <AppearingText texts={['Software Engineer', 'Fullstack Dev']} />
