@@ -41,20 +41,24 @@ export const Shrinking = () => {
     const scale = useTransform(scrollYProgress, [0.9, 0.95, 1], ["100%", "130%", "100%"])
 
     useMotionValueEvent(scrollYProgress, 'change', () => {
-        if (scrollYProgress.get() < 0.9) {
+        if (scrollYProgress.get() <= 1) {
 
             const mRect = mRef.current?.getBoundingClientRect() || null;
             const oeRect = oeRef.current?.getBoundingClientRect() || null;
             // const hWidth = ((mRect?.width || 0) + (oeRect?.width || 0)) / 2
-            const distCenterM = -(mRect?.x || 0) + (window.innerWidth / 2) - (mRect?.width || 0)
-            const distCenterOe = (window.innerWidth / 2) - (oeRect?.x || 0);
+            const distCenterM = -(mRect?.left || 0) + (window.innerWidth / 2) - (mRect?.width || 0)
+            const distCenterOe = (window.innerWidth / 2) - (oeRect?.left || 0);
             setDist([distCenterM, distCenterOe])
         }
     })
     return <motion.h1 className='absolute bottom-0 text-center' style={{ y, fontSize, lineHeight: fontSize, zIndex: 100, textShadow: shadow }}>
-        <motion.span ref={mRef} style={{ x: mX, display: 'inline-block', scaleX: scale }}>M</motion.span>
+        <span ref={mRef}>
+            <motion.span style={{ x: mX, display: 'inline-block', scaleX: scale }}>M</motion.span>
+        </span>
         <motion.span style={{ opacity }}>oritz R</motion.span>
-        <motion.span ref={oeRef} style={{ x: oeX, display: 'inline-block', scaleX: scale }}>oe</motion.span>
+        <span ref={oeRef}>
+            <motion.span style={{ x: oeX, display: 'inline-block', scaleX: scale }}>oe</motion.span>
+        </span>
         <motion.span style={{ opacity }}>ssler</motion.span>
     </motion.h1>
 }
