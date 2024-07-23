@@ -131,7 +131,7 @@ export type BulletsProps = {
     offset: number;
     n: number;
 }
-export const Bullets = ({ data, className, offset = 0.5, n }: BulletsProps) => {
+export const Bullets = ({ data, className, offset = 0.5 }: BulletsProps) => {
     const { ref } = useContext(sectionCtx);
 
     const { scrollYProgress } = useScroll({
