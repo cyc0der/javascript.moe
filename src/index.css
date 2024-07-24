@@ -27,7 +27,7 @@ h1 {
 }
 
 h1#moe {
-  margin-bottom: calc(100lvh - 100dvh + 32px);
+  margin-bottom: calc(100lvh - 100svh + 32px);
 }
 
 h2 {
