@@ -34,7 +34,7 @@ export const MyName = () => {
     const ratio = (height / 1.75) / 4;
     let marginBottom = 32;
     if (hRef.current) {
-        marginBottom = +window.getComputedStyle(hRef.current).marginBottom.replace('px', '') - 32;
+        marginBottom = +window.getComputedStyle(hRef.current).marginBottom.replace('px', '') * 2 - 16;
     }
     const offset = marginBottom;
     console.log("OFF", offset)
