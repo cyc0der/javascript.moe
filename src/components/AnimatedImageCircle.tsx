@@ -1,6 +1,5 @@
 import clsx from 'clsx';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { useParallax } from '../lib/hooks';
 import { useContext } from 'react';
 import { sectionCtx } from './AnimatedSection';
 
