@@ -29,8 +29,10 @@ export const MyName = () => {
         offset: ["start start", "end end"]
     });
 
+    const hRef = useRef<HTMLDivElement>(null);
+
     const ratio = (height / 1.75) / 4;
-    const offset = 16;
+    const offset = Number(hRef.current?.style.marginBottom.replace('px', '') || 16)
     const y = useParallax(scrollYProgress, ratio - offset, ratio - offset, easeInOut)
     const opacity = useTransform(scrollYProgress, [0.75, 1], [1, 0.1]);
     const fS = screen.width <= 452 ? 52 : 72;
@@ -63,7 +65,7 @@ export const MyName = () => {
             setDist([distCenterM, distCenterOe])
         }
     })
-    return <motion.h1 id="moe" className='absolute bottom-0 text-center' style={{ y, fontSize, lineHeight: fontSize, zIndex: 100, textShadow: shadow }}>
+    return <motion.h1 id="moe" ref={hRef} className='absolute bottom-0 text-center' style={{ y, fontSize, lineHeight: fontSize, zIndex: 100, textShadow: shadow }}>
         <span ref={mRef}>
             <motion.span style={{ x: mX, display: 'inline-block', scaleX: scale }}>
                 M
