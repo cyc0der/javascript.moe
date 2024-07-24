@@ -50,14 +50,14 @@ export const MyName = () => {
 
 
     const [distCenterM, distCenterOe] = dist;
-    const mX = useTransform(scrollYProgress, [0.9, 1], ['0px', ((distCenterM) + 'px')]);
-    const oeX = useTransform(scrollYProgress, [0.9, 1], ['0px', ((distCenterOe) + 'px')]);
-    const scale = useTransform(scrollYProgress, [0.9, 0.95, 1], ["100%", "130%", "100%"])
-    const heightPipe = useTransform(scrollYProgress, [0.99, 1], ["0px", "100px"])
-    const widthUS = useTransform(scrollYProgress, [0.99, 1], ["0px", "100px"])
-    const yPpipe = useTransform(scrollYProgress, [0.99, 1], [(fS * -0.25) + 'px', "25px"])
-    const xUS = useTransform(scrollYProgress, [0.99, 1], ['0px', "-26px"])
-    const shadowPipe = useTransform(scrollYProgress, [0.99, 1], ["0px 0px 0px 0px white", "0px 0px 1px 0.5px white"])
+    const mX = useTransform(scrollYProgress, [0.8, 0.9], ['0px', ((distCenterM) + 'px')]);
+    const oeX = useTransform(scrollYProgress, [0.8, 0.9], ['0px', ((distCenterOe) + 'px')]);
+    const scale = useTransform(scrollYProgress, [0.8, 0.9, 0.95, 1], ["100%", "130%", "70%", "100%"])
+    const heightPipe = useTransform(scrollYProgress, [0.98, 1], ["0px", "100px"])
+    const widthUS = useTransform(scrollYProgress, [0.98, 1], ["0px", "100px"])
+    const yPpipe = useTransform(scrollYProgress, [0.98, 1], [(fS * -0.25) + 'px', "25px"])
+    const xUS = useTransform(scrollYProgress, [0.98, 1], ['0px', "-26px"])
+    const shadowPipe = useTransform(scrollYProgress, [0.98, 1], ["0px 0px 0px 0px white", "0px 0px 1px 0.5px white"])
 
     useMotionValueEvent(scrollYProgress, 'change', () => {
         if (scrollYProgress.get() <= 1) {
