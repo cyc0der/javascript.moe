@@ -36,7 +36,7 @@ function App() {
             { text: 'TypeScript', logo: TS, href: 'https://www.typescriptlang.org/' },
             { text: 'React', logo: ReactLogo, href: 'https://react.dev/' }
           ]}
-            offset={0.4}
+            offset={0.7}
             n={0}
 
           ></Bullets>
@@ -49,7 +49,7 @@ function App() {
             { text: 'Lambda', logo: LambdaLogo, href: 'https://aws.amazon.com/de/lambda/' },
           ]}
             className="!flex-row"
-            offset={0.5}
+            offset={0.75}
             n={window.innerWidth >= 768 ? 120 : 105}
           ></Bullets>
         </div>
