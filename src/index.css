@@ -21,11 +21,15 @@ h1 {
   font-weight: 400;
   font-size: 36px;
   line-height: 36px;
-  margin-bottom: calc(100lvh - 100dvh + 32px);
   /* margin-left: 25%;
   margin-right: 25%; */
   color: white;
 }
+
+h1#moe {
+  margin-bottom: calc(100lvh - 100dvh + 32px);
+}
+
 h2 {
   font-family: "Space Grotesk V 16 Latin 600", sans-serif;
   font-weight: 300;

@@ -63,7 +63,7 @@ export const MyName = () => {
             setDist([distCenterM, distCenterOe])
         }
     })
-    return <motion.h1 className='absolute bottom-0 text-center' style={{ y, fontSize, lineHeight: fontSize, zIndex: 100, textShadow: shadow }}>
+    return <motion.h1 id="moe" className='absolute bottom-0 text-center' style={{ y, fontSize, lineHeight: fontSize, zIndex: 100, textShadow: shadow }}>
         <span ref={mRef}>
             <motion.span style={{ x: mX, display: 'inline-block', scaleX: scale }}>
                 M
