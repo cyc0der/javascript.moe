@@ -32,7 +32,7 @@ export const MyName = () => {
     const hRef = useRef<HTMLDivElement>(null);
 
     const ratio = (height / 1.75) / 4;
-    let marginBottom = 32;
+    let marginBottom = 16;
     if (hRef.current) {
         marginBottom = +window.getComputedStyle(hRef.current).marginBottom.replace('px', '')
     }
