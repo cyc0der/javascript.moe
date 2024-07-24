@@ -32,7 +32,12 @@ export const MyName = () => {
     const hRef = useRef<HTMLDivElement>(null);
 
     const ratio = (height / 1.75) / 4;
-    const offset = ((Number(hRef.current?.style.marginBottom.replace('px', '') || 16) * 2) - 32)
+    let marginBottom = 32;
+    if (hRef.current) {
+        marginBottom = +window.getComputedStyle(hRef.current).marginBottom.replace('px', '')
+    }
+    const offset = marginBottom;
+        console.log("OFF", offset)
     const y = useParallax(scrollYProgress, ratio - offset, ratio - offset, easeInOut)
     const opacity = useTransform(scrollYProgress, [0.75, 1], [1, 0.1]);
     const fS = screen.width <= 452 ? 52 : 72;
