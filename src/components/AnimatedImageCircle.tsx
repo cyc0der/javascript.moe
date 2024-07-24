@@ -17,7 +17,7 @@ export enum AnimatedImageCircleSize {
     sm = 'sm'
 }
 
-export const AnimatedImageCircle = ({ src, className, size = 'sm' }: AnimatedImageCircleProps) => {
+export const AnimatedImageCircle = ({ src, className, size = AnimatedImageCircleSize.sm }: AnimatedImageCircleProps) => {
     const clsn = clsx("rounded-full overflow-hidden my-auto", className)
     const imgHeight = heights[size];
 
