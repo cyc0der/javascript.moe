@@ -99,7 +99,7 @@ export const AppearingText = ({ texts, slices }: { texts: string[], slices?: num
     const t2 = useTransform(scrollYProgress, [0, 1], [1, texts.length + 1])
     const boxShadow = useTransform(scrollYProgress, [0, 1], ['0px 0px 0px black', '0px 0px 12px black'])
 
-    const [text, setText] = useState('');
+    const [text, setText] = useState(['', '']);
     const [, setRerender] = useState(0);
     const startMultiplier = 2;
     useMotionValueEvent(y, 'change', () => {
@@ -121,9 +121,9 @@ export const AppearingText = ({ texts, slices }: { texts: string[], slices?: num
             return ((Math.random() - 0.5) * (1 - curProgress)) + ((curProgress) * (it.indexOf(a) - it.indexOf(b)))
         }).join('');
 
-        const part1 = it.split('').slice((slices || [])[curText] || 0);
-        const part = part1.map((_, i) => (start > i ? part1[i] : rand[i - start])).join('');
-        const txt = it.slice(0, (slices || [])[curText] || 0) + part;
+        const part1 = it.split('').slice((slices || [])[curText] || 0, ((slices || [])[curText] || 0) + start).join('')
+        const part = rand.map((_, i) => (rand[i])).join('');
+        const txt = [it.slice(0, (slices || [])[curText] || 0).concat(part1), part];
         setText(txt)
 
         if (curProgress >= 0.5) {
@@ -133,7 +133,8 @@ export const AppearingText = ({ texts, slices }: { texts: string[], slices?: num
         }
     })
     return <motion.h1 className={clsx('absolute top-5 text-center', { 'break-all': ((t2.get()) % 1) < (1 / startMultiplier) })} style={{ y, zIndex: 100, textShadow: boxShadow }}>
-        {text}
+        <span>{text[0]}</span>
+        <span style={{ color: '#FFFFFF33', textShadow: '0px 0px 7px white' }}>{text[1]}</span>
     </motion.h1 >
 }
 
