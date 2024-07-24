@@ -2,7 +2,6 @@ import clsx from 'clsx';
 import { easeIn, easeOut, motion, useScroll, useTransform } from 'framer-motion';
 import { useContext } from 'react';
 import { sectionCtx } from './AnimatedSection';
-import { DualImages } from './BlendedImage';
 
 export type AnimatedImageCircleProps = {
     images: string[];
