@@ -4,9 +4,15 @@ export const useParallax = (
   value: MotionValue<number>,
   distance: number,
   offset: number,
-  ease?: any
+  ease?: any,
+  range?: [number, number]
 ) => {
-  return useTransform(value, [1, 0], [-distance - offset, distance - offset], {
-    ease,
-  });
+  return useTransform(
+    value,
+    range || [1, 0],
+    [-distance - offset, distance - offset],
+    {
+      ease,
+    }
+  );
 };

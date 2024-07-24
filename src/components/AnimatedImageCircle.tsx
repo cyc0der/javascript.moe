@@ -22,7 +22,7 @@ export const AnimatedImageCircle = ({ src, className, size = 'sm' }: AnimatedIma
         target: ref || undefined,
         offset: ["start start", "end end"]
     });
-    const par = useParallax(scrollYProgress, imgHeight * 0.5, imgHeight * 0.5)
+    // const par = useParallax(scrollYProgress, imgHeight * 0.5, imgHeight * 0.5)
     // const x = useTransform(scrollYProgress, [0.25, 1], ["0vw", "-45vw"])
 
     const imgFilter = useTransform(scrollYProgress, [0, 0.25], ["saturate(100%)", "saturate(0%)"])
@@ -32,7 +32,7 @@ export const AnimatedImageCircle = ({ src, className, size = 'sm' }: AnimatedIma
 
     const out = useTransform(scrollYProgress, [0.25, 0.5], [0, -screen.height]);
 
-    const y = useTransform(() => par.get() + out.get())
+    // const y = useTransform(() => par.get() + out.get())
 
     return <motion.div className={clsn} style={{
         borderRadius: '1000px',
@@ -43,7 +43,7 @@ export const AnimatedImageCircle = ({ src, className, size = 'sm' }: AnimatedIma
         boxShadow: '0px 0px 6px 1px black',
         opacity,
         zIndex: 100,
-        y,
+        // y,
         // x,
         // scale,
         // position: 'absolute',

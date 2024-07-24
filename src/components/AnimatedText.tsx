@@ -31,14 +31,14 @@ export const MyName = () => {
 
     const hRef = useRef<HTMLDivElement>(null);
 
-    const ratio = (height / 1.75) / 4;
+    const distance = (height / 1.75) / 4;
     let marginBottom = 16;
     if (hRef.current) {
         marginBottom = +window.getComputedStyle(hRef.current).marginBottom.replace('px', '') / window.devicePixelRatio;
     }
-    
+
     const offset = marginBottom;
-    const y = useParallax(scrollYProgress, ratio - offset, ratio - offset, easeInOut)
+    const y = useParallax(scrollYProgress, distance - offset, distance - offset, easeInOut)
     const opacity = useTransform(scrollYProgress, [0.75, 1], [1, 0.1]);
     const fS = screen.width <= 452 ? 52 : 72;
     const fontSize = useTransform(scrollYProgress, [0.25, 0.9], ['36px', screen.width <= 452 ? '52px' : '72px'])
