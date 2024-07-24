@@ -175,6 +175,7 @@ export const Bullets = ({ data, className, offset = 0.5 }: BulletsProps) => {
                     <div>
                         <h2 >
                             <motion.a href={e.href || '#'}
+                                tabIndex={-1}
                                 style={{
                                     display: 'inline-block',
                                     maxWidth: textWidth,
