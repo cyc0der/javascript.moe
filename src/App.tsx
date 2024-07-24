@@ -26,7 +26,7 @@ function App() {
         <Parallax distance={320 * 0.5} offset={320 * 0.5}>
           <FlyOut range={[0.25, 0.5]}>
             <Container>
-              <AnimatedImageCircle src="/images/profile.jpg" />
+              <AnimatedImageCircle images={["/images/profile.jpg", "/images/profile2.jpg"]} />
             </Container>
           </FlyOut>
         </Parallax>

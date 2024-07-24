@@ -1,10 +1,11 @@
 import clsx from 'clsx';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { easeIn, easeOut, motion, useScroll, useTransform } from 'framer-motion';
 import { useContext } from 'react';
 import { sectionCtx } from './AnimatedSection';
+import { DualImages } from './BlendedImage';
 
 export type AnimatedImageCircleProps = {
-    src: string;
+    images: string[];
     className?: string
     size?: AnimatedImageCircleSize
 }
@@ -17,7 +18,7 @@ export enum AnimatedImageCircleSize {
     sm = 'sm'
 }
 
-export const AnimatedImageCircle = ({ src, className, size = AnimatedImageCircleSize.sm }: AnimatedImageCircleProps) => {
+export const AnimatedImageCircle = ({ images, className, size = AnimatedImageCircleSize.sm }: AnimatedImageCircleProps) => {
     const clsn = clsx("rounded-full overflow-hidden my-auto", className)
     const imgHeight = heights[size];
 
@@ -28,8 +29,9 @@ export const AnimatedImageCircle = ({ src, className, size = AnimatedImageCircle
         offset: ["start start", "end end"]
     });
 
-    const imgFilter = useTransform(scrollYProgress, [0, 0.25], ["saturate(100%)", "saturate(0%)"])
-    const opacity = useTransform(scrollYProgress, [0.25, 0.5], ["100%", "0%"])
+    const imgFilter = useTransform(scrollYProgress, [0, 0.25], ["saturate(100%)", "saturate(30%)"])
+    const opacity = useTransform(scrollYProgress, [0.2, 0.33], ["100%", "0%"], { ease: easeOut })
+    const reverse = useTransform(scrollYProgress, [0.2, 0.33], ["0%", "100%"], { ease: easeIn })
 
     return <motion.div className={clsn} style={{
         borderRadius: '1000px',
@@ -38,9 +40,10 @@ export const AnimatedImageCircle = ({ src, className, size = AnimatedImageCircle
         filter: imgFilter,
         backdropFilter: 'blur(12px)',
         boxShadow: '0px 0px 6px 1px black',
-        opacity,
+        // opacity,
         zIndex: 100,
     }}>
-        <div style={{ background: `url(${src}) center / cover`, height: '100%' }} />
+        <motion.div className="absolute h-full w-full" style={{ opacity, background: `url(${images[0]}) center / cover`, height: '100%' }} />
+        <motion.div className="absolute h-full w-full" style={{ opacity: reverse, background: `url(${images[1] || images[0]}) center / cover`, height: '100%' }} />
     </motion.div>
 }
