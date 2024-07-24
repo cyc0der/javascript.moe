@@ -1,5 +1,5 @@
 import './App.css'
-import { AnimatedSection, sectionCtx } from './components/AnimatedSection'
+import { AnimatedSection } from './components/AnimatedSection'
 import { AnimatedImageCircle } from './components/AnimatedImageCircle'
 import { BackgroundImage } from './components/BackgroundImage'
 import { Container } from './components/Container'
@@ -17,8 +17,6 @@ import LambdaLogo from './assets/lambda.svg?react';
 import { DualImages } from './components/BlendedImage'
 import { Parallax } from './components/anim/Parallax'
 import { FlyOut } from './components/anim/FlyOut'
-import { useContext, useRef } from 'react'
-import { getHeight } from './lib/util'
 
 function App() {
   return (
@@ -46,7 +44,6 @@ function App() {
             n={0}
           />
           <Parallax className='' distance={16} offset={-16} >
-
             <Bullets data={[
               { text: 'SQL', logo: SQLLogo, href: 'https://www.postgresql.org/' },
               { text: 'AWS', logo: AWSLogo, href: 'https://aws.amazon.com/de/console/' },
