@@ -22,18 +22,18 @@ function App() {
   return (
     <>
       <AnimatedSection height='175lvh' >
-        <BackgroundImage src="/images/wallpaper/1.jpg" desat />
+        <BackgroundImage src="/images/wallpaper/1.webp" desat />
         <Parallax distance={320 * 0.5} offset={320 * 0.5}>
           <FlyOut range={[0.25, 0.5]}>
             <Container>
-              <AnimatedImageCircle images={["/images/profile.jpg", "/images/profile2.jpg"]} />
+              <AnimatedImageCircle images={["/images/profile.webp", "/images/profile2.webp"]} />
             </Container>
           </FlyOut>
         </Parallax>
         <MyName />
       </AnimatedSection >
       <AnimatedSection height='300lvh' fullScreen>
-        <DualImages images={["/images/wallpaper/3.jpg", "/images/wallpaper/2.jpg"]} moveX={2} />
+        <DualImages images={["/images/wallpaper/3.webp", "/images/wallpaper/2.webp"]} moveX={2} />
         <AppearingText texts={['Software Engineer', 'Fullstack Dev']} />
         <Parallax className='absolute w-full flex flex-col items-center gap-2 mt-[25vh]' distance={32} offset={-32}>
           <Bullets data={[
@@ -61,8 +61,8 @@ function App() {
       </AnimatedSection >
       <AnimatedSection height='450lvh'>
         <DualImages images={[
-          "/images/wallpaper/4.jpg",
-          "/images/wallpaper/6.jpg",
+          "/images/wallpaper/4.webp",
+          "/images/wallpaper/6.webp",
         ]} invert desat />
         <AppearingText texts={['Looking for a senior TypeScript dev?', 'Looking for a lead developer?', 'Contact me']} slices={[0, 14, 0]} />
         <Parallax className='w-full mt-[25vh] flex justify-center' distance={100} offset={-100}>
