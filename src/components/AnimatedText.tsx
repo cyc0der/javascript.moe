@@ -95,7 +95,9 @@ export const AppearingText = ({ texts, slices }: { texts: string[], slices?: num
         target: ref || undefined,
         offset: ["start start", "end end"]
     });
-    const y = useParallax(scrollYProgress, 110, 110 - (screen.height / window.devicePixelRatio) * 0.25, easeInOut)
+    const dist = 110;
+    const off = dist - getHeight(document.body) * 0.25;
+    const y = useParallax(scrollYProgress, dist, off, easeInOut);
     const t2 = useTransform(scrollYProgress, [0, 1], [1, texts.length + 1])
     const boxShadow = useTransform(scrollYProgress, [0, 1], ['0px 0px 0px black', '0px 0px 12px black'])
 
