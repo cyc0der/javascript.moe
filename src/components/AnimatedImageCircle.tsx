@@ -18,7 +18,7 @@ export enum AnimatedImageCircleSize {
 }
 
 export const AnimatedImageCircle = ({ images, className, size = AnimatedImageCircleSize.sm }: AnimatedImageCircleProps) => {
-    const clsn = clsx("rounded-full overflow-hidden my-auto", className)
+    const clsn = clsx("relative rounded-full overflow-hidden my-auto", className)
     const imgHeight = heights[size];
 
     const { ref } = useContext(sectionCtx);
@@ -40,6 +40,7 @@ export const AnimatedImageCircle = ({ images, className, size = AnimatedImageCir
         backdropFilter: 'blur(12px)',
         boxShadow: '0px 0px 6px 1px black',
         // opacity,
+
         zIndex: 100,
     }}>
         <motion.div className="absolute h-full w-full" style={{ opacity, background: `url(${images[0]}) center / cover`, height: '100%' }} />
