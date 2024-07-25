@@ -95,7 +95,7 @@ export const AppearingText = ({ texts, slices }: { texts: string[], slices?: num
         target: ref || undefined,
         offset: ["start start", "end end"]
     });
-    const y = useParallax(scrollYProgress, 110, -110 - screen.height * 0.25, easeInOut)
+    const y = useParallax(scrollYProgress, 110 , 110 - screen.height * 0.25, easeInOut)
     const t2 = useTransform(scrollYProgress, [0, 1], [1, texts.length + 1])
     const boxShadow = useTransform(scrollYProgress, [0, 1], ['0px 0px 0px black', '0px 0px 12px black'])
 
@@ -132,7 +132,7 @@ export const AppearingText = ({ texts, slices }: { texts: string[], slices?: num
             setRerender(0)
         }
     })
-    return <motion.h1 className={clsx('absolute top-5 text-center', { 'break-all': ((t2.get()) % 1) < (1 / startMultiplier) })} style={{ y, zIndex: 100, textShadow: boxShadow }}>
+    return <motion.h1 className={clsx('absolute text-center', { 'break-all': ((t2.get()) % 1) < (1 / startMultiplier) })} style={{ y, zIndex: 100, textShadow: boxShadow }}>
         <span>{text[0]}</span>
         <span style={{ color: '#FFFFFF33', textShadow: '0px 0px 7px white' }}>{text[1]}</span>
     </motion.h1 >
