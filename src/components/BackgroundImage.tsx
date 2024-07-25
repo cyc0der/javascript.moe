@@ -6,10 +6,16 @@ export type BackgroundImageProps = {
     src?: string;
     invert?: boolean
     desat?: boolean;
+    vanish?: number;
     alt: string;
 }
 export const BackgroundImage = ({ src, invert, desat, alt }: BackgroundImageProps) => {
     const { ref } = useContext(sectionCtx);
+    const { scrollYProgress: totalProgress } = useScroll({
+        layoutEffect: false,
+        // target: ref || undefined,
+        offset: ["start start", "end end"]
+    });
     const { scrollYProgress } = useScroll({
         layoutEffect: false,
         target: ref || undefined,
@@ -18,8 +24,13 @@ export const BackgroundImage = ({ src, invert, desat, alt }: BackgroundImageProp
     const y = useParallax(scrollYProgress, 50, 0)
 
 
-
-    const imgFilter = useTransform(scrollYProgress, invert ? [1, 0.75] : [0, 0.25], ["saturate(30%) blur(12px)", "saturate(100%) blur(0px)"]);
+    const scaledProgress = useTransform(totalProgress, [0, 0.18], [0, 1.3]);
+    const imgFilter = useTransform(scaledProgress, invert ? [1.3, 1, 1, 0.75] : [0, 0.25, 1, 1.3], [
+        "saturate(30%) blur(12px)",
+        "saturate(100%) blur(0px)",
+        "saturate(100%) blur(0px)",
+        "saturate(100%) blur(12px)",
+    ]);
 
     return <motion.div
         style={{
