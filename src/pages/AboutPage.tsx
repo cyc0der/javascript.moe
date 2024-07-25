@@ -26,10 +26,10 @@ export const AboutPage = () => {
     const blur = useTransform(scrollYProgress, [0, 1], ['blur(4px)', 'blur(0px)'])
     const rblur = useTransform(scrollYProgress, [0, 1], ['brightness(100%) blur(0px) saturate(100%)', 'brightness(80%) blur(4px) saturate(140%)'])
     const background = useTransform(scrollYProgress, [0, 1], ['#FFFFFF11', '#00000033'])
-    const overflow = useTransform(scrollYProgress, [0, 1], ['hidden', 'scroll'])
+    const overflowY = useTransform(scrollYProgress, [0, 1], ['hidden', 'auto'])
     return <AnimatedSection height='120lvh' >
         <BackgroundImage src="/images/wallpaper/5.webp" alt="Seepark in Freiburg" />
-        <div className='w-[70ch] max-w-[calc(100vw-32px)] absolute top-0'>
+        <div className='w-[80ch] max-w-[calc(100vw-32px)] absolute top-0'>
             <Parallax distance={32 * 2} offset={32 * 1} className="flex"  >
                 <Link to="/" className="flex">
                     <ArrowBack style={{ fill: 'white' }} />
@@ -38,8 +38,8 @@ export const AboutPage = () => {
             </Parallax>
             <Parallax distance={dist - 32 * 4} offset={offset + 32 * 2}  >
                 <motion.div
-                    style={{ background, backdropFilter: rblur, overflow }}
-                    className="p-4 rounded-md shadow-lg shadow-black overflow-scroll max-h-[calc(100vh-120px)]" >
+                    style={{ background, backdropFilter: rblur, overflowY }}
+                    className="p-4 rounded-md shadow-lg shadow-black max-h-[calc(100vh-120px)]" >
                     <motion.p style={{ filter: blur, textShadow: '0px 0px 1px black' }}>{text}</motion.p>
                 </motion.div>
             </Parallax>
