@@ -1,9 +1,10 @@
-import { easeInOut, motion, useMotionValueEvent, useScroll, useTransform } from 'framer-motion';
+import { HTMLMotionProps, easeInOut, motion, useMotionValueEvent, useScroll, useTransform } from 'framer-motion';
 import { useParallax } from '../lib/hooks';
-import { useContext, useRef, useState } from 'react';
+import { ReactElement, useContext, useRef, useState } from 'react';
 import { sectionCtx } from './AnimatedSection';
 import clsx from 'clsx';
 import { getHeight } from '../lib/util';
+import { Link } from 'react-router-dom';
 
 export const AnimatedText = () => {
     const { ref } = useContext(sectionCtx);
@@ -58,6 +59,7 @@ export const MyName = () => {
     const yPpipe = useTransform(scrollYProgress, [0.98, 1], [(fS * -0.25) + 'px', "25px"])
     const xUS = useTransform(scrollYProgress, [0.98, 1], ['0px', "-26px"])
     const shadowPipe = useTransform(scrollYProgress, [0.98, 1], ["0px 0px 0px 0px white", "0px 0px 1px 0.5px white"])
+    const bb = useTransform(scrollYProgress, [0, 0.98, 1], ["2px solid white", "2px solid white", "0px solid white"])
 
     useMotionValueEvent(scrollYProgress, 'change', () => {
         if (scrollYProgress.get() <= 1) {
@@ -70,25 +72,28 @@ export const MyName = () => {
             setDist([distCenterM, distCenterOe])
         }
     })
-    return <motion.h1 id="moe" ref={hRef} className='absolute bottom-0 text-center' style={{ y, fontSize, lineHeight: fontSize, zIndex: 100, textShadow: shadow }}>
-        <span ref={mRef}>
-            <motion.span style={{ x: mX, display: 'inline-block', scaleX: scale }}>
-                M
-                <motion.div className='inline-block w-[0px]' style={{ x: -1, fontSize: '32px', y: yPpipe, height: heightPipe, boxShadow: shadowPipe }}></motion.div>
-            </motion.span>
-        </span>
-        <motion.span style={{ opacity }}>oritz R</motion.span>
-        <span ref={oeRef}>
-            <motion.span style={{ x: oeX, display: 'inline-block', scaleX: scale }}>
-                oe
-                <motion.div className='absolute  h-0' style={{ y: -4, fontSize: '32px', x: xUS, width: widthUS, boxShadow: shadowPipe }}></motion.div>
-            </motion.span>
-        </span>
-        <motion.span style={{ opacity }}>ssler</motion.span>
+    return <motion.h1 id="moe" ref={hRef} className='absolute bottom-0 text-center'
+        style={{ y, fontSize, lineHeight: fontSize, zIndex: 100, textShadow: shadow, borderBottom: bb }}>
+        <Link to="/about" >
+            <span ref={mRef}>
+                <motion.span style={{ x: mX, display: 'inline-block', scaleX: scale }}>
+                    M
+                    <motion.div className='inline-block w-[0px]' style={{ x: -1, fontSize: '32px', y: yPpipe, height: heightPipe, boxShadow: shadowPipe }}></motion.div>
+                </motion.span>
+            </span>
+            <motion.span style={{ opacity }}>oritz R</motion.span>
+            <span ref={oeRef}>
+                <motion.span style={{ x: oeX, display: 'inline-block', scaleX: scale }}>
+                    oe
+                    <motion.div className='absolute  h-0' style={{ y: -4, fontSize: '32px', x: xUS, width: widthUS, boxShadow: shadowPipe }}></motion.div>
+                </motion.span>
+            </span>
+            <motion.span style={{ opacity }}>ssler</motion.span>
+        </Link>
     </motion.h1 >
 }
 
-export const AppearingText = ({ texts, slices }: { texts: string[], slices?: number[] }) => {
+export const AppearingText = ({ texts, slices, Component = motion.h1 }: { texts: string[], slices?: number[], Component: any }) => {
     const { ref } = useContext(sectionCtx);
     const { scrollYProgress } = useScroll({
         layoutEffect: false,
@@ -134,10 +139,10 @@ export const AppearingText = ({ texts, slices }: { texts: string[], slices?: num
             setRerender(0)
         }
     })
-    return <motion.h1 className={clsx('absolute text-center', { 'break-all': ((t2.get()) % 1) < (1 / startMultiplier) })} style={{ y, zIndex: 100, textShadow: boxShadow }}>
+    return <Component className={clsx('absolute text-center', { 'break-all': ((t2.get()) % 1) < (1 / startMultiplier) })} style={{ y, zIndex: 100, textShadow: boxShadow }}>
         <span>{text[0]}</span>
         <span style={{ color: '#FFFFFF33', textShadow: '0px 0px 7px white' }}>{text[1]}</span>
-    </motion.h1 >
+    </Component >
 }
 
 export type BulletsProps = {

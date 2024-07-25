@@ -63,3 +63,9 @@ img {
     width: 36px;
   }
 }
+
+p {
+  font-size: 24px;
+  color: white;
+  font-weight: 300;
+}
