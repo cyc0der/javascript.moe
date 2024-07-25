@@ -78,7 +78,7 @@ function App() {
             { text: 'CV', logo: PDF, href: 'https://justmycv.com/en.pdf' },
             { text: 'LinkedIn', logo: LI, href: 'https://www.linkedin.com/in/moritz-roessler-666b18175/' },
           ]}
-            offset={0.6}
+            offset={0.75}
           ></Bullets>
           <Parallax distance={32} offset={-48}>
 
@@ -95,7 +95,7 @@ function App() {
               }
             ]}
               reverse
-              offset={0.6}
+              offset={0.75}
 
             // offset={0.55}
             ></Bullets>
