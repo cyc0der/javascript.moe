@@ -10,6 +10,7 @@ function App() {
     }}
   >
     <img
+      alt="Moosweiher in Freiburg mit einer Ente am Ufer"
       src="/images/wallpaper/1.webp"
       style={{
         zIndex: -1,
