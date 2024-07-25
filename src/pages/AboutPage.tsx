@@ -33,16 +33,29 @@ export const AboutPage = () => {
                     <h2>Back</h2>
                 </Link>
             </Parallax>
+
+
             <Parallax distance={dist - 32 * 4} offset={offset + 32 * 2}  >
-                <motion.div
-                    style={{ background, backdropFilter: rblur, overflowY }}
-                    className="p-4 rounded-md shadow-lg shadow-black max-h-[calc(100vh-120px)]" >
-                    <motion.p style={{ filter: blur, textShadow: '0px 0px 1px black' }}>{text}</motion.p>
-                </motion.div>
+                <div
+                    role="button"
+                    onClick={() => window.scrollTo({ top: window.pageYOffset <= 0 ? window.innerHeight : 0, behavior: 'smooth' })}
+                >
+                    <motion.div
+                        style={{ background, backdropFilter: rblur, overflowY }}
+                        className="p-4 rounded-md shadow-lg shadow-black max-h-[calc(100vh-120px)]" >
+                        <motion.p style={{ filter: blur, textShadow: '0px 0px 1px black' }}>{text}</motion.p>
+                    </motion.div>
+                </div>
             </Parallax>
             <Parallax
                 distance={dist - 32 * 2} offset={offset + 32} className="w-full absolute top-0 ml-4">
-                <h1 style={{ textShadow: '0px 0px 3px black' }}>About Me</h1>
+                <div
+                style={{width:'fit-content'}}
+                    role="button"
+                    onClick={() => window.scrollTo({ top: window.pageYOffset <= 0 ? window.innerHeight : 0, behavior: 'smooth' })}
+                >
+                    <h1 style={{ textShadow: '0px 0px 3px black' }}>About Me</h1>
+                </div>
             </Parallax>
         </div>
     </AnimatedSection >
