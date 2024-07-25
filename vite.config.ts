@@ -5,6 +5,6 @@ import viteCompression from "vite-plugin-compression";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [viteCompression(), svgr(), react()],
+  plugins: [svgr(), react(), viteCompression()],
   envPrefix: "VITE_",
 });
