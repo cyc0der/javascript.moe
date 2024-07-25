@@ -46,7 +46,6 @@ function App() {
             { text: 'React', logo: ReactLogo, href: 'https://react.dev/' }
           ]}
             offset={0.6}
-            n={0}
           />
           <Parallax className='' distance={16} offset={-16} >
             <Bullets data={[
@@ -59,7 +58,6 @@ function App() {
             ]}
               className="!flex-row"
               offset={0.75}
-              n={window.innerWidth >= 768 ? 120 : 105}
             ></Bullets>
           </Parallax>
         </Parallax>
