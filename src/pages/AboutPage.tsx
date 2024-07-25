@@ -13,7 +13,7 @@ Most of my time I'm working with TypeScript, React and GraphQL.
 As a senior TypeScript developer, I value code quality, static typing and the right 
 tooling. If you're looking for a senior frontend developer or a lead developer 
 in the greater area of Freiburg im Breisgau (or remote), don't hesitate to contact me. 
-I'm well experienced in working with remote teams adhering to Scrum.
+I'm well experienced in working with remote teams following Scrum principles.
 `
 
 export const AboutPage = () => {
