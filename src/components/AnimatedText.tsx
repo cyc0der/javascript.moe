@@ -144,9 +144,9 @@ export type BulletsProps = {
     data: { text: string, logo: any, href?: string }[],
     className?: string
     offset: number;
-    n: number;
+    reverse?: boolean;
 }
-export const Bullets = ({ data, className, offset = 0.5 }: BulletsProps) => {
+export const Bullets = ({ data, className, offset = 0.5, reverse }: BulletsProps) => {
     const { ref } = useContext(sectionCtx);
 
     const { scrollYProgress } = useScroll({
@@ -168,11 +168,14 @@ export const Bullets = ({ data, className, offset = 0.5 }: BulletsProps) => {
     const scale2 = useTransform(scrollYProgress, [offset + 0.05 * 2, offset + 0.05 * 3], ["0%", "100%"])
     const scale3 = useTransform(scrollYProgress, [offset + 0.05 * 3, offset + 0.05 * 4], ["0%", "100%"])
     const bg = useTransform(scrollYProgress, [0.9, 1], ["#00000000", "#00000099"])
+    let scalings = [scale, scale1, scale2, scale3];
+
 
     return <motion.div className={clsx('flex flex-row flex-wrap text-white flex-grow-0 items-center justify-center', className)} style={{ gap }}>
         {
             data.map((e, i) => {
-                return <motion.div style={{ alignItems: 'center', justifyContent: 'center', borderRadius, scale: [scale, scale1, scale2, scale3][i % 4], boxShadow, padding: 8, backgroundColor: bg, y: 8 }} className='flex flex-grow-0'>
+                const ele = reverse ? data.length - 1 - i : i;
+                return <motion.div style={{ alignItems: 'center', justifyContent: 'center', borderRadius, scale: scalings[ele % 4], boxShadow, padding: 8, backgroundColor: bg, y: 8 }} className='flex flex-grow-0'>
                     <e.logo width="36px" height="36px" />
                     <h2 >
                         <motion.a href={e.href || '#'}

@@ -80,7 +80,6 @@ function App() {
             { text: 'CV', logo: PDF, href: 'https://justmycv.com/en.pdf' },
             { text: 'LinkedIn', logo: LI, href: 'https://www.linkedin.com/in/moritz-roessler-666b18175/' },
           ]}
-            n={screen.height * 0}
             offset={0.6}
           ></Bullets>
           <Parallax distance={32} offset={-48}>
@@ -94,11 +93,13 @@ function App() {
               {
                 text: 'SO',
                 logo: () => <StackOverflowLogo style={{ fill: 'white', width: 'unset' }} />,
-                href: 'https://stackoverflow.com/users/1487756/moritz-roessler'
+                href: 'https://satackoverflow.com/users/1487756/moritz-roessler'
               }
             ]}
-              n={screen.height * 0}
-              offset={0.7}
+              reverse
+              offset={0.6}
+
+            // offset={0.55}
             ></Bullets>
           </Parallax>
         </Parallax>
