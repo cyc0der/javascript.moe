@@ -44,7 +44,21 @@ export const AnimatedImageCircle = ({ images, className, size = AnimatedImageCir
 
         zIndex: 100,
     }}>
-        <motion.div role="img" className="absolute h-full w-full" style={{ opacity, background: `url(${images[0]}) center / cover`, height: '100%' }} aria-label={alts[0]} />
-        <motion.div role="img" className="absolute h-full w-full" style={{ opacity: reverse, background: `url(${images[1] || images[0]}) center / cover`, height: '100%' }} aria-label={alts[1]} />
+        <motion.img
+            width={imgHeight + 'px'}
+            height={imgHeight + 'px'}
+            src={images[0]} loading="eager"
+            className="absolute h-full w-full"
+            style={{ opacity, objectFit: 'cover', height: '100%' }}
+            alt={alts[0]}
+        />
+        <motion.img
+            width={imgHeight + 'px'}
+            height={imgHeight + 'px'}
+            src={images[1]}
+            className="absolute h-full w-full"
+            style={{ opacity: reverse, objectFit: 'cover', height: '100%' }}
+            alt={alts[1]}
+        />
     </motion.div>
 }

@@ -40,13 +40,18 @@ export const BackgroundImage = ({ src, invert, desat, alt }: BackgroundImageProp
             y,
         }}
     >
-        <motion.img src={src} alt={alt} style={{
-            height: '120lvh',
-            aspectRatio: 'initial',
-            objectFit: 'cover',
-            minWidth: '100vw',
-            filter: desat ? imgFilter : undefined,
-        }}></motion.img>
+        <motion.img
+            loading='lazy'
+            src={src}
+            alt={alt}
+            style={{
+                height: '120lvh',
+                aspectRatio: 'initial',
+                objectFit: 'cover',
+                minWidth: '100vw',
+                filter: desat ? imgFilter : undefined,
+            }}
+        />
         <div className='w-[300px] h-[300px] backdrop-blur-3xl bg-white z-50' />
     </motion.div>
 }
