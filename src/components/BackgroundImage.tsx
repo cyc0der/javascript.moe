@@ -6,8 +6,9 @@ export type BackgroundImageProps = {
     src?: string;
     invert?: boolean
     desat?: boolean;
+    alt: string;
 }
-export const BackgroundImage = ({ src, invert, desat }: BackgroundImageProps) => {
+export const BackgroundImage = ({ src, invert, desat, alt }: BackgroundImageProps) => {
     const { ref } = useContext(sectionCtx);
     const { scrollYProgress } = useScroll({
         layoutEffect: false,
@@ -28,7 +29,7 @@ export const BackgroundImage = ({ src, invert, desat }: BackgroundImageProps) =>
             y,
         }}
     >
-        <motion.img src={src} style={{
+        <motion.img src={src} alt={alt} style={{
             height: '120lvh',
             aspectRatio: 'initial',
             objectFit: 'cover',

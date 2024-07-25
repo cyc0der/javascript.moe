@@ -95,7 +95,7 @@ export const BlendedImage = ({ images, invert, desat }: { images: string[], inve
     </>
 }
 
-export const DualImages = ({ images, moveX = 0 }: { images: string[], invert?: boolean, desat?: boolean, moveX?: 0 | 1 | 2 }) => {
+export const DualImages = ({ images, moveX = 0, alts }: { images: string[], alts: string[], invert?: boolean, desat?: boolean, moveX?: 0 | 1 | 2 }) => {
     const { ref: scrollRef } = useContext(sectionCtx);
     const { scrollYProgress } = useScroll({
         layoutEffect: false,
@@ -113,20 +113,17 @@ export const DualImages = ({ images, moveX = 0 }: { images: string[], invert?: b
     const reverse = useTransform(scrollYProgress, [0, 1], [1, 0]);
 
     return <motion.div className="absolute w-[100vw] h-[120lvh] bg-black" style={{ filter }}>
-        <motion.img src={images[0]} className="absolute w-[100vw] h-[120lvh]" style={{
+        <motion.img src={images[0]} alt={alts[0]} className="absolute w-[100vw] h-[120lvh]" style={{
             opacity: reverse,
             objectPosition: (moveX & 1) ? x : undefined,
 
             y: y
         }} />
-
-        <motion.img src={images[1]} className="absolute w-[100vw]  h-[120lvh]" style={{
+        <motion.img src={images[1]} alt={alts[1]} className="absolute w-[100vw]  h-[120lvh]" style={{
             opacity: scrollYProgress,
             objectPosition: (moveX & 2) ? x2 : undefined,
             scale,
             y: y2C,
-
         }} />
-
     </motion.div>
 }

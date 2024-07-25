@@ -22,18 +22,21 @@ function App() {
   return (
     <>
       <AnimatedSection height='175lvh' >
-        <BackgroundImage src="/images/wallpaper/1.webp" desat />
+        <BackgroundImage src="/images/wallpaper/1.webp" desat alt="Moosweiher See in Freiburg" />
         <Parallax distance={320 * 0.5} offset={320 * 0.5}>
           <FlyOut range={[0.25, 0.5]}>
             <Container>
-              <AnimatedImageCircle images={["/images/profile.webp", "/images/profile2.webp"]} />
+              <AnimatedImageCircle images={["/images/profile.webp", "/images/profile2.webp"]} alts={['Profile picture of Moritz', 'Profile picture of Moritz with sunglasses']} />
             </Container>
           </FlyOut>
         </Parallax>
         <MyName />
       </AnimatedSection >
       <AnimatedSection height='300lvh' fullScreen>
-        <DualImages images={["/images/wallpaper/3.webp", "/images/wallpaper/2.webp"]} moveX={2} />
+        <DualImages images={["/images/wallpaper/3.webp", "/images/wallpaper/2.webp"]} moveX={2} alts={[
+          'Weiher beim Park Hotel, Fasanerie in Neustrelitz',
+          'Moritz Roessler am Weiher beim Park Hotel, Fasanerie in Neustrelitz',
+        ]} />
         <AppearingText texts={['Software Engineer', 'Fullstack Dev']} />
         <Parallax className='absolute w-full flex flex-col items-center gap-2 mt-[25vh]' distance={32} offset={-32}>
           <Bullets data={[
@@ -63,7 +66,12 @@ function App() {
         <DualImages images={[
           "/images/wallpaper/4.webp",
           "/images/wallpaper/6.webp",
-        ]} invert desat />
+        ]}
+          alts={[
+            'Waldweg beim Parkhotel, Fasanerie in Neustrelitz',
+            'Rosengarten beim Seepark in Freiburg'
+          ]}
+          invert desat />
         <AppearingText texts={['Looking for a senior TypeScript dev?', 'Looking for a lead developer?', 'Contact me']} slices={[0, 14, 0]} />
         <Parallax className='w-full mt-[25vh] flex justify-center' distance={100} offset={-100}>
           <Bullets data={[

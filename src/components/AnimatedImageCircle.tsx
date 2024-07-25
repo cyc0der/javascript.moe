@@ -5,6 +5,7 @@ import { sectionCtx } from './AnimatedSection';
 
 export type AnimatedImageCircleProps = {
     images: string[];
+    alts: string[];
     className?: string
     size?: AnimatedImageCircleSize
 }
@@ -17,7 +18,7 @@ export enum AnimatedImageCircleSize {
     sm = 'sm'
 }
 
-export const AnimatedImageCircle = ({ images, className, size = AnimatedImageCircleSize.sm }: AnimatedImageCircleProps) => {
+export const AnimatedImageCircle = ({ images, className, size = AnimatedImageCircleSize.sm, alts }: AnimatedImageCircleProps) => {
     const clsn = clsx("relative rounded-full overflow-hidden my-auto", className)
     const imgHeight = heights[size];
 
@@ -43,7 +44,7 @@ export const AnimatedImageCircle = ({ images, className, size = AnimatedImageCir
 
         zIndex: 100,
     }}>
-        <motion.div className="absolute h-full w-full" style={{ opacity, background: `url(${images[0]}) center / cover`, height: '100%' }} />
-        <motion.div className="absolute h-full w-full" style={{ opacity: reverse, background: `url(${images[1] || images[0]}) center / cover`, height: '100%' }} />
+        <motion.div className="absolute h-full w-full" style={{ opacity, background: `url(${images[0]}) center / cover`, height: '100%' }} aria-label={alts[0]} />
+        <motion.div className="absolute h-full w-full" style={{ opacity: reverse, background: `url(${images[1] || images[0]}) center / cover`, height: '100%' }} aria-label={alts[1]} />
     </motion.div>
 }
