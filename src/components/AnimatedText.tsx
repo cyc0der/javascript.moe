@@ -1,6 +1,6 @@
-import { HTMLMotionProps, easeInOut, motion, useMotionValueEvent, useScroll, useTransform } from 'framer-motion';
+import { easeInOut, motion, useMotionValueEvent, useScroll, useTransform } from 'framer-motion';
 import { useParallax } from '../lib/hooks';
-import { ReactElement, useContext, useRef, useState } from 'react';
+import { useContext, useRef, useState } from 'react';
 import { sectionCtx } from './AnimatedSection';
 import clsx from 'clsx';
 import { getHeight } from '../lib/util';
@@ -93,7 +93,7 @@ export const MyName = () => {
     </motion.h1 >
 }
 
-export const AppearingText = ({ texts, slices, Component = motion.h1 }: { texts: string[], slices?: number[], Component: any }) => {
+export const AppearingText = ({ texts, slices, Component = motion.h1 }: { texts: string[], slices?: number[], Component?: any }) => {
     const { ref } = useContext(sectionCtx);
     const { scrollYProgress } = useScroll({
         layoutEffect: false,

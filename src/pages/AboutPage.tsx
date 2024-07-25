@@ -1,14 +1,11 @@
 import { getHeight } from "../lib/util"
-import { AnimatedImageCircle } from "../components/AnimatedImageCircle"
 import { AnimatedSection } from "../components/AnimatedSection"
-import { AppearingText, MyName } from "../components/AnimatedText"
 import { BackgroundImage } from "../components/BackgroundImage"
-import { Container } from "../components/Container"
-import { FlyOut } from "../components/anim/FlyOut"
 import { Parallax } from "../components/anim/Parallax"
-import { HTMLMotionProps, easeInOut, motion, useMotionValueEvent, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import ArrowBack from '../assets/arrowback.svg?react'
 import { Link } from "react-router-dom"
+
 const text = `
 I'm Moe. A guy in his 30ies. I have 11 years of professional experience with JavaScript. 
 Over the years I gained expert knowledge in web and fullstack development. 
@@ -16,7 +13,7 @@ Most of my time I'm working with TypeScript, React and GraphQL.
 As a senior TypeScript developer, I value code quality, static typing and the right 
 tooling. If you're looking for a senior frontend developer or a lead developer 
 in the greater area of Freiburg im Breisgau (or remote), don't hesitate to contact me. 
-I'm well experienced in working with remote teams in agile environments such as Scrum.
+I'm well experienced in working with remote teams adhering to Scrum.
 `
 
 export const AboutPage = () => {
