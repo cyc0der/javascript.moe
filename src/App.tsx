@@ -4,7 +4,23 @@ import { routes } from './lib/routes'
 
 
 function App() {
-  return <Router>
+  return <Router
+    future={{
+      v7_startTransition: true,
+    }}
+  >
+    <img
+      src="/images/wallpaper/1.webp"
+      style={{
+        zIndex: -1,
+        position: 'absolute',
+        height: "120lvh",
+        aspectRatio: "initial",
+        objectFit: "cover",
+        width: "calc(100vw - (100vw - 100%))",
+        filter: 'saturate(0%)'
+      }}
+    />
     {routes}
   </Router>
 }

@@ -4,6 +4,6 @@ import { Route, Routes } from 'react-router';
 
 
 export const routes = <Routes>
-    <Route path="/" Component={() => <LandingPage />} />,
+    <Route path="/" Component={LandingPage} />,
     <Route path="/about" Component={AboutPage} />
 </Routes>

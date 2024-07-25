@@ -87,8 +87,27 @@
           aspect-ratio: initial;
           object-fit: cover;
           width: calc(100vw - (100vw - 100%));
+          filter: saturate(0%);
         "
       />
+      <div
+        style="
+          position: absolute;
+          top: 0;
+          width: 100vw;
+          height: 100vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: white;
+          text-shadow: 0px 0px 3px #333333;
+        "
+      >
+        <noscript>
+          <h1>This site uses CSR and requires JavaScript to run.</h1>
+          <h2>Enjoy this black and white picture.</h2>
+        </noscript>
+      </div>
     </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
