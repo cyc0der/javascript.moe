@@ -162,7 +162,7 @@ export const Bullets = ({ data, className, offset = 0.5 }: BulletsProps) => {
     const gap = useTransform(scrollYProgress, [offset + 0.05 * 3, offset + 0.05 * 4], ["32px", "8px"])
     const textWidth = useTransform(scrollYProgress,
         [offset + 0.05 * 3, offset + 0.05 * 4],
-        ["0px", "200px"]);
+        ["0px", "300px"]);
     const borderRadius = useTransform(scrollYProgress, [offset + 0.05 * 2, offset + 0.05 * 3], ["32px", "0px"])
     const scale1 = useTransform(scrollYProgress, [offset + 0.05 * 1, offset + 0.05 * 2], ["0%", "100%"])
     const scale2 = useTransform(scrollYProgress, [offset + 0.05 * 2, offset + 0.05 * 3], ["0%", "100%"])
@@ -172,21 +172,23 @@ export const Bullets = ({ data, className, offset = 0.5 }: BulletsProps) => {
     return <motion.div className={clsx('flex flex-row flex-wrap text-white flex-grow-0 items-center justify-center', className)} style={{ gap }}>
         {
             data.map((e, i) => {
-                return <motion.div style={{ borderRadius, scale: [scale, scale1, scale2, scale3][i % 4], boxShadow, padding: 8, backgroundColor: bg, y: 8 }} className='flex flex-grow-0 gap-1'>
+                return <motion.div style={{ alignItems: 'center', justifyContent: 'center', borderRadius, scale: [scale, scale1, scale2, scale3][i % 4], boxShadow, padding: 8, backgroundColor: bg, y: 8 }} className='flex flex-grow-0'>
                     <e.logo width="36px" height="36px" />
-                    <div>
-                        <h2 >
-                            <motion.a href={e.href || '#'}
-                                tabIndex={-1}
-                                style={{
-                                    display: 'inline-block',
-                                    maxWidth: textWidth,
-                                    overflow: 'hidden',
-                                    whiteSpace: 'nowrap'
-                                }}
-                            >{e.text}</motion.a>
-                        </h2>
-                    </div>
+                    <h2 >
+                        <motion.a href={e.href || '#'}
+                            tabIndex={-1}
+                            style={{
+                                display: 'block',
+                                maxWidth: textWidth,
+                                overflow: 'hidden',
+                                whiteSpace: 'nowrap'
+                            }}
+                        >
+                            <div style={{ marginLeft: '8px' }}>
+                                {e.text}
+                            </div>
+                        </motion.a>
+                    </h2>
                 </motion.div>
             })
         }

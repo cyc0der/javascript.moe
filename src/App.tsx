@@ -8,6 +8,8 @@ import TS from './assets/ts.svg?react';
 import PDF from './assets/pdf.svg?react';
 import ReactLogo from './assets/react.svg?react';
 import LI from './assets/li.svg?react';
+import GH from './assets/github.svg?react';
+import StackOverflowLogo from './assets/stackoverflow.svg?react';
 import AWSLogo from './assets/aws.svg?react';
 import SQLLogo from './assets/sql.svg?react';
 import NodeJSLogo from './assets/node.svg?react';
@@ -73,10 +75,25 @@ function App() {
           ]}
           invert desat />
         <AppearingText texts={['Looking for a senior TypeScript dev?', 'Looking for a lead developer?', 'Contact me']} slices={[0, 14, 0]} />
-        <Parallax className='w-full mt-[25vh] flex justify-center' distance={100} offset={-100}>
+        <Parallax className='w-full mt-[25vh] flex flex-col justify-center gap-11' distance={100} offset={-100}>
           <Bullets data={[
             { text: 'CV', logo: PDF, href: 'https://justmycv.com/en.pdf' },
-            { text: 'LinkedIn', logo: LI, href: 'https://www.linkedin.com/in/moritz-roessler-666b18175/' }
+            { text: 'LinkedIn', logo: LI, href: 'https://www.linkedin.com/in/moritz-roessler-666b18175/' },
+          ]}
+            n={screen.height * 0}
+            offset={0.6}
+          ></Bullets>
+          <Bullets data={[
+            {
+              text: 'GitHub',
+              logo: () => <GH style={{ fill: 'white' }} />,
+              href: 'https://github.com/C5H8NNaO4/javascript.moe'
+            },
+            {
+              text: 'SO',
+              logo: () => <StackOverflowLogo style={{ fill: 'white', width: 'unset' }} />,
+              href: 'https://stackoverflow.com/users/1487756/moritz-roessler'
+            }
           ]}
             n={screen.height * 0}
             offset={0.7}
