@@ -39,7 +39,7 @@ export const AboutSection = () => {
     const blur = useTransform(scrollYProgress, [0, 1], ['blur(4px)', 'blur(0px)'])
     const rblur = useTransform(scrollYProgress, [0, 1], ['brightness(100%) blur(0px) saturate(100%)', 'brightness(80%) blur(4px) saturate(140%)'])
     const background = useTransform(scrollYProgress, [0, 1], ['#FFFFFF11', '#00000033'])
-    const overflowY = useTransform(scrollYProgress, [0, 1], ['hidden', 'auto'])
+    // const overflowY = useTransform(scrollYProgress, [0, 1], ['hidden', 'auto'])
     return <><BackgroundImage src="/images/wallpaper/5.webp" alt="Seepark in Freiburg" />
         <div className='w-[80ch] max-w-[calc(100vw-32px)] h-[100lvh] overflow-hidden'>
             <Parallax distance={32 * 2} offset={32 * 1} className="flex"  >
@@ -54,7 +54,7 @@ export const AboutSection = () => {
                     onClick={() => window.scrollTo({ top: window.pageYOffset <= 0 ? window.innerHeight : 0, behavior: 'smooth' })}
                 >
                     <motion.div
-                        style={{ background, backdropFilter: rblur, overflowY }}
+                        style={{ background, backdropFilter: rblur, overflowY: 'auto' }}
                         className="p-4 rounded-md shadow-lg shadow-black max-h-[calc(100lvh-120px)]" >
                         <motion.p style={{ filter: blur, textShadow: '0px 0px 1px black' }}>{text}</motion.p>
                     </motion.div>
