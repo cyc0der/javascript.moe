@@ -1,18 +1,18 @@
 import { getHeight } from "../lib/util"
 import {
     AnimatedSection,
-    sectionCtx
+    // sectionCtx
 } from "../components/AnimatedSection"
 import { BackgroundImage } from "../components/BackgroundImage"
 import { Parallax } from "../components/anim/Parallax"
-import {
+// import {
     // motion,
-    useScroll,
+    // useScroll,
     // useTransform
-} from 'framer-motion';
+// } from 'framer-motion';
 // import ArrowBack from '../assets/arrowback.svg?react'
 // import { Link } from "react-router-dom"
-import { useContext } from "react";
+// import { useContext } from "react";
 
 // const text = `
 // I'm Moe. A guy in his 30ies. I have 11 years of professional experience with JavaScript. 
@@ -34,14 +34,14 @@ export const AboutPage = () => {
 }
 
 export const AboutSection = () => {
-    const { ref: scrollRef } = useContext(sectionCtx);
+    // const { ref: scrollRef } = useContext(sectionCtx);
     const dist = (getHeight(document.body) * 0.5);
     const offset = -dist;
-    const { scrollYProgress } = useScroll({
-        layoutEffect: false,
-        target: scrollRef || undefined,
-        offset: ["start start", "end end"]
-    });
+    // const { scrollYProgress } = useScroll({
+    //     layoutEffect: false,
+    //     target: scrollRef || undefined,
+    //     offset: ["start start", "end end"]
+    // });
 
     // const blur = useTransform(scrollYProgress, [0, 1], ['blur(4px)', 'blur(0px)'])
     // const rblur = useTransform(scrollYProgress, [0, 1], ['brightness(100%) blur(0px) saturate(100%)', 'brightness(80%) blur(4px) saturate(140%)'])
