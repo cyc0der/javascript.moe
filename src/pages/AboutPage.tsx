@@ -18,14 +18,10 @@ I'm well experienced in working with remote teams following Scrum principles.
 `
 
 export const AboutPage = () => {
-    const { scrollYProgress } = useScroll();
-    const [r, setR] = useState(0);
-    useMotionValueEvent(scrollYProgress, 'change', () => {
-        if (scrollYProgress.get() === 0)
-            setR(r + 1);
-    })
+
+
     return <>
-        <AnimatedSection key={r} height='150lvh' >
+        <AnimatedSection height='120lvh' >
             <AboutSection />
         </AnimatedSection >
     </>
@@ -40,7 +36,13 @@ export const AboutSection = () => {
         target: scrollRef || undefined,
         offset: ["start start", "end end"]
     });
-
+    const [r, setR] = useState(0);
+    useMotionValueEvent(scrollYProgress, 'change', () => {
+        if (scrollYProgress.get() === 0) {
+            console.log("RERENDER");
+            setR(r + 1);
+        }
+    })
     const blur = useTransform(scrollYProgress, [0, 1], ['blur(4px)', 'blur(0px)'])
     const rblur = useTransform(scrollYProgress, [0, 1], ['brightness(100%) blur(0px) saturate(100%)', 'brightness(80%) blur(4px) saturate(140%)'])
     const background = useTransform(scrollYProgress, [0, 1], ['#FFFFFF11', '#00000033'])
@@ -53,7 +55,7 @@ export const AboutSection = () => {
                     <h2>Back</h2>
                 </Link>
             </Parallax>
-            <Parallax distance={dist - 32 * 4} offset={offset + 32 * 2}  >
+            <Parallax distance={dist - 32 * 4} offset={offset + 32 * 2} key={r} >
                 <div
                     role="button"
                     onClick={() => window.scrollTo({ top: window.pageYOffset <= 0 ? window.innerHeight : 0, behavior: 'smooth' })}
