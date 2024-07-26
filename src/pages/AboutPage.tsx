@@ -34,7 +34,6 @@ export const AboutSection = ({ text }: AboutSectionProps) => {
     const rblur = useTransform(scrollYProgress, [0, 1], ['brightness(100%) blur(0px) saturate(100%)', 'brightness(80%) blur(4px) saturate(140%)'])
     const background = useTransform(scrollYProgress, [0, 1], ['#FFFFFF11', '#00000033'])
     const overflowY = useTransform(scrollYProgress, [0, 1], ['hidden', 'auto']);
-    const x = useTransform(scrollYProgress, [0, 1], ['calc(-50vw)', 'calc(0vw)']);
 
     return <>
         <BackgroundImage src="/images/wallpaper/5.webp" alt="Seepark in Freiburg" />
@@ -45,7 +44,7 @@ export const AboutSection = ({ text }: AboutSectionProps) => {
                     <h2>Back</h2>
                 </Link>
             </Parallax>
-            <motion.div style={{ x, marginTop: 64}}>
+            <Parallax distance={dist - 32 * 4} offset={offset + 32 * 2}>
                 <button
                     onClick={scrollToTop}
                 >
@@ -59,7 +58,7 @@ export const AboutSection = ({ text }: AboutSectionProps) => {
                         <motion.p style={{ filter: blur, textShadow: '0px 0px 1px black' }}>{text}</motion.p>
                     </motion.div>
                 </button>
-            </motion.div>
+            </Parallax>
             <Parallax
                 distance={dist - 32 * 2} offset={offset + 32} className="w-full absolute top-0 ml-4"
             >
