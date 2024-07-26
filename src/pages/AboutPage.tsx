@@ -1,4 +1,4 @@
-// import { getHeight } from "../lib/util"
+import { getHeight } from "../lib/util"
 import { AnimatedSection, sectionCtx } from "../components/AnimatedSection"
 import { BackgroundImage } from "../components/BackgroundImage"
 import { Parallax } from "../components/anim/Parallax"
@@ -28,7 +28,7 @@ export const AboutPage = () => {
 
 export const AboutSection = () => {
     const { ref: scrollRef } = useContext(sectionCtx);
-    const dist = 389 / 2;
+    const dist = (getHeight(document.body) * 0.5);
     const offset = -dist;
     const { scrollYProgress } = useScroll({
         layoutEffect: false,
@@ -41,7 +41,7 @@ export const AboutSection = () => {
     const background = useTransform(scrollYProgress, [0, 1], ['#FFFFFF11', '#00000033'])
     const overflowY = useTransform(scrollYProgress, [0, 1], ['hidden', 'auto'])
     return <><BackgroundImage src="/images/wallpaper/5.webp" alt="Seepark in Freiburg" />
-        <div className='w-[80ch] max-w-[calc(100vw-32px)] absolute top-0'>
+        <div className='w-[80ch] max-w-[calc(100vw-32px)] h-[100lvh]'>
             <Parallax distance={32 * 2} offset={32 * 1} className="flex"  >
                 <Link to="/" className="flex">
                     <ArrowBack style={{ fill: 'white' }} />
@@ -67,7 +67,7 @@ export const AboutSection = () => {
                     role="button"
                     onClick={() => window.scrollTo({ top: window.pageYOffset <= 0 ? window.innerHeight : 0, behavior: 'smooth' })}
                 >
-                    <h1 style={{ textShadow: '0px 0px 3px black' }}>About Me {dist}</h1>
+                    <h1 style={{ textShadow: '0px 0px 3px black' }}>About Me</h1>
                 </div>
             </Parallax>
         </div>
