@@ -2,10 +2,10 @@ import { getHeight } from "../lib/util"
 import { AnimatedSection, sectionCtx } from "../components/AnimatedSection"
 import { BackgroundImage } from "../components/BackgroundImage"
 import { Parallax } from "../components/anim/Parallax"
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useMotionValueEvent, useScroll, useTransform } from 'framer-motion';
 import ArrowBack from '../assets/arrowback.svg?react'
 import { Link } from "react-router-dom"
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 const text = `
 I'm Moe. A guy in his 30ies. I have 11 years of professional experience with JavaScript. 
@@ -18,10 +18,15 @@ I'm well experienced in working with remote teams following Scrum principles.
 `
 
 export const AboutPage = () => {
-
+    const { scrollYProgress } = useScroll();
+    const [r, setR] = useState(0);
+    useMotionValueEvent(scrollYProgress, 'change', () => {
+        if (scrollYProgress.get() === 0)
+            setR(r + 1);
+    })
     return <>
         <AnimatedSection height='150lvh' >
-            <AboutSection />
+            <AboutSection key={r} />
         </AnimatedSection >
     </>
 }
