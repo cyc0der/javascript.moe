@@ -28,7 +28,7 @@ export const AboutPage = () => {
 
 export const AboutSection = () => {
     const { ref: scrollRef } = useContext(sectionCtx);
-    const dist = (getHeight(scrollRef?.current || null) * 0.5);
+    const dist = (getHeight(document.body) * 0.5);
     const offset = -dist;
     const { scrollYProgress } = useScroll({
         layoutEffect: false,
