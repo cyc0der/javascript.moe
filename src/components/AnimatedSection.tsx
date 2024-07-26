@@ -12,7 +12,7 @@ export const AnimatedSection = (props: AnimatedSectionProps) => {
     const { height = '100lvh' } = props;
     const ref = useRef<HTMLDivElement | null>(null);
     return <sectionCtx.Provider value={{ ref }}>
-        <section className="w-full" ref={ref} style={{ height }}>
+        <section className="w-full" ref={ref} style={{ height, minHeight: height }}>
             <div className={clsx(
                 'h-[100lvh]',
                 'min-h-[100lvh]',
