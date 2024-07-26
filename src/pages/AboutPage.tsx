@@ -1,6 +1,6 @@
 import { getVH, scrollToTop } from "../lib/util"
 import { StickySection, sectionCtx } from "../components/AnimatedSection"
-import { BackgroundImage } from "../components/BackgroundImage"
+// import { BackgroundImage } from "../components/BackgroundImage"
 import { Parallax } from "../components/anim/Parallax"
 import { motion, useScroll, useTransform } from 'framer-motion';
 import ArrowBack from '../assets/arrowback.svg?react'
