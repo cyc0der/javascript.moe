@@ -1,7 +1,7 @@
 import { easeOut, useScroll, useTransform } from "framer-motion";
 import { useContext, useEffect, useRef } from "react"
-import { sectionCtx } from "./AnimatedSection";
-import { useParallax } from "../lib/hooks";
+import { sectionCtx } from "@/components/AnimatedSection";
+import { useParallax } from "@/lib/hooks";
 import { motion } from 'framer-motion';
 
 function blend(bottomImageData: ImageData, topImageData: ImageData, alpha: number) {

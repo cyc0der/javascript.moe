@@ -1,23 +1,23 @@
-import { StickySection } from '../components/AnimatedSection'
-import { AnimatedImageCircle } from '../components/AnimatedImageCircle'
-import { BackgroundImage } from '../components/BackgroundImage'
-import { Container } from '../components/Container'
-import { AppearingText, Bullets, MyName } from '../components/AnimatedText'
-import TS from '../assets/ts.svg?react';
-import PDF from '../assets/pdf.svg?react';
-import ReactLogo from '../assets/react.svg?react';
-import LI from '../assets/li.svg?react';
-import GH from '../assets/github.svg?react';
-import StackOverflowLogo from '../assets/stackoverflow.svg?react';
-import AWSLogo from '../assets/aws.svg?react';
-import SQLLogo from '../assets/sql.svg?react';
-import NodeJSLogo from '../assets/node.svg?react';
-import VueJSLogo from '../assets/vue.svg?react';
-import DockerLogo from '../assets/docker.svg?react';
-import LambdaLogo from '../assets/lambda.svg?react';
-import { DualImages } from '../components/BlendedImage'
-import { Parallax } from '../components/anim/Parallax'
-import { FlyOut } from '../components/anim/FlyOut'
+import { StickySection } from '@/components/AnimatedSection'
+import { AnimatedImageCircle } from '@/components/AnimatedImageCircle'
+import { BackgroundImage } from '@/components/BackgroundImage'
+import { Container } from '@/components/Container'
+import { AppearingText, Bullets, MyName } from '@/components/AnimatedText'
+import TS from '@/assets/ts.svg?react';
+import PDF from '@/assets/pdf.svg?react';
+import ReactLogo from '@/assets/react.svg?react';
+import LI from '@/assets/li.svg?react';
+import GH from '@/assets/github.svg?react';
+import StackOverflowLogo from '@/assets/stackoverflow.svg?react';
+import AWSLogo from '@/assets/aws.svg?react';
+import SQLLogo from '@/assets/sql.svg?react';
+import NodeJSLogo from '@/assets/node.svg?react';
+import VueJSLogo from '@/assets/vue.svg?react';
+import DockerLogo from '@/assets/docker.svg?react';
+import LambdaLogo from '@/assets/lambda.svg?react';
+import { DualImages } from '@/components/BlendedImage'
+import { Parallax } from '@/components/anim/Parallax'
+import { FlyOut } from '@/components/anim/FlyOut'
 
 export const LandingPage = () => {
     return (

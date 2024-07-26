@@ -1,10 +1,12 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { PropsWithChildren, useContext } from 'react';
-import { sectionCtx } from '../AnimatedSection';
+import { sectionCtx } from '@/components/AnimatedSection';
+
 export type ParallaxProps = PropsWithChildren<{
     range: [number, number];
     className?: string;
 }>
+
 export const FlyOut = ({ children, range }: ParallaxProps) => {
     const { ref } = useContext(sectionCtx);
     const { scrollYProgress } = useScroll({

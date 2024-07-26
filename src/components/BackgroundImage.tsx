@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { useParallax } from '../lib/hooks';
+import { useParallax } from '@/lib/hooks';
 import { useContext } from 'react';
-import { sectionCtx } from './AnimatedSection';
+import { sectionCtx } from '@/components/AnimatedSection';
 export type BackgroundImageProps = {
     src?: string;
     invert?: boolean

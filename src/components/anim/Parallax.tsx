@@ -1,7 +1,8 @@
 import { easeIn, motion, useScroll } from 'framer-motion';
 import { PropsWithChildren, useContext } from 'react';
-import { sectionCtx } from '../AnimatedSection';
-import { useParallax } from '../../lib/hooks';
+import { sectionCtx } from '@/components/AnimatedSection';
+import { useParallax } from '@/lib/hooks';
+
 export type ParallaxProps = PropsWithChildren<{
     distance: number
     offset?: number;
