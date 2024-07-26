@@ -11,7 +11,7 @@ function App() {
     }}
   >
     <ScrollToTop />
-    <img
+    {/* <img
       alt="Moosweiher in Freiburg mit einer Ente am Ufer"
       src="/images/wallpaper/1.webp"
       style={{
@@ -23,7 +23,7 @@ function App() {
         width: "calc(100vw - (100vw - 100%))",
         filter: 'saturate(0%)'
       }}
-    />
+    /> */}
     {routes}
   </Router>
 }
