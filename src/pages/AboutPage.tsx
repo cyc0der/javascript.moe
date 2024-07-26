@@ -42,7 +42,7 @@ export const AboutSection = () => {
         offset: ["start start", "end end"]
     });
 
-    const blur = useTransform(scrollYProgress, [0, 1], ['blur(4px)', 'blur(0px)'])
+    // const blur = useTransform(scrollYProgress, [0, 1], ['blur(4px)', 'blur(0px)'])
     const rblur = useTransform(scrollYProgress, [0, 1], ['brightness(100%) blur(0px) saturate(100%)', 'brightness(80%) blur(4px) saturate(140%)'])
     const background = useTransform(scrollYProgress, [0, 1], ['#FFFFFF11', '#00000033'])
     // const overflowY = useTransform(scrollYProgress, [0, 1], ['hidden', 'auto'])
