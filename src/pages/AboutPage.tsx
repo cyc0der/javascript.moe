@@ -5,6 +5,7 @@ import {
 } from "../components/AnimatedSection"
 import { BackgroundImage } from "../components/BackgroundImage"
 import { Parallax } from "../components/anim/Parallax"
+import { useMemo } from "react"
 // import {
 // motion,
 // useScroll,
@@ -35,7 +36,7 @@ export const AboutPage = () => {
 
 export const AboutSection = () => {
     // const { ref: scrollRef } = useContext(sectionCtx);
-    const dist = (getHeight(document.body) * 0.5);
+    const dist = useMemo(() => getHeight(document.body) * 0.5, []);
     const offset = -dist;
     // const { scrollYProgress } = useScroll({
     //     layoutEffect: false,
