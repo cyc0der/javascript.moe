@@ -49,13 +49,13 @@ export const AboutSection = () => {
     return <>
         <BackgroundImage src="/images/wallpaper/5.webp" alt="Seepark in Freiburg" />
         <div className='w-[80ch] max-w-[calc(100vw-32px)] absolute top-0'>
-            <Parallax distance={32 * 2} offset={32 * 1} className="flex"  >
+            <Parallax distance={32 * 2} offset={32 * 1} className="absolute flex top-0"  >
                 <Link to="/" className="flex">
                     <ArrowBack style={{ fill: 'white' }} />
                     <h2>Back</h2>
                 </Link>
             </Parallax>
-            <Parallax distance={dist - 32 * 4} offset={offset + 32 * 2}>
+            {/* <Parallax distance={dist - 32 * 4} offset={offset + 32 * 2}> */}
                 {/* <button
                     onClick={scrollToTop}
                 > */}
@@ -69,7 +69,7 @@ export const AboutSection = () => {
                         <motion.p style={{ filter: blur, textShadow: '0px 0px 1px black' }}>{text}</motion.p>
                     </motion.div> */}
                 {/* </button> */}
-            </Parallax>
+            {/* </Parallax> */}
             <Parallax
                 distance={dist - 32 * 2} offset={offset + 32} className="w-full absolute top-0 ml-4"
             >
