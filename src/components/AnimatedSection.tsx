@@ -8,7 +8,7 @@ export type AnimatedSectionProps = {
 }
 
 export const sectionCtx = createContext<{ ref: MutableRefObject<HTMLDivElement | null> | null }>({ ref: null });
-export const AnimatedSection = (props: AnimatedSectionProps) => {
+export const StickySection = (props: AnimatedSectionProps) => {
     const { height = '100lvh' } = props;
     const ref = useRef<HTMLDivElement | null>(null);
     return <sectionCtx.Provider value={{ ref }}>

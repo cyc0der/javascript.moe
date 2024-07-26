@@ -1,4 +1,4 @@
-import { AnimatedSection } from '../components/AnimatedSection'
+import { StickySection } from '../components/AnimatedSection'
 import { AnimatedImageCircle } from '../components/AnimatedImageCircle'
 import { BackgroundImage } from '../components/BackgroundImage'
 import { Container } from '../components/Container'
@@ -22,7 +22,7 @@ import { FlyOut } from '../components/anim/FlyOut'
 export const LandingPage = () => {
     return (
         <>
-            <AnimatedSection height='175lvh' >
+            <StickySection height='175lvh' >
                 <BackgroundImage src="/images/wallpaper/1.webp" desat alt="Moosweiher See in Freiburg" />
                 <Parallax distance={320 * 0.5} offset={320 * 0.5}>
                     <FlyOut range={[0.25, 0.5]}>
@@ -32,8 +32,8 @@ export const LandingPage = () => {
                     </FlyOut>
                 </Parallax>
                 <MyName />
-            </AnimatedSection >
-            <AnimatedSection height='300lvh' fullScreen>
+            </StickySection >
+            <StickySection height='300lvh' fullScreen>
                 <DualImages images={["/images/wallpaper/3.webp", "/images/wallpaper/2.webp"]} moveX={2} alts={[
                     'Weiher beim Park Hotel, Fasanerie in Neustrelitz',
                     'Moritz Roessler am Weiher beim Park Hotel, Fasanerie in Neustrelitz',
@@ -60,8 +60,8 @@ export const LandingPage = () => {
                         ></Bullets>
                     </Parallax>
                 </Parallax>
-            </AnimatedSection >
-            <AnimatedSection height='450lvh'>
+            </StickySection >
+            <StickySection height='450lvh'>
                 <DualImages images={[
                     "/images/wallpaper/4.webp",
                     "/images/wallpaper/6.webp",
@@ -100,7 +100,7 @@ export const LandingPage = () => {
                         ></Bullets>
                     </Parallax>
                 </Parallax>
-            </AnimatedSection>
+            </StickySection>
         </>
     )
 }
