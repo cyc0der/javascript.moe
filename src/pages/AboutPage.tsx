@@ -41,7 +41,7 @@ export const AboutSection = () => {
     const background = useTransform(scrollYProgress, [0, 1], ['#FFFFFF11', '#00000033'])
     const overflowY = useTransform(scrollYProgress, [0, 1], ['hidden', 'auto'])
     return <><BackgroundImage src="/images/wallpaper/5.webp" alt="Seepark in Freiburg" />
-        <div className='w-[80ch] max-w-[calc(100vw-32px)] h-[100lvh]'>
+        <div className='w-[80ch] max-w-[calc(100vw-32px)] h-[100lvh] overflow-hidden'>
             <Parallax distance={32 * 2} offset={32 * 1} className="flex"  >
                 <Link to="/" className="flex">
                     <ArrowBack style={{ fill: 'white' }} />
