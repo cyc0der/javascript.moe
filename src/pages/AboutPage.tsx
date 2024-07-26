@@ -6,8 +6,9 @@ import {
 import { BackgroundImage } from "../components/BackgroundImage"
 import { Parallax } from "../components/anim/Parallax"
 import {
-    motion,
-    useScroll, useTransform
+    // motion,
+    useScroll,
+    // useTransform
 } from 'framer-motion';
 // import ArrowBack from '../assets/arrowback.svg?react'
 // import { Link } from "react-router-dom"
