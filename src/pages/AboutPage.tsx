@@ -1,21 +1,24 @@
 import { getVH, scrollToTop } from "../lib/util"
 import { StickySection, sectionCtx } from "../components/AnimatedSection"
-// import { BackgroundImage } from "../components/BackgroundImage"
+import { BackgroundImage } from "../components/BackgroundImage"
 import { Parallax } from "../components/anim/Parallax"
-import { motion, useScroll, useTransform } from 'framer-motion';
+import {
+    motion,
+    useScroll, useTransform
+} from 'framer-motion';
 import ArrowBack from '../assets/arrowback.svg?react'
 import { Link } from "react-router-dom"
 import { useContext } from "react";
 
-const text = `
-I'm Moe. A guy in his 30ies. I have 11 years of professional experience with JavaScript. 
-Over the years I gained expert knowledge in web and fullstack development. 
-Most of my time I'm working with TypeScript, React and GraphQL.
-As a senior TypeScript developer, I value code quality, static typing and the right 
-tooling. If you're looking for a senior frontend developer or a lead developer 
-in the greater area of Freiburg im Breisgau (or remote), don't hesitate to contact me. 
-I'm well experienced in working with remote teams following Scrum principles.
-`
+// const text = `
+// I'm Moe. A guy in his 30ies. I have 11 years of professional experience with JavaScript. 
+// Over the years I gained expert knowledge in web and fullstack development. 
+// Most of my time I'm working with TypeScript, React and GraphQL.
+// As a senior TypeScript developer, I value code quality, static typing and the right 
+// tooling. If you're looking for a senior frontend developer or a lead developer 
+// in the greater area of Freiburg im Breisgau (or remote), don't hesitate to contact me. 
+// I'm well experienced in working with remote teams following Scrum principles.
+// `
 
 export const AboutPage = () => {
     return <>
@@ -28,7 +31,7 @@ export const AboutPage = () => {
 export const AboutSection = () => {
     const { ref: scrollRef } = useContext(sectionCtx);
     const { scrollYProgress } = useScroll({
-        layoutEffect: false,
+        layoutEffect: true,
         target: scrollRef || undefined,
         offset: ["start start", "end end"]
     });
@@ -41,7 +44,7 @@ export const AboutSection = () => {
     const overflowY = useTransform(scrollYProgress, [0, 1], ['hidden', 'auto']);
 
     return <>
-        {/* <BackgroundImage src="/images/wallpaper/5.webp" alt="Seepark in Freiburg" /> */}
+        <BackgroundImage src="/images/wallpaper/5.webp" alt="Seepark in Freiburg" />
         <div className='w-[80ch] max-w-[calc(100vw-32px)] absolute top-0'>
             <Parallax distance={32 * 2} offset={32 * 1} className="flex"  >
                 <Link to="/" className="flex">
@@ -59,7 +62,7 @@ export const AboutSection = () => {
                             backdropFilter: rblur,
                             overflowY
                         }}
-                        className="p-4 rounded-md shadow-lg shadow-black max-h-[calc(100lvh-120px)]" >
+                        className="p-4 rounded-md shadow-lg shadow-black max-h-[calc(100svh-120px)]" >
                         <motion.p style={{ filter: blur, textShadow: '0px 0px 1px black' }}>{text}</motion.p>
                     </motion.div>
                 </button>
