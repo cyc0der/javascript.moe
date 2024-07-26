@@ -55,7 +55,7 @@ export const AboutSection = () => {
                 >
                     <motion.div
                         style={{ background, backdropFilter: rblur, overflowY }}
-                        className="p-4 rounded-md shadow-lg shadow-black max-h-[calc(100lvh-120px)]" >
+                        className="absolute w-[80ch] top-0 p-4 rounded-md shadow-lg shadow-black max-h-[calc(100lvh-120px)]" >
                         <motion.p style={{ filter: blur, textShadow: '0px 0px 1px black' }}>{text}</motion.p>
                     </motion.div>
                 </button>
