@@ -16,6 +16,7 @@ export const AnimatedSection = (props: AnimatedSectionProps) => {
             <div className={clsx(
                 'h-[100lvh]',
                 'min-h-[100lvh]',
+                'max-h-[100lvh]',
                 'w-full max-w-[100vw] sticky top-0 flex gap-0 justify-center items-center overflow-hidden'
             )}>
                 {props.children}

@@ -1,10 +1,11 @@
 import { getHeight } from "../lib/util"
-import { AnimatedSection } from "../components/AnimatedSection"
+import { AnimatedSection, sectionCtx } from "../components/AnimatedSection"
 import { BackgroundImage } from "../components/BackgroundImage"
 import { Parallax } from "../components/anim/Parallax"
 import { motion, useScroll, useTransform } from 'framer-motion';
 import ArrowBack from '../assets/arrowback.svg?react'
 import { Link } from "react-router-dom"
+import { useContext } from "react";
 
 const text = `
 I'm Moe. A guy in his 30ies. I have 11 years of professional experience with JavaScript. 
@@ -17,15 +18,29 @@ I'm well experienced in working with remote teams following Scrum principles.
 `
 
 export const AboutPage = () => {
+
+    return <>
+        <AnimatedSection height='120svh' >
+            <AboutSection />
+        </AnimatedSection >
+    </>
+}
+
+export const AboutSection = () => {
     const dist = (getHeight(document.body) * 0.5);
     const offset = -dist;
-    const { scrollYProgress } = useScroll();
+    const { ref: scrollRef } = useContext(sectionCtx);
+    const { scrollYProgress } = useScroll({
+        layoutEffect: false,
+        target: scrollRef || undefined,
+        offset: ["start start", "end end"]
+    });
+
     const blur = useTransform(scrollYProgress, [0, 1], ['blur(4px)', 'blur(0px)'])
     const rblur = useTransform(scrollYProgress, [0, 1], ['brightness(100%) blur(0px) saturate(100%)', 'brightness(80%) blur(4px) saturate(140%)'])
     const background = useTransform(scrollYProgress, [0, 1], ['#FFFFFF11', '#00000033'])
     const overflowY = useTransform(scrollYProgress, [0, 1], ['hidden', 'auto'])
-    return <AnimatedSection height='140svh' >
-        <BackgroundImage src="/images/wallpaper/5.webp" alt="Seepark in Freiburg" />
+    return <><BackgroundImage src="/images/wallpaper/5.webp" alt="Seepark in Freiburg" />
         <div className='w-[80ch] max-w-[calc(100vw-32px)] absolute top-0'>
             <Parallax distance={32 * 2} offset={32 * 1} className="flex"  >
                 <Link to="/" className="flex">
@@ -33,8 +48,6 @@ export const AboutPage = () => {
                     <h2>Back</h2>
                 </Link>
             </Parallax>
-
-
             <Parallax distance={dist - 32 * 4} offset={offset + 32 * 2}  >
                 <div
                     role="button"
@@ -58,5 +71,5 @@ export const AboutPage = () => {
                 </div>
             </Parallax>
         </div>
-    </AnimatedSection >
+    </>
 }
