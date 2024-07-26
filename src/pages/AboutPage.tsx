@@ -28,7 +28,7 @@ import { useMemo } from "react"
 export const AboutPage = () => {
 
     return <>
-        <AnimatedSection height='120lvh' >
+        <AnimatedSection height='200lvh' >
             <AboutSection />
         </AnimatedSection >
     </>
