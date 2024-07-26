@@ -39,7 +39,7 @@ export const LandingPage = () => {
                     'Moritz Roessler am Weiher beim Park Hotel, Fasanerie in Neustrelitz',
                 ]} />
                 <AppearingText texts={['Software Engineer', 'Fullstack Dev']} />
-                <Parallax className='absolute w-full flex flex-col items-center gap-2 mt-[25vh]' distance={32} offset={-32}>
+                <Parallax className='absolute w-full flex flex-col items-center gap-2 mt-[25lvh]' distance={32} offset={-32}>
                     <Bullets data={[
                         { text: 'TypeScript', logo: TS, href: 'https://www.typescriptlang.org/' },
                         { text: 'React', logo: ReactLogo, href: 'https://react.dev/' }
@@ -72,7 +72,7 @@ export const LandingPage = () => {
                     ]}
                     invert desat />
                 <AppearingText texts={['Looking for a senior TypeScript dev?', 'Looking for a lead developer?', 'Contact me']} slices={[0, 14, 0]} />
-                <Parallax className='w-full mt-[25vh] flex flex-col justify-center' distance={100} offset={-100}>
+                <Parallax className='w-full mt-[25lvh] flex flex-col justify-center' distance={100} offset={-100}>
                     <Bullets data={[
                         { text: 'CV', logo: PDF, href: 'https://justmycv.com/en.pdf' },
                         { text: 'LinkedIn', logo: LI, href: 'https://www.linkedin.com/in/moritz-roessler-666b18175/' },

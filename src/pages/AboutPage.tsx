@@ -17,7 +17,7 @@ I'm well experienced in working with remote teams following Scrum principles.
 `
 
 export const AboutPage = () => {
-    const dist = (getHeight(document.body) * 0.5);
+    const dist = (screen.height * 0.5);
     const offset = -dist;
     const { scrollYProgress } = useScroll();
     const blur = useTransform(scrollYProgress, [0, 1], ['blur(4px)', 'blur(0px)'])
