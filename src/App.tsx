@@ -1,6 +1,7 @@
 import { BrowserRouter as Router } from 'react-router-dom'
 import './App.css'
 import { routes } from './lib/routes'
+import ScrollToTop from './components/ScrollToTop'
 
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
       v7_startTransition: true,
     }}
   >
+    <ScrollToTop />
     <img
       alt="Moosweiher in Freiburg mit einer Ente am Ufer"
       src="/images/wallpaper/1.webp"

@@ -176,28 +176,39 @@ export const Bullets = ({ data, className, offset = 0.5, reverse }: BulletsProps
     let scalings = [scale, scale1, scale2, scale3];
 
 
-    return <motion.div className={clsx('flex flex-row flex-wrap text-white flex-grow-0 items-center justify-center', className)} style={{ gap }}>
+    return <motion.div className={clsx(' flex flex-row flex-wrap text-white flex-grow-0 items-center justify-center', className)} style={{ gap }}>
         {
             data.map((e, i) => {
                 const ele = reverse ? data.length - 1 - i : i;
-                return <motion.div style={{ alignItems: 'center', justifyContent: 'center', borderRadius, scale: scalings[ele % 4], boxShadow, padding: 8, backgroundColor: bg, y: 8 }} className='flex flex-grow-0'>
-                    <e.logo width="36px" height="36px" />
-                    <h2 >
-                        <motion.a href={e.href || '#'}
-                            tabIndex={-1}
+                return <motion.a className="bullet" href={e.href || '#'}
+                    tabIndex={-1}
+                    style={{
+                        display: 'block',
+                        overflow: 'hidden',
+                        whiteSpace: 'nowrap',
+                        scale: scalings[ele % 4],
+                        boxShadow,
+                        borderRadius,
+                        alignItems: 'center',
+                        justifyContent: 'center', padding: 8, backgroundColor: bg, y: 8
+
+                    }}
+                >
+                    <motion.div
+
+                        className='flex flex-grow-0'>
+                        <e.logo width="36px" height="36px" />
+                        <motion.h2
                             style={{
-                                display: 'block',
                                 maxWidth: textWidth,
-                                overflow: 'hidden',
-                                whiteSpace: 'nowrap'
-                            }}
-                        >
+                            }}>
                             <div style={{ marginLeft: '8px' }}>
                                 {e.text}
                             </div>
-                        </motion.a>
-                    </h2>
-                </motion.div>
+                        </motion.h2>
+                    </motion.div>
+                </motion.a>
+
             })
         }
     </motion.div >

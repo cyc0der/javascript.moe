@@ -69,3 +69,9 @@ p {
   color: white;
   font-weight: 300;
 }
+
+.bullet:hover {
+  filter: brightness(124%);
+  scale: 104%;
+  background: #00000088 !important;
+}
