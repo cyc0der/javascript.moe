@@ -25,8 +25,8 @@ export const AboutPage = () => {
             setR(r + 1);
     })
     return <>
-        <AnimatedSection height='150lvh' >
-            <AboutSection key={r} />
+        <AnimatedSection key={r} height='150lvh' >
+            <AboutSection />
         </AnimatedSection >
     </>
 }
