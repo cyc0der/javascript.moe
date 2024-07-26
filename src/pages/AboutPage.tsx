@@ -1,3 +1,4 @@
+import { getHeight } from "../lib/util"
 import { AnimatedSection } from "../components/AnimatedSection"
 import { BackgroundImage } from "../components/BackgroundImage"
 import { Parallax } from "../components/anim/Parallax"
@@ -16,14 +17,14 @@ I'm well experienced in working with remote teams following Scrum principles.
 `
 
 export const AboutPage = () => {
-    const dist = (screen.height * 0.5);
+    const dist = (getHeight(document.body) * 0.5);
     const offset = -dist;
     const { scrollYProgress } = useScroll();
     const blur = useTransform(scrollYProgress, [0, 1], ['blur(4px)', 'blur(0px)'])
     const rblur = useTransform(scrollYProgress, [0, 1], ['brightness(100%) blur(0px) saturate(100%)', 'brightness(80%) blur(4px) saturate(140%)'])
     const background = useTransform(scrollYProgress, [0, 1], ['#FFFFFF11', '#00000033'])
     const overflowY = useTransform(scrollYProgress, [0, 1], ['hidden', 'auto'])
-    return <AnimatedSection height='120lvh' >
+    return <AnimatedSection height='130lvh' >
         <BackgroundImage src="/images/wallpaper/5.webp" alt="Seepark in Freiburg" />
         <div className='w-[80ch] max-w-[calc(100vw-32px)] absolute top-0'>
             <Parallax distance={32 * 2} offset={32 * 1} className="flex"  >
