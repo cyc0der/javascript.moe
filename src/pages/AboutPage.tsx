@@ -1,5 +1,6 @@
 import { getVH, scrollToTop } from "../lib/util"
-import { StickySection, 
+import {
+    StickySection,
     // sectionCtx 
 } from "../components/AnimatedSection"
 import { BackgroundImage } from "../components/BackgroundImage"
@@ -55,10 +56,10 @@ export const AboutSection = () => {
                 </Link>
             </Parallax>
             <Parallax distance={dist - 32 * 4} offset={offset + 32 * 2}>
-                <button
+                {/* <button
                     onClick={scrollToTop}
-                >
-                    {/* <motion.div
+                > */}
+                {/* <motion.div
                         style={{
                             background,
                             backdropFilter: rblur,
@@ -67,7 +68,7 @@ export const AboutSection = () => {
                         className="p-4 rounded-md shadow-lg shadow-black max-h-[calc(100svh-120px)]" >
                         <motion.p style={{ filter: blur, textShadow: '0px 0px 1px black' }}>{text}</motion.p>
                     </motion.div> */}
-                </button>
+                {/* </button> */}
             </Parallax>
             <Parallax
                 distance={dist - 32 * 2} offset={offset + 32} className="w-full absolute top-0 ml-4"
