@@ -54,15 +54,15 @@ export const AboutSection = () => {
                     <h2>Back</h2>
                 </Link>
             </Parallax> */}
-            <Parallax distance={dist - 32 * 4} offset={offset + 32 * 2} className="absolute w-[80ch] " >
+            <Parallax distance={dist - 32 * 4} offset={offset + 32 * 2}  >
                 <div
                     role="button"
                     onClick={() => window.scrollTo({ top: window.pageYOffset <= 0 ? window.innerHeight : 0, behavior: 'smooth' })}
                 >
                     <motion.div
                         style={{ background, backdropFilter: rblur, overflowY: 'auto' }}
-                        className="p-4 rounded-md shadow-lg shadow-black max-h-[calc(100lvh-120px)] overflow-y-auto" >
-                        <motion.p style={{ filter: blur, textShadow: '0px 0px 1px black' }}>{text}</motion.p>
+                        className="p-4 rounded-md shadow-lg shadow-black max-h-[calc(100lvh-120px)]" >
+                        {/* <motion.p style={{ filter: blur, textShadow: '0px 0px 1px black' }}>{text}</motion.p> */}
                     </motion.div>
                 </div>
             </Parallax>
