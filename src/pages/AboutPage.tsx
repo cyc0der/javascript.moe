@@ -42,7 +42,7 @@ export const AboutPage = () => {
                 >
                     <motion.div
                         style={{ background, backdropFilter: rblur, overflowY }}
-                        className="p-4 rounded-md shadow-lg shadow-black max-h-[calc(100vh-120px)]" >
+                        className="p-4 rounded-md shadow-lg shadow-black max-h-[calc(100lvh-120px)]" >
                         <motion.p style={{ filter: blur, textShadow: '0px 0px 1px black' }}>{text}</motion.p>
                     </motion.div>
                 </div>
@@ -50,7 +50,7 @@ export const AboutPage = () => {
             <Parallax
                 distance={dist - 32 * 2} offset={offset + 32} className="w-full absolute top-0 ml-4">
                 <div
-                style={{width:'fit-content'}}
+                    style={{ width: 'fit-content' }}
                     role="button"
                     onClick={() => window.scrollTo({ top: window.pageYOffset <= 0 ? window.innerHeight : 0, behavior: 'smooth' })}
                 >
