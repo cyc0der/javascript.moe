@@ -67,7 +67,7 @@ export const AboutSection = () => {
                     role="button"
                     onClick={() => window.scrollTo({ top: window.pageYOffset <= 0 ? window.innerHeight : 0, behavior: 'smooth' })}
                 >
-                    <h1 style={{ textShadow: '0px 0px 3px black' }}>About Me</h1>
+                    <h1 style={{ textShadow: '0px 0px 3px black' }}>About Me {dist}</h1>
                 </div>
             </Parallax>
         </div>
