@@ -43,8 +43,8 @@ export const AboutSection = () => {
     });
 
     const blur = useTransform(scrollYProgress, [0, 1], ['blur(4px)', 'blur(0px)'])
-    const rblur = useTransform(scrollYProgress, [0, 1], ['brightness(100%) blur(0px) saturate(100%)', 'brightness(80%) blur(4px) saturate(140%)'])
-    const background = useTransform(scrollYProgress, [0, 1], ['#FFFFFF11', '#00000033'])
+    // const rblur = useTransform(scrollYProgress, [0, 1], ['brightness(100%) blur(0px) saturate(100%)', 'brightness(80%) blur(4px) saturate(140%)'])
+    // const background = useTransform(scrollYProgress, [0, 1], ['#FFFFFF11', '#00000033'])
     // const overflowY = useTransform(scrollYProgress, [0, 1], ['hidden', 'auto'])
     return <><BackgroundImage src="/images/wallpaper/5.webp" alt="Seepark in Freiburg" />
         <div className='w-[80ch] max-w-[calc(100vw-32px)] h-[100lvh] overflow-hidden'>
