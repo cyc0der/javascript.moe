@@ -27,22 +27,22 @@ export const AboutPage = () => {
 }
 
 export const AboutSection = () => {
-    const { ref: scrollRef } = useContext(sectionCtx);
-    const dist = (getHeight(document.body) * 0.5);
-    const offset = -dist;
-    const { scrollYProgress } = useScroll({
-        layoutEffect: false,
-        target: scrollRef || undefined,
-        offset: ["start start", "end end"]
-    });
+    // const { ref: scrollRef } = useContext(sectionCtx);
+    // const dist = (getHeight(document.body) * 0.5);
+    // const offset = -dist;
+    // const { scrollYProgress } = useScroll({
+    //     layoutEffect: false,
+    //     target: scrollRef || undefined,
+    //     offset: ["start start", "end end"]
+    // });
 
-    const blur = useTransform(scrollYProgress, [0, 1], ['blur(4px)', 'blur(0px)'])
-    const rblur = useTransform(scrollYProgress, [0, 1], ['brightness(100%) blur(0px) saturate(100%)', 'brightness(80%) blur(4px) saturate(140%)'])
-    const background = useTransform(scrollYProgress, [0, 1], ['#FFFFFF11', '#00000033'])
+    // const blur = useTransform(scrollYProgress, [0, 1], ['blur(4px)', 'blur(0px)'])
+    // const rblur = useTransform(scrollYProgress, [0, 1], ['brightness(100%) blur(0px) saturate(100%)', 'brightness(80%) blur(4px) saturate(140%)'])
+    // const background = useTransform(scrollYProgress, [0, 1], ['#FFFFFF11', '#00000033'])
     // const overflowY = useTransform(scrollYProgress, [0, 1], ['hidden', 'auto'])
     return <><BackgroundImage src="/images/wallpaper/5.webp" alt="Seepark in Freiburg" />
         <div className='w-[80ch] max-w-[calc(100vw-32px)] h-[100lvh] overflow-hidden'>
-            <Parallax distance={32 * 2} offset={32 * 1} className="flex"  >
+            {/* <Parallax distance={32 * 2} offset={32 * 1} className="flex"  >
                 <Link to="/" className="flex">
                     <ArrowBack style={{ fill: 'white' }} />
                     <h2>Back</h2>
@@ -69,7 +69,7 @@ export const AboutSection = () => {
                 >
                     <h1 style={{ textShadow: '0px 0px 3px black' }}>About Me</h1>
                 </div>
-            </Parallax>
+            </Parallax> */}
         </div>
     </>
 }
