@@ -1,11 +1,14 @@
-import { getHeight } from "../lib/util"
-import { AnimatedSection, sectionCtx } from "../components/AnimatedSection"
+// import { getHeight } from "../lib/util"
+import {
+    AnimatedSection,
+    // sectionCtx
+} from "../components/AnimatedSection"
 import { BackgroundImage } from "../components/BackgroundImage"
-import { Parallax } from "../components/anim/Parallax"
-import { motion, useScroll, useTransform } from 'framer-motion';
-import ArrowBack from '../assets/arrowback.svg?react'
-import { Link } from "react-router-dom"
-import { useContext } from "react";
+// import { Parallax } from "../components/anim/Parallax"
+// import { motion, useScroll, useTransform } from 'framer-motion';
+// import ArrowBack from '../assets/arrowback.svg?react'
+// import { Link } from "react-router-dom"
+// import { useContext } from "react";
 
 const text = `
 I'm Moe. A guy in his 30ies. I have 11 years of professional experience with JavaScript. 
