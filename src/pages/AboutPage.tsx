@@ -1,24 +1,26 @@
 import { getVH, scrollToTop } from "../lib/util"
-import { StickySection, sectionCtx } from "../components/AnimatedSection"
+import { StickySection, 
+    // sectionCtx 
+} from "../components/AnimatedSection"
 import { BackgroundImage } from "../components/BackgroundImage"
 import { Parallax } from "../components/anim/Parallax"
-import {
-    motion,
-    useScroll, useTransform
-} from 'framer-motion';
+// import {
+//     motion,
+//     useScroll, useTransform
+// } from 'framer-motion';
 import ArrowBack from '../assets/arrowback.svg?react'
 import { Link } from "react-router-dom"
-import { useContext } from "react";
+// import { useContext } from "react";
 
-const text = `
-I'm Moe. A guy in his 30ies. I have 11 years of professional experience with JavaScript. 
-Over the years I gained expert knowledge in web and fullstack development. 
-Most of my time I'm working with TypeScript, React and GraphQL.
-As a senior TypeScript developer, I value code quality, static typing and the right 
-tooling. If you're looking for a senior frontend developer or a lead developer 
-in the greater area of Freiburg im Breisgau (or remote), don't hesitate to contact me. 
-I'm well experienced in working with remote teams following Scrum principles.
-`
+// const text = `
+// I'm Moe. A guy in his 30ies. I have 11 years of professional experience with JavaScript. 
+// Over the years I gained expert knowledge in web and fullstack development. 
+// Most of my time I'm working with TypeScript, React and GraphQL.
+// As a senior TypeScript developer, I value code quality, static typing and the right 
+// tooling. If you're looking for a senior frontend developer or a lead developer 
+// in the greater area of Freiburg im Breisgau (or remote), don't hesitate to contact me. 
+// I'm well experienced in working with remote teams following Scrum principles.
+// `
 
 export const AboutPage = () => {
     return <>
@@ -29,19 +31,19 @@ export const AboutPage = () => {
 }
 
 export const AboutSection = () => {
-    const { ref: scrollRef } = useContext(sectionCtx);
-    const { scrollYProgress } = useScroll({
-        layoutEffect: true,
-        target: scrollRef || undefined,
-        offset: ["start start", "end end"]
-    });
+    // const { ref: scrollRef } = useContext(sectionCtx);
+    // const { scrollYProgress } = useScroll({
+    //     layoutEffect: true,
+    //     target: scrollRef || undefined,
+    //     offset: ["start start", "end end"]
+    // });
 
     const dist = getVH(50)
     const offset = -dist;
-    const blur = useTransform(scrollYProgress, [0, 1], ['blur(4px)', 'blur(0px)'])
-    const rblur = useTransform(scrollYProgress, [0, 1], ['brightness(100%) blur(0px) saturate(100%)', 'brightness(80%) blur(4px) saturate(140%)'])
-    const background = useTransform(scrollYProgress, [0, 1], ['#FFFFFF11', '#00000033'])
-    const overflowY = useTransform(scrollYProgress, [0, 1], ['hidden', 'auto']);
+    // const blur = useTransform(scrollYProgress, [0, 1], ['blur(4px)', 'blur(0px)'])
+    // const rblur = useTransform(scrollYProgress, [0, 1], ['brightness(100%) blur(0px) saturate(100%)', 'brightness(80%) blur(4px) saturate(140%)'])
+    // const background = useTransform(scrollYProgress, [0, 1], ['#FFFFFF11', '#00000033'])
+    // const overflowY = useTransform(scrollYProgress, [0, 1], ['hidden', 'auto']);
 
     return <>
         <BackgroundImage src="/images/wallpaper/5.webp" alt="Seepark in Freiburg" />
@@ -56,7 +58,7 @@ export const AboutSection = () => {
                 <button
                     onClick={scrollToTop}
                 >
-                    <motion.div
+                    {/* <motion.div
                         style={{
                             background,
                             backdropFilter: rblur,
@@ -64,7 +66,7 @@ export const AboutSection = () => {
                         }}
                         className="p-4 rounded-md shadow-lg shadow-black max-h-[calc(100svh-120px)]" >
                         <motion.p style={{ filter: blur, textShadow: '0px 0px 1px black' }}>{text}</motion.p>
-                    </motion.div>
+                    </motion.div> */}
                 </button>
             </Parallax>
             <Parallax
