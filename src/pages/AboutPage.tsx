@@ -1,4 +1,4 @@
-import { getHeight } from "../lib/util"
+// import { getHeight } from "../lib/util"
 import { AnimatedSection, sectionCtx } from "../components/AnimatedSection"
 import { BackgroundImage } from "../components/BackgroundImage"
 import { Parallax } from "../components/anim/Parallax"
