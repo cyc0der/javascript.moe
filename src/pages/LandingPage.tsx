@@ -61,7 +61,7 @@ export const LandingPage = () => {
                     </Parallax>
                 </Parallax>
             </StickySection >
-            <StickySection height='350lvh'>
+            <StickySection height='300lvh'>
                 <DualImages images={[
                     "/images/wallpaper/4.webp",
                     "/images/wallpaper/6.webp",
