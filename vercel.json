@@ -2,7 +2,7 @@
   "rewrites": [{ "source": "/(.*)", "destination": "/" }],
   "headers": [
     {
-      "source": "/profile.webp",
+      "source": "/images/profile.webp",
       "headers": [
         {
           "key": "Cache-Control",
