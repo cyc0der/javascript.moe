@@ -55,6 +55,7 @@ export const AnimatedImageCircle = ({ images, className, size = AnimatedImageCir
         <motion.img
             width={imgHeight + 'px'}
             height={imgHeight + 'px'}
+            loading="lazy"
             src={images[1]}
             className="absolute h-full w-full"
             style={{ opacity: reverse, objectFit: 'cover', height: '100%' }}
