@@ -11,6 +11,15 @@
       ]
     },
     {
+      "source": "/images/1.webp",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=6000, stale-while-revalidate=59"
+        }
+      ]
+    },
+    {
       "source": "/",
       "headers": [
         {
