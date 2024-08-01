@@ -33,7 +33,7 @@ export const LandingPage = () => {
                 </Parallax>
                 <MyName />
             </StickySection >
-            <StickySection height='300lvh' fullScreen>
+            <StickySection height='200lvh' fullScreen>
                 <DualImages images={["/images/wallpaper/3.webp", "/images/wallpaper/2.webp"]} moveX={2} alts={[
                     'Weiher beim Park Hotel, Fasanerie in Neustrelitz',
                     'Moritz Roessler am Weiher beim Park Hotel, Fasanerie in Neustrelitz',
@@ -61,7 +61,7 @@ export const LandingPage = () => {
                     </Parallax>
                 </Parallax>
             </StickySection >
-            <StickySection height='450lvh'>
+            <StickySection height='250lvh'>
                 <DualImages images={[
                     "/images/wallpaper/4.webp",
                     "/images/wallpaper/6.webp",
