@@ -72,5 +72,5 @@ I am Moritz Roessler, a passionate software engineer based in Freiburg. With ext
 
 Looking for a senior TypeScript developer or a lead developer? Feel free to reach out!
 
-- [Email](mailto:moritz@example.com)
+- [Email](mailto:moritz.roessler@gmail.com)
 - [LinkedIn](https://www.linkedin.com/in/moritz-roessler-666b18175/)
