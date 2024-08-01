@@ -62,7 +62,8 @@ export const MyName = () => {
     const yPpipe = useTransform(scrollYProgress, [0.95, 1], [(fS * -0.25) + 'px', (0.25 * cw) + 'px'])
     const xUS = useTransform(scrollYProgress, [0.95, 1], ['0px', -(mRect?.width || 0) + 'px'])
     const yUS = useTransform(scrollYProgress, [0.95, 1], [0, -4])
-    const shadowPipe = useTransform(scrollYProgress, [0.95, 1], ["0px 0px 4px 2px white", "0px 0px 1px 0.5px white"])
+    const shadowPipe = useTransform(scrollYProgress, [0.97, 1], ["0px 0px 4px 2px #FFFFFF", "0px 0px 1px 0.5px #C0C0C0"])
+    const fillPipe = useTransform(scrollYProgress, [0.95, 1], ["#FFFFFFFF", "#FFFFFF00"])
     const bb = useTransform(scrollYProgress, [0, 0.95, 1], ["2px solid white", "2px solid white", "0px solid white"])
     const scalePipe = useTransform(scrollYProgress, [0.7, 0.9, 1], ["0%", "100%", "100%"])
 
@@ -81,14 +82,14 @@ export const MyName = () => {
             <span ref={mRef}>
                 <motion.span style={{ x: mX, display: 'inline-block', scaleX: scale }}>
                     M
-                    <motion.div className='inline-block w-1 rounded-full' style={{ scale: scalePipe, x: -1, fontSize: '32px', y: yPpipe, height: heightPipe, boxShadow: shadowPipe }}></motion.div>
+                    <motion.div className='inline-block w-1 rounded-full' style={{ background: fillPipe, scale: scalePipe, x: -1, fontSize: '32px', y: yPpipe, height: heightPipe, boxShadow: shadowPipe }}></motion.div>
                 </motion.span>
             </span>
             <motion.span style={{ opacity }}>oritz R</motion.span>
             <span ref={oeRef}>
                 <motion.span style={{ x: oeX, display: 'inline-block', scaleX: scale }}>
                     oe
-                    <motion.div className='absolute h-1 rounded-full' style={{ scale: scalePipe, y: yUS, fontSize: '32px', x: xUS, width: widthUS, boxShadow: shadowPipe }}></motion.div>
+                    <motion.div className='absolute h-1 rounded-full' style={{ background: fillPipe, scale: scalePipe, y: yUS, fontSize: '32px', x: xUS, width: widthUS, boxShadow: shadowPipe }}></motion.div>
                 </motion.span>
             </span>
             <motion.span style={{ opacity }}>ssler</motion.span>
