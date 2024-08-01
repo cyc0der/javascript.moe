@@ -8,7 +8,7 @@ import {
 } from 'framer-motion';
 import ArrowBack from '@/assets/arrowback.svg?react'
 import { Link } from "react-router-dom"
-import { useContext, useRef } from "react";
+import { useContext } from "react";
 import { AboutSectionProps } from "@/lib/types";
 import { ABOUT_TEXT } from "@/lib/const";
 
@@ -20,7 +20,7 @@ export const AboutPage = () => {
     </div>
 }
 
-export const AboutSection = ({ text, container }: AboutSectionProps) => {
+export const AboutSection = ({ text }: AboutSectionProps) => {
     const { ref: scrollRef } = useContext(sectionCtx);
     const { scrollYProgress } = useScroll({
         layoutEffect: false,
