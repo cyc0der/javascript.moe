@@ -1,30 +1,76 @@
-# React + TypeScript + Vite
+# Vite + React + TypeScript + Framer Motion
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to the GitHub repository for my Vite + React + TypeScript project, which leverages Framer Motion for smooth scroll-jacking effects. This project serves as a dynamic and visually appealing digital business card, showcasing my skills and experience in a concise format.
 
-Currently, two official plugins are available:
+## Live Page
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This project is hosted on vercel and can be reached at [https://javascript.moe](https://javascript.moe)
 
-## Expanding the ESLint configuration
+## Project Overview
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+This repository features:
 
-- Configure the top-level `parserOptions` property like this:
+- **Vite** for fast builds and a modern development environment.
+- **React** for building user interfaces.
+- **TypeScript** for type-safe JavaScript development.
+- **Framer Motion** for creating fluid, interactive animations.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+## Features
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- **Sticky Sections**: Visually distinct sections that stick to the viewport while scrolling.
+- **Animated Image Circles**: Engaging animations for profile images.
+- **Dual Images**: Smooth parallax effect for dual background images.
+- **Bulleted Lists**: Key information presented with logos and links.
+- **Appearing Text**: Dynamic text animations to draw attention.
+
+## Usage
+
+To get started with this project:
+
+1. **Clone the repository**:
+
+   ```bash
+   git clone https://github.com/C5H8NNaO4/javascript.moe.git
+   cd javascript.moe
+   ```
+
+2. **Install dependencies**:
+
+   ```bash
+   npm install
+   ```
+
+3. **Start the development server**:
+   ```bash
+   npm run dev
+   ```
+
+## Keywords
+
+These keywords help you discover this project.
+
+- **Moritz Roessler Freiburg**
+- **Moritz Roessler JavaScript**
+- **Frontend Lead Developer Freiburg**
+- **TypeScript Developer Freiburg**
+- **Senior TypeScript Developer Freiburg**
+- **React Developer Freiburg**
+- **JavaScript Developer Freiburg und Umgebung**
+
+For more details, visit my [personal website](https://javascript.moe/).
+
+## About Me
+
+I am Moritz Roessler, a passionate software engineer based in Freiburg. With extensive experience in TypeScript, React, and full-stack development, I specialize in creating efficient, scalable, and user-friendly applications.
+
+- [CV](https://justmycv.com/en.pdf)
+- [LinkedIn](https://www.linkedin.com/in/moritz-roessler-666b18175/)
+- [GitHub](https://github.com/C5H8NNaO4/javascript.moe)
+- [Stack Overflow](https://stackoverflow.com/users/1487756/moritz-roessler)
+
+## Contact
+
+Looking for a senior TypeScript developer or a lead developer? Feel free to reach out!
+
+- [Email](mailto:moritz@example.com)
+- [LinkedIn](https://www.linkedin.com/in/moritz-roessler-666b18175/)
