@@ -54,11 +54,14 @@ export const MyName = () => {
     const mX = useTransform(scrollYProgress, [0.8, 0.9], ['0px', ((distCenterM) + 'px')]);
     const oeX = useTransform(scrollYProgress, [0.8, 0.9], ['0px', ((distCenterOe) + 'px')]);
     const scale = useTransform(scrollYProgress, [0.8, 0.9, 0.95, 1], ["100%", "130%", "70%", "100%"])
-    const heightPipe = useTransform(scrollYProgress, [0.95, 1], ["0px", "100px"])
-    const widthUS = useTransform(scrollYProgress, [0.95, 1], ["0px", "100px"])
-    const yPpipe = useTransform(scrollYProgress, [0.95, 1], [(fS * -0.25) + 'px', "25px"])
-    const xUS = useTransform(scrollYProgress, [0.95, 1], ['0px', "-26px"])
-    const yUS = useTransform(scrollYProgress, [0.99, 1], [0, -4])
+    const mRect = mRef.current?.getBoundingClientRect() || null;
+    const oeRect = oeRef.current?.getBoundingClientRect() || null;
+    const cw = ((mRect?.width || 0) + (oeRect?.width || 0));
+    const heightPipe = useTransform(scrollYProgress, [0.95, 1], ["0px", 0.681 * cw + 'px'])
+    const widthUS = useTransform(scrollYProgress, [0.95, 1], ["0px", cw + 'px'])
+    const yPpipe = useTransform(scrollYProgress, [0.95, 1], [(fS * -0.25) + 'px', (0.25 * cw) + 'px'])
+    const xUS = useTransform(scrollYProgress, [0.95, 1], ['0px', -(mRect?.width || 0) + 'px'])
+    const yUS = useTransform(scrollYProgress, [0.95, 1], [0, -4])
     const shadowPipe = useTransform(scrollYProgress, [0.95, 1], ["0px 0px 4px 2px white", "0px 0px 1px 0.5px white"])
     const bb = useTransform(scrollYProgress, [0, 0.95, 1], ["2px solid white", "2px solid white", "0px solid white"])
     const scalePipe = useTransform(scrollYProgress, [0.7, 0.9, 1], ["0%", "100%", "100%"])
@@ -66,8 +69,6 @@ export const MyName = () => {
     useMotionValueEvent(scrollYProgress, 'change', () => {
         if (scrollYProgress.get() <= 1) {
 
-            const mRect = mRef.current?.getBoundingClientRect() || null;
-            const oeRect = oeRef.current?.getBoundingClientRect() || null;
             // const hWidth = ((mRect?.width || 0) + (oeRect?.width || 0)) / 2
             const distCenterM = -(mRect?.left || 0) + (window.innerWidth / 2) - (mRect?.width || 0)
             const distCenterOe = (window.innerWidth / 2) - (oeRect?.left || 0);
