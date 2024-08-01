@@ -8,43 +8,43 @@ import {
 } from 'framer-motion';
 import ArrowBack from '@/assets/arrowback.svg?react'
 import { Link } from "react-router-dom"
-import { useContext } from "react";
+import { useContext, useRef } from "react";
 import { AboutSectionProps } from "@/lib/types";
 import { ABOUT_TEXT } from "@/lib/const";
 
 export const AboutPage = () => {
-    return <>
-        <StickySection height='120lvh' >
+    return <div className="relative">
+        <StickySection height='150lvh' >
             <AboutSection text={ABOUT_TEXT} />
         </StickySection >
-    </>
+    </div>
 }
 
-export const AboutSection = ({ text }: AboutSectionProps) => {
+export const AboutSection = ({ text, container }: AboutSectionProps) => {
     const { ref: scrollRef } = useContext(sectionCtx);
     const { scrollYProgress } = useScroll({
-        layoutEffect: true,
+        layoutEffect: false,
         target: scrollRef || undefined,
         offset: ["start start", "end end"]
     });
 
     const dist = getVH(50)
     const offset = -dist;
-    const blur = useTransform(scrollYProgress, [0, 1], ['blur(4px)', 'blur(0px)'])
-    const rblur = useTransform(scrollYProgress, [0, 1], ['brightness(100%) blur(0px) saturate(100%)', 'brightness(80%) blur(4px) saturate(140%)'])
-    const background = useTransform(scrollYProgress, [0, 1], ['#FFFFFF11', '#00000033'])
-    const overflowY = useTransform(scrollYProgress, [0, 1], ['hidden', 'auto']);
+    const blur = useTransform(scrollYProgress, [0, 0.75], ['blur(4px)', 'blur(0px)'])
+    const rblur = useTransform(scrollYProgress, [0, 0.75], ['brightness(100%) blur(0px) saturate(100%)', 'brightness(80%) blur(4px) saturate(140%)'])
+    const background = useTransform(scrollYProgress, [0, 0.75], ['#FFFFFF11', '#00000033'])
+    const overflowY = useTransform(scrollYProgress, [0, 0.75], ['hidden', 'auto']);
 
     return <>
         <BackgroundImage src="/images/wallpaper/5.webp" alt="Seepark in Freiburg" />
         <div className='w-[80ch] max-w-[calc(100vw-32px)] absolute top-0'>
-            <Parallax distance={32 * 2} offset={32 * 1} className="flex"  >
+            <Parallax distance={32 * 2} offset={32 * 1} className="flex" range={[0.75, 0]}>
                 <Link to="/" className="flex">
                     <ArrowBack style={{ fill: 'white' }} />
                     <h2>Back</h2>
                 </Link>
             </Parallax>
-            <Parallax distance={dist - 32 * 4} offset={offset + 32 * 2}>
+            <Parallax distance={dist - 32 * 4} offset={offset + 32 * 2} range={[0.75, 0]}>
                 <button
                     onClick={scrollToTop}
                 >
@@ -61,6 +61,7 @@ export const AboutSection = ({ text }: AboutSectionProps) => {
             </Parallax>
             <Parallax
                 distance={dist - 32 * 2} offset={offset + 32} className="w-full absolute top-0 ml-4"
+                range={[0.75, 0]}
             >
                 <button
                     className="w-fit"

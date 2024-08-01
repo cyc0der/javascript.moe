@@ -8,7 +8,7 @@ export const getVH = (n: number) => {
 
 export const scrollToTop = () => {
   window.scrollTo({
-    top: window.scrollY <= 0 ? window.innerHeight : 0,
+    top: window.scrollY <= 0 ? document.body.scrollHeight : 0,
     behavior: "smooth",
   });
 };
