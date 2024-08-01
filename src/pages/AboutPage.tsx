@@ -60,7 +60,7 @@ export const AboutSection = ({ text }: AboutSectionProps) => {
                 </button>
             </Parallax>
             <Parallax
-                distance={dist - 32 * 2} offset={offset + 32} className="w-full absolute top-0 ml-4"
+                distance={dist - 32 * 2} offset={offset + 32} className="w-fit absolute top-0 ml-4"
                 range={[0.75, 0]}
             >
                 <button
