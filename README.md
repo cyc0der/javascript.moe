@@ -1,3 +1,5 @@
+<meta name="google-site-verification" content="5Cu7UsGcfAqCJ3t8dgJM-E4lJfotz8aR2PaluEGr8Hs" />
+
 # Vite + React + TypeScript + Framer Motion
 
 Welcome to the GitHub repository for my Vite + React + TypeScript project, which leverages Framer Motion for smooth scroll-jacking effects. This project serves as a dynamic and visually appealing digital business card, showcasing my skills and experience in a concise format.
