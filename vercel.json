@@ -2,7 +2,7 @@
   "rewrites": [{ "source": "/(.*)", "destination": "/" }],
   "headers": [
     {
-      "source": "/images/profile.webp",
+      "source": "/images/*.webp",
       "headers": [
         {
           "key": "Cache-Control",
@@ -11,11 +11,11 @@
       ]
     },
     {
-      "source": "/images/1.webp",
+      "source": "/*.js",
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "public, max-age=6000, stale-while-revalidate=59"
+          "value": "public, max-age=600, stale-while-revalidate=59"
         }
       ]
     },
