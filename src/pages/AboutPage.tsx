@@ -55,7 +55,7 @@ export const AboutSection = ({ text }: AboutSectionProps) => {
                             overflowY
                         }}
                         className="p-4 rounded-md shadow-lg shadow-black max-h-[calc(100svh-120px)] text-left" >
-                        <motion.p style={{ filter: blur, textShadow: '0px 0px 1px black' }}>{text}</motion.p>
+                        <motion.p style={{ filter: blur, textShadow: '1px 1px 1px black' }}>{text}</motion.p>
                     </motion.div>
                 </button>
             </Parallax>

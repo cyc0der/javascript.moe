@@ -18,6 +18,7 @@ body {
   /* scroll-snap-align: bottom; */
   /* -webkit-overflow-scrolling: touch; */
   overscroll-behavior: none;
+  --text-color: #CCCCCC;
 }
 
 section {
@@ -36,7 +37,7 @@ h1 {
   line-height: 36px;
   /* margin-left: 25%;
   margin-right: 25%; */
-  color: white;
+  color: var(--text-color);
 }
 
 h1#moe {
@@ -53,7 +54,7 @@ h2 {
   /* word-wrap: break-word; */
   /* margin-left: 7.5%; */
   /* margin-right: 7.5%; */
-  color: white;
+  color: var(--text-color);
 }
 
 img {
@@ -79,7 +80,7 @@ img {
 
 p {
   font-size: 24px;
-  color: white;
+  color: var(--text-color);
   font-weight: 300;
 }
 
