@@ -66,7 +66,7 @@ export const AboutSection = ({ text }: AboutSectionProps) => {
                     className="w-fit"
                     onClick={scrollToTop}
                 >
-                    <h1 style={{ textShadow: '0px 0px 3px black', display: 'inline', position: 'relative' }}>About Me</h1>
+
                 </button>
             </Parallax>
         </div>
