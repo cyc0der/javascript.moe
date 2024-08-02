@@ -13,11 +13,11 @@ import { AboutSectionProps } from "@/lib/types";
 import { ABOUT_TEXT } from "@/lib/const";
 
 export const AboutPage = () => {
-    return <>
+    return <div className="relative">
         <StickySection height='120lvh' >
             <AboutSection text={ABOUT_TEXT} />
         </StickySection >
-    </>
+    </div>
 }
 
 export const AboutSection = ({ text }: AboutSectionProps) => {
@@ -66,7 +66,7 @@ export const AboutSection = ({ text }: AboutSectionProps) => {
                     className="w-fit"
                     onClick={scrollToTop}
                 >
-                    <h1 style={{ textShadow: '0px 0px 3px black' }}>About Me</h1>
+                    <h1 style={{ textShadow: '0px 0px 3px black', display: 'inline', position: 'relative' }}>About Me</h1>
                 </button>
             </Parallax>
         </div>
