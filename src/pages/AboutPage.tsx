@@ -59,11 +59,7 @@ export const AboutSection = ({ text }: AboutSectionProps) => {
                     </motion.div>
                 </button>
             </Parallax>
-            <Parallax
-                distance={dist - 32 * 2} offset={offset + 32} className="w-full absolute top-0 ml-4"
-            >
-    12
-            </Parallax>
+
         </div>
     </>
 }
