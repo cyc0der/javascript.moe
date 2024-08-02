@@ -66,7 +66,7 @@ export const AboutSection = ({ text }: AboutSectionProps) => {
                     className="w-fit"
                     onClick={scrollToTop}
                 >
-
+a
                 </button>
             </Parallax>
         </div>
