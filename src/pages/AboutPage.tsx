@@ -62,12 +62,7 @@ export const AboutSection = ({ text }: AboutSectionProps) => {
             <Parallax
                 distance={dist - 32 * 2} offset={offset + 32} className="w-full absolute top-0 ml-4"
             >
-                <button
-                    className="w-fit"
-                    onClick={scrollToTop}
-                >
-a
-                </button>
+    12
             </Parallax>
         </div>
     </>
